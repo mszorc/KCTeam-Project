@@ -1,0 +1,11 @@
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.deps.json
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.runtimeconfig.json
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.runtimeconfig.dev.json
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.pdb
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.csprojAssemblyReference.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.csproj.CoreCompileInputs.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.AssemblyInfoInputs.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.AssemblyInfo.cs
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Project1\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.pdb
