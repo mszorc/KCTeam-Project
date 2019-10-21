@@ -6,13 +6,8 @@ namespace GameProject
     {
         static void Main(string[] args)
         {
-            Screen s = new Screen();
-            while(true)
-            {
-                s.Display();
-                System.Threading.Thread.Sleep(100);
-            }
-            
+            Game g = new Game();
+            g.Start();
         }
     }
 }
