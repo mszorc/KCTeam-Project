@@ -10,7 +10,7 @@ namespace GameProject
     {
         private static int width = 100;
         private static int height = 10;
-        private char[,] screen = new char[height,width];
+        private char[,] screen = new char[height, width];
 
         public int getWidth()
         {
@@ -37,7 +37,7 @@ namespace GameProject
             {
                 for (int j = 0; j < width; j++)
                 {
-                    if (i == 0 || j == 0 || i == height-1 || j == width-1)
+                    if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
                     {
                         buffer[i, j] = '@';
                     }
@@ -65,12 +65,12 @@ namespace GameProject
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
                     Console.Write(screen[i, j]);
-                    
+
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
         }
-        
+
     }
 }
