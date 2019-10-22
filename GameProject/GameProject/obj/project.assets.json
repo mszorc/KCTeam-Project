@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\szorc\\Desktop\\GameProject\\GameProject\\GameProject.csproj",
+      "projectUniqueName": "C:\\Users\\szorc\\Desktop\\KCTeam-Project\\GameProject\\GameProject\\GameProject.csproj",
       "projectName": "GameProject",
-      "projectPath": "C:\\Users\\szorc\\Desktop\\GameProject\\GameProject\\GameProject.csproj",
+      "projectPath": "C:\\Users\\szorc\\Desktop\\KCTeam-Project\\GameProject\\GameProject\\GameProject.csproj",
       "packagesPath": "C:\\Users\\szorc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\szorc\\Desktop\\GameProject\\GameProject\\obj\\",
+      "outputPath": "C:\\Users\\szorc\\Desktop\\KCTeam-Project\\GameProject\\GameProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
