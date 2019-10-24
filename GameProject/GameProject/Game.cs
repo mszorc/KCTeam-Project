@@ -19,70 +19,12 @@ namespace GameProject
         public void Move(Champion champ, int height, int width, Screen s)
         {
             ConsoleKeyInfo key;
-            bool lastMoveRight = true;
+            bool lastMoveRight = false;
             while (true)
             {
                 key = Console.ReadKey();
                 while (!Console.KeyAvailable)
                 {
-                    if (direction == directionUp)
-                    {
-                        if (lastMoveRight == true)
-                        {
-                            if (champ.CanMove(champ.getPosX() + 1, champ.getPosY() - 1, s))
-                            {
-                                champ.MoveChamp(1, -1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                            else if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1, s))
-                            {
-                                champ.MoveChamp(0, -1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                        }
-                        else
-                        {
-                            if (champ.CanMove(champ.getPosX() - 1, champ.getPosY() - 1, s))
-                            {
-                                champ.MoveChamp(-1, -1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                            else if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1, s))
-                            {
-                                champ.MoveChamp(0, -1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                        }
-                    }
-                    else if (direction == directionDown)
-                    {
-                        if (lastMoveRight == true)
-                        {
-                            if (champ.CanMove(champ.getPosX() + 1, champ.getPosY() + 1, s))
-                            {
-                                champ.MoveChamp(1, 1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                            else if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1, s))
-                            {
-                                champ.MoveChamp(0, 1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                        }
-                        else
-                        {
-                            if (champ.CanMove(champ.getPosX() - 1, champ.getPosY() + 1, s))
-                            {
-                                champ.MoveChamp(-1, 1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                            else if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1, s))
-                            {
-                                champ.MoveChamp(0, 1, s);
-                                System.Threading.Thread.Sleep(60); //delay
-                            }
-                        }
-                    }
                     switch (key.Key)
                     {
                         case ConsoleKey.RightArrow:
