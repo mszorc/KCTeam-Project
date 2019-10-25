@@ -19,7 +19,6 @@ namespace GameProject
         public void Move(Champion champ, int height, int width, Screen s)
         {
             ConsoleKeyInfo key;
-            bool lastMoveRight = false;
             while (true)
             {
                 key = Console.ReadKey();
@@ -29,67 +28,29 @@ namespace GameProject
                     {
                         case ConsoleKey.RightArrow:
                             champ.MoveChamp(1, 0, s);
-                            lastMoveRight = true;
                             System.Threading.Thread.Sleep(20); //delay
                             if (direction == directionDown) goto case ConsoleKey.DownArrow;
                             else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                             break;
                         case ConsoleKey.LeftArrow:
                             champ.MoveChamp(-1, 0, s);
-                            lastMoveRight = false;
                             System.Threading.Thread.Sleep(20); //delay
                             if (direction == directionDown) goto case ConsoleKey.DownArrow;
                             else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                             break;
                         case ConsoleKey.DownArrow:
                             direction = directionDown;
-                            if (lastMoveRight)
+                            if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1, s))
                             {
-                                if (champ.CanMove(champ.getPosX() + 1, champ.getPosY() + 1, s))
-                                {
-                                    champ.MoveChamp(1, 1, s);
-                                }
-                                else if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1, s))
-                                {
-                                    champ.MoveChamp(0, 1, s);
-                                }
-                            }
-                            else
-                            {
-                                if (champ.CanMove(champ.getPosX() - 1, champ.getPosY() + 1, s))
-                                {
-                                    champ.MoveChamp(-1, 1, s);
-                                }
-                                else if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1, s))
-                                {
-                                    champ.MoveChamp(0, 1, s);
-                                }
+                                champ.MoveChamp(0, 1, s);
                             }
                             System.Threading.Thread.Sleep(20); //delay
                             break;
                         case ConsoleKey.UpArrow:
                             direction = directionUp;
-                            if (lastMoveRight)
+                            if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1, s))
                             {
-                                if (champ.CanMove(champ.getPosX() + 1, champ.getPosY() - 1, s))
-                                {
-                                    champ.MoveChamp(1, -1, s);
-                                }
-                                else if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1, s))
-                                {
-                                    champ.MoveChamp(0, -1, s);
-                                }
-                            }
-                            else
-                            {
-                                if (champ.CanMove(champ.getPosX() - 1, champ.getPosY() - 1, s))
-                                {
-                                    champ.MoveChamp(-1, -1, s);
-                                }
-                                else if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1, s))
-                                {
-                                    champ.MoveChamp(0, -1, s);
-                                }
+                                champ.MoveChamp(0, -1, s);
                             }
                             System.Threading.Thread.Sleep(20); //delay
                             break;

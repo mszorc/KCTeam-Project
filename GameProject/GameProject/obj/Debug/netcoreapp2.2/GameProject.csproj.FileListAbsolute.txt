@@ -15,7 +15,6 @@ C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\bin\Debug\netcorea
 C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.dll
 C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.pdb
 C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.csprojAssemblyReference.cache
-C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.csproj.CoreCompileInputs.cache
 C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.AssemblyInfoInputs.cache
 C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.AssemblyInfo.cs
 C:\Users\szorc\Desktop\KCTeam-Project\GameProject\GameProject\obj\Debug\netcoreapp2.2\GameProject.dll
