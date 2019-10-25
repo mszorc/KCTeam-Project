@@ -6,30 +6,30 @@ using System.Drawing;
 
 namespace GameProject
 {
-    public class Screen
+    public static class Screen
     {
         private static int width = 100;
         private static int height = 10;
-        private char[,] screen = new char[height, width];
+        private static char[,] screen = new char[height, width];
 
-        public int getWidth()
+        public static int getWidth()
         {
             return width;
         }
 
-        public int getHeight()
+        public static int getHeight()
         {
             return height;
         }
 
-        public ConsoleColor pickColor() //losowy wybor kolorów
+        public static ConsoleColor pickColor() //losowy wybor kolorów
         {
             Random rnd = new Random();
             var color = Enum.GetValues(typeof(ConsoleColor));
             return (ConsoleColor)color.GetValue(rnd.Next(color.Length));
         }
 
-        public char[,] Fill(Champion champ) //wypelnianie bufora (postac, ramka, przeszkody)
+        public static char[,] Fill(Champion champ) //wypelnianie bufora (postac, ramka, przeszkody)
         {
             char[,] buffer = new char[height, width];
             Random rnd = new Random();
@@ -47,7 +47,7 @@ namespace GameProject
             return buffer;
         }
 
-        public void Display(Champion champ) //wyswietlenie tego co w buforze
+        public static void Display(Champion champ) //wyswietlenie tego co w buforze
         {
             screen = Fill(champ);
             Console.SetCursorPosition(0, 0);

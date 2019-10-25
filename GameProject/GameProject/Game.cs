@@ -11,12 +11,11 @@ namespace GameProject
         private string direction = "null";
         public void Start()
         {
-            Screen s = new Screen();                        // tworzenie nowego ekranu
-            Champion champ = new Champion(1, s.getHeight() - 2); // tworzenie nowej postaci
-            s.Display(champ);
-            Move(champ, s.getHeight(), s.getWidth(), s);
+            Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
+            Screen.Display(champ);
+            Move(champ, Screen.getHeight(), Screen.getWidth());
         }
-        public void Move(Champion champ, int height, int width, Screen s)
+        public void Move(Champion champ, int height, int width)
         {
             ConsoleKeyInfo key;
             while (true)
@@ -25,30 +24,30 @@ namespace GameProject
                 switch (key.Key)
                 {
                     case ConsoleKey.RightArrow:
-                        champ.MoveChamp(1, 0, s);
+                        champ.MoveChamp(1, 0);
                         System.Threading.Thread.Sleep(20); //delay
                         if (direction == directionDown) goto case ConsoleKey.DownArrow;
                         else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
                     case ConsoleKey.LeftArrow:
-                        champ.MoveChamp(-1, 0, s);
+                        champ.MoveChamp(-1, 0);
                         System.Threading.Thread.Sleep(20); //delay
                         if (direction == directionDown) goto case ConsoleKey.DownArrow;
                         else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
                     case ConsoleKey.DownArrow:
                         direction = directionDown;
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1, s))
+                        if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1))
                         {
-                            champ.MoveChamp(0, 1, s);
+                            champ.MoveChamp(0, 1);
                         }
                         System.Threading.Thread.Sleep(20); //delay
                         break;
                     case ConsoleKey.UpArrow:
                         direction = directionUp;
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1, s))
+                        if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1))
                         {
-                            champ.MoveChamp(0, -1, s);
+                            champ.MoveChamp(0, -1);
                         }
                         System.Threading.Thread.Sleep(20); //delay
                         break;
@@ -57,18 +56,19 @@ namespace GameProject
                 {
                     if (direction == directionUp)
                     {
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1, s))
+                        if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1))
                         {
-                            champ.MoveChamp(0, -1, s);
+                            champ.MoveChamp(0, -1);
                         }
                     }
                     else
                     {
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1, s))
+                        if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1))
                         {
-                            champ.MoveChamp(0, 1, s);
+                            champ.MoveChamp(0, 1);
                         }
                     }
+                    System.Threading.Thread.Sleep(250);
                 }
             }
         }

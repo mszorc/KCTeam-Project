@@ -36,11 +36,11 @@ namespace GameProject
             pos_y = y;
         }
 
-        public bool CanMove(int x, int y, Screen s)
+        public bool CanMove(int x, int y)
         {
-            if (x < 1 || x >= s.getWidth() - 1)
+            if (x < 1 || x >= Screen.getWidth() - 1)
                 return false;
-            if (y < 1 || y >= s.getHeight() - 1)
+            if (y < 1 || y >= Screen.getHeight() - 1)
                 return false;
             return true;
         }
@@ -52,9 +52,9 @@ namespace GameProject
             Console.Write(" ");
         }
 
-        public void MoveChamp(int x, int y, Screen s)
+        public void MoveChamp(int x, int y)
         {
-            if (CanMove(pos_x + x, pos_y + y, s))
+            if (CanMove(pos_x + x, pos_y + y))
             {
                 RemoveChamp(pos_x, pos_y);
                 Console.SetCursorPosition(pos_x + x, pos_y + y);
