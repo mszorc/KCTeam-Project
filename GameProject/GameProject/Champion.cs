@@ -66,6 +66,12 @@ namespace GameProject
                 pos_y += y;
                 Console.Write(model);
             }
+            else
+            {
+                Console.SetCursorPosition(pos_x, pos_y);
+                Console.Write(model);
+                Console.SetCursorPosition(pos_x, pos_y);
+            }
         }
 
         public void LoseHealth()
