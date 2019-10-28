@@ -7,6 +7,9 @@ namespace GameProject
         private int pos_x; //pozycja X
         private int pos_y; //pozycja Y
         public char model = '%';
+        private string directionUp = "UP";
+        private string directionDown = "DOWN";
+        private string direction = "null";
 
         public Champion(int x, int y)
         {
@@ -32,6 +35,28 @@ namespace GameProject
         public void setPosY(int y)
         {
             pos_y = y;
+        }
+
+        public void setDirectionUp()
+        {
+            direction = directionUp;
+        }
+
+        public void setDirectionDown()
+        {
+            direction = directionDown;
+        }
+
+        public bool isDirectionUp()
+        {
+            if (direction == directionUp) return true;
+            else return false;
+        }
+
+        public bool isDirectionDown()
+        {
+            if (direction == directionDown) return true;
+            else return false;
         }
 
         public bool CanMove(int x, int y)
@@ -79,7 +104,8 @@ namespace GameProject
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(' ');
             pos_x = 1;
-            pos_y = 8;
+            pos_y = Screen.getHeight() - 2;
+            setDirectionDown();
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(model);
         }

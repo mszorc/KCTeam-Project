@@ -6,8 +6,13 @@ namespace GameProject
     {
         static void Main(string[] args)
         {
+
+            Console.SetWindowSize(100, 30);
+
             Game g = new Game();
-            g.Start();
+            Console.Title = "Sample Text Game";
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            g.Menu();
         }
     }
 }
