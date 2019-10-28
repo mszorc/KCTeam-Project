@@ -9,11 +9,52 @@ namespace GameProject
         private string directionUp = "UP";
         private string directionDown = "DOWN";
         private string direction = "null";
+        public int pos = 1; //pozycja kursora w menu
+
         public void Start()
         {
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
-            Screen.Display(champ);
+            Screen.DisplayGame(champ);
             Move(champ, Screen.getHeight(), Screen.getWidth());
+        }
+        public void Credits()
+        {
+            Screen.DisplayCredits();
+            Console.ReadKey();
+        }
+        public void Menu()
+        {
+            ConsoleKeyInfo key;
+            while (true)
+            {
+                Screen.DisplayMenu(pos);
+                key = Console.ReadKey();
+                switch (key.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (pos == 1) break;
+                        pos--;
+                        Screen.DisplayMenu(pos);
+                        break;
+                    case ConsoleKey.DownArrow:
+                        if (pos == 3) break;
+                        pos++;
+                        Screen.DisplayMenu(pos);
+                        break;
+                    case ConsoleKey.Enter:
+                        if (pos == 1) Start(); //zacznij gre
+                        if (pos == 2) Credits(); //napisy
+                        if (pos == 3) Environment.Exit(0); //wyjdz z gry
+                        break;
+                    default:
+                        Screen.DisplayMenu(pos);
+                        break;
+                }
+            }
+        }
+        public void MenuCursor()
+        {
+
         }
         public void Move(Champion champ, int height, int width)
         {
@@ -25,13 +66,13 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        System.Threading.Thread.Sleep(30); //delay
+                        //System.Threading.Thread.Sleep(30); //delay
                         if (direction == directionDown) goto case ConsoleKey.DownArrow;
                         else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        System.Threading.Thread.Sleep(30); //delay
+                        //System.Threading.Thread.Sleep(30); //delay
                         if (direction == directionDown) goto case ConsoleKey.DownArrow;
                         else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
@@ -41,7 +82,7 @@ namespace GameProject
                         {
                             champ.MoveChamp(0, 1);
                         }
-                        System.Threading.Thread.Sleep(30); //delay
+                        //System.Threading.Thread.Sleep(30); //delay
                         break;
                     case ConsoleKey.UpArrow:
                         direction = directionUp;
@@ -49,8 +90,9 @@ namespace GameProject
                         {
                             champ.MoveChamp(0, -1);
                         }
-                        System.Threading.Thread.Sleep(30); //delay
+                        //System.Threading.Thread.Sleep(30); //delay
                         break;
+
                 }
                 while (!Console.KeyAvailable)
                 {
@@ -68,8 +110,9 @@ namespace GameProject
                             champ.MoveChamp(0, 1);
                         }
                     }
-                    System.Threading.Thread.Sleep(50);
+                    System.Threading.Thread.Sleep(80);
                 }
+
             }
         }
     }
