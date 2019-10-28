@@ -36,14 +36,20 @@ namespace GameProject
 
         public bool CanMove(int x, int y)
         {
-            if (x < 1 || x >= Screen.getWidth() - 1) 
+            if (x < 1 || x >= Screen.getWidth() - 1)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(Screen.getChar(x, y));
                 return false;
+            }
             if (y < 1 || y >= Screen.getHeight() - 1)
+            {
                 return false;
+            }
             if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '@')
             {
                 Console.SetCursorPosition(x, y);
-                Console.Write('z');
+                Console.Write(Screen.getChar(x,y));
                 LoseHealth();
                 return false;
             }
