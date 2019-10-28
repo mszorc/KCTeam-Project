@@ -25,13 +25,13 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        System.Threading.Thread.Sleep(20); //delay
+                        System.Threading.Thread.Sleep(30); //delay
                         if (direction == directionDown) goto case ConsoleKey.DownArrow;
                         else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        System.Threading.Thread.Sleep(20); //delay
+                        System.Threading.Thread.Sleep(30); //delay
                         if (direction == directionDown) goto case ConsoleKey.DownArrow;
                         else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
@@ -41,7 +41,7 @@ namespace GameProject
                         {
                             champ.MoveChamp(0, 1);
                         }
-                        System.Threading.Thread.Sleep(20); //delay
+                        System.Threading.Thread.Sleep(30); //delay
                         break;
                     case ConsoleKey.UpArrow:
                         direction = directionUp;
@@ -49,7 +49,7 @@ namespace GameProject
                         {
                             champ.MoveChamp(0, -1);
                         }
-                        System.Threading.Thread.Sleep(20); //delay
+                        System.Threading.Thread.Sleep(30); //delay
                         break;
                 }
                 while (!Console.KeyAvailable)
@@ -68,7 +68,7 @@ namespace GameProject
                             champ.MoveChamp(0, 1);
                         }
                     }
-                    System.Threading.Thread.Sleep(250);
+                    System.Threading.Thread.Sleep(50);
                 }
             }
         }

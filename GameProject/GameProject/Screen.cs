@@ -33,6 +33,7 @@ namespace GameProject
         {
             char[,] buffer = new char[height, width];
             Random rnd = new Random();
+            Level l = new Level();
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
@@ -43,6 +44,7 @@ namespace GameProject
                     }
                 }
             }
+            buffer = l.Generator(buffer, height, width);
             buffer[champ.getPosY(), champ.getPosX()] = '%';
             return buffer;
         }
