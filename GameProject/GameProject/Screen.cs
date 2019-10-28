@@ -22,6 +22,11 @@ namespace GameProject
             return height;
         }
 
+        public static char getChar(int x, int y)
+        {
+            return screen[y, x];
+        }
+
         public static ConsoleColor pickColor() //losowy wybor kolorów
         {
             Random rnd = new Random();
@@ -33,6 +38,15 @@ namespace GameProject
         {
             char[,] buffer = new char[height, width];
             Random rnd = new Random();
+
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    buffer[i, j] = ' ';
+                }
+            }
+
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
@@ -44,6 +58,7 @@ namespace GameProject
                 }
             }
             buffer[champ.getPosY(), champ.getPosX()] = '%';
+            buffer[champ.getPosY(), champ.getPosX() + 3] = 'z';
             return buffer;
         }
 
