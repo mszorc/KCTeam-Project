@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameProject
 {
@@ -39,18 +37,24 @@ namespace GameProject
         public bool CanMove(int x, int y)
         {
             if (x < 1 || x >= Screen.getWidth() - 1)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(Screen.getChar(x, y));
                 return false;
+            }
             if (y < 1 || y >= Screen.getHeight() - 1)
+            {
                 return false;
+            }
+            if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '@')
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(Screen.getChar(x,y));
+                LoseHealth();
+                return false;
+            }
             return true;
-        }
-
-        static void RemoveChamp(int x, int y)
-        {
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.SetCursorPosition(x, y);
-            Console.Write(" ");
-        }
+        } 
 
         public void MoveChamp(int x, int y)
         {
@@ -62,6 +66,29 @@ namespace GameProject
                 pos_y += y;
                 Console.Write(model);
             }
+            else
+            {
+                Console.SetCursorPosition(pos_x, pos_y);
+                Console.Write(model);
+                Console.SetCursorPosition(pos_x, pos_y);
+            }
+        }
+
+        public void LoseHealth()
+        {
+            Console.SetCursorPosition(pos_x, pos_y);
+            Console.Write(' ');
+            pos_x = 1;
+            pos_y = 8;
+            Console.SetCursorPosition(pos_x, pos_y);
+            Console.Write(model);
+        }
+
+        private static void RemoveChamp(int x, int y)
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.SetCursorPosition(x, y);
+            Console.Write(' ');
         }
 
     }
