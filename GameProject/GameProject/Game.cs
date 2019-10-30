@@ -10,9 +10,10 @@ namespace GameProject
 
         public void Start()
         {
-            Console.SetWindowSize(100, 15);
+            
             Console.CursorVisible = false;
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
+            Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
             Screen.DisplayGame(champ);
             Move(champ, Screen.getHeight(), Screen.getWidth());
         }
