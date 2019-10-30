@@ -6,16 +6,20 @@ namespace GameProject
 {
     class Game
     {
+
         private string directionUp = "UP";
         private string directionDown = "DOWN";
         private string direction = "null";
+
         public int pos = 1; //pozycja kursora w menu
 
         public void Start()
         {
-            Console.SetWindowSize(100, 15);
+            
             Console.CursorVisible = false;
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
+
+            Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
             Screen.DisplayGame(champ);
             Move(champ, Screen.getHeight(), Screen.getWidth());
         }
@@ -81,12 +85,12 @@ namespace GameProject
                         //else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
                     case ConsoleKey.DownArrow:
-                        direction = directionDown;
+                        champ.setDirectionDown();
                         champ.MoveChamp(0, 1);
                         System.Threading.Thread.Sleep(20); //delay
                         break;
                     case ConsoleKey.UpArrow:
-                        direction = directionUp;
+                        champ.setDirectionUp();
                         champ.MoveChamp(0, -1);
                         System.Threading.Thread.Sleep(20); //delay
                         break;
@@ -94,7 +98,7 @@ namespace GameProject
                 }
                 while (!Console.KeyAvailable)
                 {
-                    if (direction == directionUp)
+                    if (champ.isDirectionUp())
                     {
                         champ.MoveChamp(0, -1);
                     }
