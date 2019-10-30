@@ -6,14 +6,20 @@ namespace GameProject
 {
     class Game
     {
+
         private string directionUp = "UP";
         private string directionDown = "DOWN";
         private string direction = "null";
+
         public int pos = 1; //pozycja kursora w menu
 
         public void Start()
         {
+            
+            Console.CursorVisible = false;
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
+
+            Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
             Screen.DisplayGame(champ);
             Move(champ, Screen.getHeight(), Screen.getWidth());
         }
@@ -47,14 +53,14 @@ namespace GameProject
                         if (pos == 3) Environment.Exit(0); //wyjdz z gry
                         break;
                     default:
-                        Screen.DisplayMenu(pos); 
+                        Screen.DisplayMenu(pos);
                         break;
                 }
             }
         }
         public void MenuCursor()
         {
-            
+
         }
         public void Move(Champion champ, int height, int width)
         {
@@ -62,57 +68,50 @@ namespace GameProject
             while (true)
             {
                 key = Console.ReadKey();
+
                 switch (key.Key)
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        //System.Threading.Thread.Sleep(30); //delay
-                        if (direction == directionDown) goto case ConsoleKey.DownArrow;
-                        else if (direction == directionUp) goto case ConsoleKey.UpArrow;
+
+                        System.Threading.Thread.Sleep(20); //delay
+                        //if (direction == directionDown) goto case ConsoleKey.DownArrow;
+                        //else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        //System.Threading.Thread.Sleep(30); //delay
-                        if (direction == directionDown) goto case ConsoleKey.DownArrow;
-                        else if (direction == directionUp) goto case ConsoleKey.UpArrow;
+                        System.Threading.Thread.Sleep(20); //delay
+                        //if (direction == directionDown) goto case ConsoleKey.DownArrow;
+                        //else if (direction == directionUp) goto case ConsoleKey.UpArrow;
                         break;
                     case ConsoleKey.DownArrow:
-                        direction = directionDown;
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1))
-                        {
-                            champ.MoveChamp(0, 1);
-                        }
-                        //System.Threading.Thread.Sleep(30); //delay
+                        champ.setDirectionDown();
+                        champ.MoveChamp(0, 1);
+                        System.Threading.Thread.Sleep(30); //delay
                         break;
                     case ConsoleKey.UpArrow:
-                        direction = directionUp;
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1))
-                        {
-                            champ.MoveChamp(0, -1);
-                        }
-                        //System.Threading.Thread.Sleep(30); //delay
+                        champ.setDirectionUp();
+                        champ.MoveChamp(0, -1);
+                        System.Threading.Thread.Sleep(30); //delay
                         break;
-                                            
+
                 }
                 while (!Console.KeyAvailable)
                 {
-                    if (direction == directionUp)
+                    if (champ.isDirectionUp())
                     {
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() - 1))
-                        {
-                            champ.MoveChamp(0, -1);
-                        }
+                        champ.MoveChamp(0, -1);
+                        System.Threading.Thread.Sleep(30);
                     }
                     else
                     {
-                        if (champ.CanMove(champ.getPosX(), champ.getPosY() + 1))
-                        {
-                            champ.MoveChamp(0, 1);
-                        }
+                        champ.MoveChamp(0, 1);
+                        System.Threading.Thread.Sleep(30);
                     }
-                    System.Threading.Thread.Sleep(80);
+                    System.Threading.Thread.Sleep(50);
+
                 }
-            
+
             }
         }
     }

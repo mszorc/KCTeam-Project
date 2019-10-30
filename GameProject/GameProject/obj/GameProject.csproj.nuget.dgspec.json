@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\piawr\\Desktop\\GameProject\\GameProject\\GameProject.csproj": {}
+    "C:\\Users\\piawr\\Desktop\\KCTeam-Project-Adamv1\\GameProject\\GameProject\\GameProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\piawr\\Desktop\\GameProject\\GameProject\\GameProject.csproj": {
+    "C:\\Users\\piawr\\Desktop\\KCTeam-Project-Adamv1\\GameProject\\GameProject\\GameProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\piawr\\Desktop\\GameProject\\GameProject\\GameProject.csproj",
+        "projectUniqueName": "C:\\Users\\piawr\\Desktop\\KCTeam-Project-Adamv1\\GameProject\\GameProject\\GameProject.csproj",
         "projectName": "GameProject",
-        "projectPath": "C:\\Users\\piawr\\Desktop\\GameProject\\GameProject\\GameProject.csproj",
+        "projectPath": "C:\\Users\\piawr\\Desktop\\KCTeam-Project-Adamv1\\GameProject\\GameProject\\GameProject.csproj",
         "packagesPath": "C:\\Users\\piawr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\piawr\\Desktop\\GameProject\\GameProject\\obj\\",
+        "outputPath": "C:\\Users\\piawr\\Desktop\\KCTeam-Project-Adamv1\\GameProject\\GameProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\piawr\\AppData\\Roaming\\NuGet\\NuGet.Config",
