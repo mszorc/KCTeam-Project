@@ -75,7 +75,7 @@ namespace GameProject
             {
                 Console.SetCursorPosition(x, y);
                 Console.Write(Screen.getChar(x,y));
-                if (Screen.getChar(x, y) != '*') LoseHealth();
+                if (Screen.getChar(x, y) != '\u2588') LoseHealth();
                 return false;
             }
             return true;
