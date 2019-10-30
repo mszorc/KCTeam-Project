@@ -7,9 +7,9 @@ namespace GameProject
     class Game
     {
 
-        private string directionUp = "UP";
+        /*private string directionUp = "UP";
         private string directionDown = "DOWN";
-        private string direction = "null";
+        private string direction = "null";*/
 
         public int pos = 1; //pozycja kursora w menu
 

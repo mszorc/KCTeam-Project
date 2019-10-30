@@ -10,7 +10,7 @@ namespace GameProject
         {
             Random rnd = new Random();
             List<bool> blockDirection = new List<bool> { true, false };
-            int tmp_number = rnd.Next(5, 7);
+            int tmp_number = rnd.Next(5, 20);
             int last_block_width = 5;
             int double_block;
             for (int k = 0; k < tmp_number; k++)
@@ -21,7 +21,7 @@ namespace GameProject
                 if (double_block == 1) direction = 2;
                 int block_width = rnd.Next(2, width / 4 - 2);
                 int block_height = rnd.Next(5, height - 2);
-                if (last_block_width + block_width >= width) break;
+                if (last_block_width + block_width >= width-2) block_width = width - last_block_width - 2;
                 switch (direction)
                 {
                     case 0:
