@@ -75,7 +75,7 @@ namespace GameProject
             {
                 Console.SetCursorPosition(x, y);
                 Console.Write(Screen.getChar(x,y));
-                LoseHealth();
+                if (Screen.getChar(x, y) != '*') LoseHealth();
                 return false;
             }
             return true;
@@ -86,6 +86,7 @@ namespace GameProject
             if (CanMove(pos_x + x, pos_y + y))
             {
                 RemoveChamp(pos_x, pos_y);
+                Console.Write(Screen.getChar(Console.CursorLeft, Console.CursorTop));
                 Console.SetCursorPosition(pos_x + x, pos_y + y);
                 pos_x += x;
                 pos_y += y;
