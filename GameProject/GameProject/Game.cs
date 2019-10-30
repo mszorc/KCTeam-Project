@@ -87,12 +87,16 @@ namespace GameProject
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
                         champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(20); //delay
+
+                        System.Threading.Thread.Sleep(30); //delay
+
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
                         champ.MoveChamp(0, -1);
-                        System.Threading.Thread.Sleep(20); //delay
+
+                        System.Threading.Thread.Sleep(30); //delay
+
                         break;
 
                 }
@@ -101,12 +105,16 @@ namespace GameProject
                     if (champ.isDirectionUp())
                     {
                         champ.MoveChamp(0, -1);
-                        
+
+                        System.Threading.Thread.Sleep(30);
+
                     }
                     else
                     {
                         champ.MoveChamp(0, 1);
-                        
+
+                        System.Threading.Thread.Sleep(30);
+
                     }
                     System.Threading.Thread.Sleep(50);
 
