@@ -29,7 +29,7 @@ namespace GameProject
                         {
                             for (int j = last_block_width; j < last_block_width + block_width; j++)
                             {
-                                buffer[i, j] = '*';
+                                buffer[i, j] = '\u2588';
                             }
                         }
                         last_block_width = last_block_width + block_width + 8;
@@ -39,7 +39,7 @@ namespace GameProject
                         {
                             for (int j = last_block_width; j < last_block_width + block_width; j++)
                             {
-                                buffer[i, j] = '*';
+                                buffer[i, j] = '\u2588';
                             }
                         }
                         last_block_width = last_block_width + 8 + block_width;
@@ -49,7 +49,7 @@ namespace GameProject
                         {
                             for (int j = last_block_width; j < last_block_width + block_width; j++)
                             {
-                                buffer[i, j] = '*';
+                                buffer[i, j] = '\u2588';
                             }
                         }
                         int tmp_helper = rnd.Next(2, height - 2);
