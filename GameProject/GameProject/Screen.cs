@@ -9,9 +9,22 @@ namespace GameProject
     public class Screen
     {
         private static int width = 100;
-        private static int height = 25;
+        private static int height = 15;
         private static char[,] screen = new char[height, width];
         public static int titleBeg = height / 4, menuBeg = height / 2, middle = width / 2;
+        private static int finishX = width - 4;
+        private static int finishY = height - 4;
+        private static bool change = false;
+
+        public static int getFinishX()
+        {
+            return finishX;
+        }
+
+        public static int getFinishY()
+        {
+            return finishY;
+        }
 
         public static int getWidth()
         {
@@ -26,6 +39,21 @@ namespace GameProject
         public static char getChar(int x, int y)
         {
             return screen[y, x];
+        }
+
+        public static void setChar(int x, int y)
+        {
+            screen[y, x] = ' ';
+        }
+
+        public static void ChangeMap(bool state)
+        {
+            change = state;
+        }
+
+        public static bool getChange()
+        {
+            return change;
         }
 
         public static ConsoleColor pickColor() //losowy wybor kolorów
@@ -63,7 +91,14 @@ namespace GameProject
                 }
             }
             buffer = l.Generator(buffer, height, width);
-            buffer[champ.getPosY(), champ.getPosX()] = '%';
+            for (int i = finishY; i < height - 1; i++)
+            {
+                for (int j = finishX; j < width - 1; j++)
+                {
+                    buffer[i, j] = 'X';
+                }
+            }
+            
             return buffer;
         }
 
