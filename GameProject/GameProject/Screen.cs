@@ -62,7 +62,7 @@ namespace GameProject
                     }
                 }
             }
-            buffer = l.Generator(buffer, height, width);
+            buffer = l.BlocksGenerator(buffer, height, width);
             buffer[champ.getPosY(), champ.getPosX()] = '%';
             return buffer;
         }
