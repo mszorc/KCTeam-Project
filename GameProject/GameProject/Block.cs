@@ -19,10 +19,14 @@ namespace GameProject
         {
             this.start_x = start_x;
             this.finish_x = finish_x;
+            this.height = height;
             if (direction == 0) this.direction = direction_down;
             else if (direction == 1) this.direction = direction_up;
-            else if (direction == 2) this.direction = direction_full;
-            this.height = height;
+            else if (direction == 2)
+            {
+                this.direction = direction_full;
+                this.height = Screen.getHeight()-4;
+            }
         }
 
         public int getWidth()

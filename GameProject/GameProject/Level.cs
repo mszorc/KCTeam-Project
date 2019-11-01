@@ -35,9 +35,9 @@ namespace GameProject
                     }
 
                 }
-                if (last_block_width + block_width >= width - 4)
+                if (last_block_width + block_width >= width - 5)
                 {
-                    block_width = width - last_block_width - 4;
+                    block_width = width - last_block_width - 5;
                 }
                 if (block_width > 0) blockList.Add(new Block(last_block_width, last_block_width + block_width, direction, block_height));
                 switch (direction)
@@ -110,25 +110,27 @@ namespace GameProject
             Random rnd = new Random();
             foreach (Block b in blockList)
             {
-                if (b.getDirection() == Block.direction_full) continue;
-                int torn_sets_number = rnd.Next(1, 4);
+                int torn_sets_number = rnd.Next(1, 7);
                 int torn_number = 0;
                 int position = 0;
                 int starting_block = 0;
                 if (torn_sets_number >= 1)
                 {
-                    torn_number = rnd.Next(1, b.getWidth());
-                    if (b.getDirection() == Block.direction_down) position = height - b.getHeight();
-                    else if (b.getDirection() == Block.direction_up) position = b.getHeight();
-                    starting_block = rnd.Next(b.getStartX(), b.getFinishX() - (b.getWidth()/2));
-                    for (int i = starting_block; i < starting_block + torn_number && i < b.getFinishX(); i++)
+                    if (b.getDirection() != Block.direction_full)
                     {
-                        buffer[position, i] = '#';
+                        torn_number = rnd.Next(1, b.getWidth());
+                        if (b.getDirection() == Block.direction_down) position = height - b.getHeight();
+                        else if (b.getDirection() == Block.direction_up) position = b.getHeight();
+                        starting_block = rnd.Next(b.getStartX(), b.getFinishX() - (b.getWidth() / 2));
+                        for (int i = starting_block; i < starting_block + torn_number && i < b.getFinishX(); i++)
+                        {
+                            buffer[position, i] = '#';
+                        }
                     }
                 }
-                if(torn_sets_number == 2)
+                if (torn_sets_number == 2)
                 {
-                    if (b.getHeight() != height - 4)
+                    if(b.getDirection() != Block.direction_full)
                     {
                         torn_number = rnd.Next(1, b.getWidth());
                         if (b.getDirection() == Block.direction_down) position = 1;
@@ -142,9 +144,9 @@ namespace GameProject
 
                 }
 
-                if(torn_sets_number >= 3)
+                if (torn_sets_number >= 3)
                 {
-                    if (b.getHeight() != height - 4)
+                    if (b.getDirection() != Block.direction_full)
                     {
                         torn_number = rnd.Next(3, b.getHeight());
                         position = b.getStartX() - 1;
@@ -163,7 +165,56 @@ namespace GameProject
                             {
                                 buffer[i, position] = '#';
                             }
-                        }  
+                        }
+                    }
+                }
+
+                if (torn_sets_number == 4)
+                {
+                    if(b.getDirection() != Block.direction_full)
+                    {
+                        torn_number = rnd.Next(3, b.getHeight());
+                        position = b.getFinishX();
+                        if (b.getDirection() == Block.direction_down)
+                        {
+                            starting_block = rnd.Next(height - b.getHeight() + 1, height - 2);
+                            for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
+                            {
+                                buffer[i, position] = '#';
+                            }
+                        }
+                        else
+                        {
+                            starting_block = rnd.Next(1, b.getHeight());
+                            for (int i = starting_block; i < starting_block + torn_number && i < b.getHeight(); i++)
+                            {
+                                buffer[i, position] = '#';
+                            }
+                        }
+                    }
+                }
+
+                if (b.getDirection() == Block.direction_full)
+                {
+                    
+                    starting_block = rnd.Next(1, height / 2);
+                    torn_number = rnd.Next(1, height - 2);
+                    int sides = rnd.Next(0, 4);
+                    if(sides == 0)
+                    {
+                        position = b.getStartX() - 1;
+                        for (int i = starting_block; i< starting_block + torn_number && i < height-2; i++)
+                        {
+                            if (buffer[i, position + 1] != ' ') buffer[i, position] = '#';
+                        }
+                    }
+                    else
+                    {
+                        position = b.getFinishX();
+                        for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
+                        {
+                            if (buffer[i, position - 1] != ' ') buffer[i, position] = '#';
+                        }
                     }
                 }
             }
