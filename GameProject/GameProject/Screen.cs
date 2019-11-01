@@ -156,7 +156,7 @@ namespace GameProject
         }
         public static char[,] FillCredits()
         {
-            string name1 = "Adam Sulima-Dolina", name2 = "Michał Szorc", name3 = "Piotr Awramiuk";
+            string name1 = "Adam Sulima Dolina", name2 = "Michał Szorc", name3 = "Piotr Awramiuk";
             char[,] buffer = new char[height, width];
             for (int i = 0; i < height; i++)
             {

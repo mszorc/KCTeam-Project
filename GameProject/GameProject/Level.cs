@@ -206,6 +206,7 @@ namespace GameProject
                         for (int i = starting_block; i< starting_block + torn_number && i < height-2; i++)
                         {
                             if (buffer[i, position + 1] != ' ') buffer[i, position] = '#';
+                            else break;
                         }
                     }
                     else
@@ -214,6 +215,7 @@ namespace GameProject
                         for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
                         {
                             if (buffer[i, position - 1] != ' ') buffer[i, position] = '#';
+                            else break;
                         }
                     }
                 }
