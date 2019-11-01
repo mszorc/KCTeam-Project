@@ -41,4 +41,3 @@ E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Debug\netcoreap
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.runtimeconfig.dev.json
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.dll
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Debug\netcoreapp2.2\GameProject.pdb
-
