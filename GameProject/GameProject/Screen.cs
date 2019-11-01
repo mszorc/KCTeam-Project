@@ -91,13 +91,7 @@ namespace GameProject
                 }
             }
             buffer = l.Generator(buffer, height, width);
-            for (int i = finishY; i < height - 1; i++)
-            {
-                for (int j = finishX; j < width - 1; j++)
-                {
-                    buffer[i, j] = 'X';
-                }
-            }
+            
             
             return buffer;
         }
@@ -272,6 +266,15 @@ namespace GameProject
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
+                    
+                    if (i >= height - 4 && i < height - 1 && j >= width - 4 && j < width - 1)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                    }
                     Console.Write(screen[i, j]);
 
                 }
@@ -279,6 +282,7 @@ namespace GameProject
             }
             Console.WriteLine();
         }
+
 
         public static void DisplayCredits()
         {

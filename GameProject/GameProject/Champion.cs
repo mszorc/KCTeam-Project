@@ -91,8 +91,14 @@ namespace GameProject
             }
             if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593')
             {
-                if (Screen.getChar(x, y) != '\u2588' && Screen.getChar(x, y) != 'X') LoseHealth();
-                if (Screen.getChar(x, y) == 'X') Screen.ChangeMap(true);
+                if (Screen.getChar(x, y) != '\u2588') LoseHealth();
+                return false;
+            }
+
+            if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
+            {
+
+                if (x >= Screen.getFinishX() || y >= Screen.getFinishY()) Screen.ChangeMap(true);
                 return false;
             }
             return true;
