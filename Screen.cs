@@ -9,9 +9,23 @@ namespace GameProject
     public class Screen
     {
         private static int width = 100;
-        private static int height = 15;
+        private static int height = 30;
         private static char[,] screen = new char[height, width];
         public static int titleBeg = height / 4, menuBeg = height / 2, middle = width / 2;
+        private static int finishX = width - 4;
+        private static int finishY = height - 4;
+        private static bool change = false;
+
+       
+        public static int getFinishX()
+        {
+            return finishX;
+        }
+
+        public static int getFinishY()
+        {
+            return finishY;
+        }
 
         public static int getWidth()
         {
@@ -26,6 +40,21 @@ namespace GameProject
         public static char getChar(int x, int y)
         {
             return screen[y, x];
+        }
+
+        public static void setChar(int x, int y)
+        {
+            screen[y, x] = ' ';
+        }
+
+        public static void ChangeMap(bool state)
+        {
+            change = state;
+        }
+
+        public static bool getChange()
+        {
+            return change;
         }
 
         public static ConsoleColor pickColor() //losowy wybor kolorów
@@ -58,18 +87,20 @@ namespace GameProject
                 {
                     if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
                     {
-                        buffer[i, j] = '@';
+                        buffer[i, j] = '\u2593';
                     }
                 }
             }
-            buffer = l.Generator(buffer, height, width);
-            buffer[champ.getPosY(), champ.getPosX()] = '%';
+
+
+            buffer = l.BlocksGenerator(buffer, height, width);
+
             return buffer;
         }
 
         public static char[,] FillMenu()
         {
-            string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝןdɯɐs", menu1 = "New Game", menu2 = "Credits", menu3 = "Exit";
+            string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝldɯɐs", menu1 = "New Game", menu2 = "Credits", menu3 = "Exit";
 
             char[,] buffer = new char[height, width];
             for (int i = 0; i < height; i++)
@@ -127,7 +158,8 @@ namespace GameProject
         }
         public static char[,] FillCredits()
         {
-            string name1 = "Adam Sulima-Dolina", name2 = "Michał Szorc", name3 = "Piotr Awramiuk";
+
+            string name1 = "Adam Sulima Dolina", name2 = "Michał Szorc", name3 = "Piotr Awramiuk";
             char[,] buffer = new char[height, width];
             for (int i = 0; i < height; i++)
             {
@@ -167,9 +199,13 @@ namespace GameProject
         public static void DisplayMenu(int position)
         {
             screen = FillMenu();
-            Console.SetCursorPosition(0, 0);
+            //Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
+            Console.Clear();
+            Console.SetCursorPosition(0, 0);
+            
+            
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
@@ -237,13 +273,24 @@ namespace GameProject
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
+                    
+                    if (i >= height - 4 && i < height - 1 && j >= width - 4 && j < width - 1)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                    }
                     Console.Write(screen[i, j]);
 
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
+            
+            Console.WriteLine("Try number: {0}",champ.lifeNo); //do zrobienia
         }
+
 
         public static void DisplayCredits()
         {

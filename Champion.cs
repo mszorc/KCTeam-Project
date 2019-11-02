@@ -7,9 +7,11 @@ namespace GameProject
         private int pos_x; //pozycja X
         private int pos_y; //pozycja Y
         public char model = '%';
+        private int points = 0;
         private string directionUp = "UP";
         private string directionDown = "DOWN";
         private string direction = "null";
+        public int lifeNo = 1;
 
         public Champion(int x, int y)
         {
@@ -37,6 +39,13 @@ namespace GameProject
             pos_y = y;
         }
 
+        public void setPosStart()
+        {
+            pos_x = 1;
+            pos_y = Screen.getHeight() - 2;
+            Console.SetCursorPosition(pos_x, pos_y);
+        }
+
         public void setDirectionUp()
         {
             direction = directionUp;
@@ -59,23 +68,39 @@ namespace GameProject
             else return false;
         }
 
+        public int getPoints()
+        {
+            return points;
+        }
+
+        public void incrementPoints()
+        {
+            points++;
+        }
+
         public bool CanMove(int x, int y)
         {
+            //Console.SetCursorPosition(x, y);
+            //Console.Write(Screen.getChar(x, y));
             if (x < 1 || x >= Screen.getWidth() - 1)
             {
-                Console.SetCursorPosition(x, y);
-                Console.Write(Screen.getChar(x, y));
                 return false;
             }
             if (y < 1 || y >= Screen.getHeight() - 1)
             {
                 return false;
             }
-            if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '@')
+            if (Screen.getChar(x, y + 1) == '_'|| Screen.getChar(x,y-1) == '\u035E') LoseHealth();
+            if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593')
             {
-                Console.SetCursorPosition(x, y);
-                Console.Write(Screen.getChar(x,y));
                 if (Screen.getChar(x, y) != '\u2588') LoseHealth();
+                return false;
+            }
+
+            if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
+            {
+
+                if (x >= Screen.getFinishX() || y >= Screen.getFinishY()) Screen.ChangeMap(true);
                 return false;
             }
             return true;
@@ -91,6 +116,7 @@ namespace GameProject
                 pos_x += x;
                 pos_y += y;
                 Console.Write(model);
+                Console.SetCursorPosition(pos_x, pos_y);
             }
             else
             {
@@ -104,18 +130,19 @@ namespace GameProject
         {
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(' ');
-            pos_x = 1;
-            pos_y = Screen.getHeight() - 2;
+            setPosStart();
             setDirectionDown();
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(model);
+            lifeNo++;
         }
 
         private static void RemoveChamp(int x, int y)
         {
-            Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.SetCursorPosition(x, y);
+            Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.Write(' ');
+            Console.SetCursorPosition(x, y);
         }
 
     }
