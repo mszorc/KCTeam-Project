@@ -12,11 +12,17 @@ namespace GameProject
         private string directionDown = "DOWN";
         private string direction = "null";
         private int health;
+        public int lifeNo = 1;
+        public int WindowHeight = 0;
+        public int WindowWidth = 0;
+
         public Champion(int x, int y)
         {
             pos_x = x;
             pos_y = y;
             health = 3;
+            WindowHeight = Screen.getHeight();
+            WindowWidth = Screen.getWidth();
         }
 
         public int getPosX()
@@ -95,9 +101,21 @@ namespace GameProject
             {
                 return false;
             }
+            if (Screen.getChar(x, y + 1) == '_'|| Screen.getChar(x,y-1) == '\u035E')
+            {
+                LoseHealth();
+                Console.SetCursorPosition(0, WindowHeight);
+                Console.WriteLine("Try: {0} Points: {1}", lifeNo, points);
+            }
             if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
             {
-                if (Screen.getChar(x, y) != '\u2588') LoseHealth();
+                System.Threading.Thread.Sleep(30);
+                if (Screen.getChar(x, y) != '\u2588')
+                {
+                    LoseHealth();
+                    Console.SetCursorPosition(0,WindowHeight);
+                    Console.WriteLine("Try: {0} Points: {1}", lifeNo, points);
+                }
                 return false;
             }
 
@@ -126,8 +144,8 @@ namespace GameProject
                     incrementPoints();
                     Console.Write(' ');
                     Screen.setChar(pos_x, pos_y);
-                    Console.SetCursorPosition(0, 20);
-                    Console.Write(getPoints());
+                    Console.SetCursorPosition(0, WindowHeight);
+                    Console.WriteLine("Try: {0} Points: {1}", lifeNo, points);
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
                 Console.Write(model);
@@ -150,6 +168,7 @@ namespace GameProject
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(model);
             health--;
+            lifeNo++;
         }
 
         private static void RemoveChamp(int x, int y)

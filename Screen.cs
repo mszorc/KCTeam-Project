@@ -9,7 +9,8 @@ namespace GameProject
     public class Screen
     {
         private static int width = 100;
-        private static int height = 15;
+
+        private static int height = 30;
         private static char[,] screen = new char[height, width];
         public static int titleBeg = height / 4, menuBeg = height / 2, middle = width / 2;
         private static int finishX = width - 4;
@@ -209,12 +210,16 @@ namespace GameProject
             char[,] buffer = new char[height, width];
             return buffer;
         }
+
         public static void DisplayMenu(int position)
         {
             screen = FillMenu();
-            Console.SetCursorPosition(0, 0);
+            //Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
+            Console.Clear();
+            Console.SetCursorPosition(0, 0);
+            
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
@@ -274,7 +279,6 @@ namespace GameProject
             Console.WriteLine();
 
         }
-
         public static void DisplayRanking()
         {
             screen = FillRanking();
@@ -328,7 +332,8 @@ namespace GameProject
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
+            //Console.WriteLine();
+            Console.WriteLine("Try: {0} Points: {1}", champ.lifeNo, champ.getPoints()); //do zrobienia
         }
 
 

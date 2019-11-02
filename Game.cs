@@ -65,10 +65,7 @@ namespace GameProject
                 }
             }
         }
-        public void MenuCursor()
-        {
 
-        }
         public void Move(Champion champ)
         {
             ConsoleKeyInfo key;
@@ -84,28 +81,31 @@ namespace GameProject
                         champ.MoveChamp(1, 0);
                         if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         else champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(20); //delay
+                        //System.Threading.Thread.Sleep(20); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
                         if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         else champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(20); //delay
+                        //System.Threading.Thread.Sleep(20); //delay
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
                         champ.MoveChamp(0, 1);
-
-                        System.Threading.Thread.Sleep(30); //delay
+                        //System.Threading.Thread.Sleep(30); //delay
 
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
                         champ.MoveChamp(0, -1);
+                        //System.Threading.Thread.Sleep(30); //delay
 
-                        System.Threading.Thread.Sleep(30); //delay
+                        break;
 
+                    case ConsoleKey.Escape:
+                        //Console.Clear();
+                        Menu();
                         break;
 
                 }
@@ -127,7 +127,7 @@ namespace GameProject
                     }
                     System.Threading.Thread.Sleep(50);
                 }
-
+                
                 if (champ.getHealth() <= 0)
                 {
                     RankingFile.Write(Convert.ToString(champ.getPoints()));
