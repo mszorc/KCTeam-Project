@@ -79,8 +79,8 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
 
                         System.Threading.Thread.Sleep(20); //delay
 
@@ -88,8 +88,8 @@ namespace GameProject
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
 
                         //System.Threading.Thread.Sleep(20); //delay
                         break;
@@ -118,14 +118,14 @@ namespace GameProject
                     {
                         champ.MoveChamp(0, -1);
                         if (!champ.CanMove(champ.getPosX(), champ.getPosY() - 1)) break; 
-                        System.Threading.Thread.Sleep(30);
+                        //System.Threading.Thread.Sleep(30);
 
                     }
                     else
                     {
                         champ.MoveChamp(0, 1);
                         if (!champ.CanMove(champ.getPosX(), champ.getPosY() + 1)) break;
-                        System.Threading.Thread.Sleep(30);
+                        //System.Threading.Thread.Sleep(30);
 
                     }
                     System.Threading.Thread.Sleep(50);

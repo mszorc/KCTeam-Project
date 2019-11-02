@@ -30,7 +30,7 @@ namespace GameProject
                     if (double_block % 2 == 0)
                     {
                         direction = 2;
-                        tmp_helper = rnd.Next(2, height - 2);
+                        tmp_helper = rnd.Next(4, height - 4);
                         block_height = tmp_helper;
                     }
 
@@ -73,7 +73,7 @@ namespace GameProject
                             }
                         }
 
-                        for (int i = tmp_helper; i < tmp_helper + 2; i++)
+                        for (int i = tmp_helper; i < tmp_helper + 4; i++)
 
                         {
                             for (int j = last_block_width; j < last_block_width + block_width; j++)
@@ -134,7 +134,7 @@ namespace GameProject
                         }
                     }
                 }
-                if (torn_sets_number == 2)
+                /*if (torn_sets_number == 2)
                 {
                     if (b.getDirection() != Block.direction_full)
                     {
@@ -148,7 +148,7 @@ namespace GameProject
                         }
                     }
 
-                }
+                }*/
 
                 if (torn_sets_number >= 3)
                 {

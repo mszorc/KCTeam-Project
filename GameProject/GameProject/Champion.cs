@@ -93,20 +93,16 @@ namespace GameProject
         {
             //Console.SetCursorPosition(x, y);
             //Console.Write(Screen.getChar(x, y));
-            if (x < 1 || x >= Screen.getWidth() - 1)
+            /*if (x < 1 || x >= Screen.getWidth() - 1)
             {
                 return false;
             }
             if (y < 1 || y >= Screen.getHeight() - 1)
             {
                 return false;
-            }
-            if (Screen.getChar(x, y + 1) == '_'|| Screen.getChar(x,y-1) == '\u035E')
-            {
-                LoseHealth();
-                Console.SetCursorPosition(0, WindowHeight);
-                Console.WriteLine("Try: {0} Points: {1}", lifeNo, points);
-            }
+            }*/
+            if (Screen.getChar(x, y) == '\u2593') return false;
+            
             if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
             {
                 System.Threading.Thread.Sleep(30);
@@ -131,6 +127,13 @@ namespace GameProject
         {
             if (CanMove(pos_x + x, pos_y + y))
             {
+                if (Screen.getChar(getPosX(), getPosY() + 1) == '_' || Screen.getChar(getPosX(), getPosY() - 1) == '\u035E')
+                {
+                    LoseHealth();
+                    Console.SetCursorPosition(0, WindowHeight);
+                    Console.WriteLine("Try: {0} Points: {1}", lifeNo, points);
+                    return;
+                }
                 RemoveChamp(pos_x, pos_y);
                 Console.Write(Screen.getChar(Console.CursorLeft, Console.CursorTop));
                 pos_x += x;
@@ -153,6 +156,13 @@ namespace GameProject
             }
             else
             {
+                if (Screen.getChar(getPosX(), getPosY() + 1) == '_' || Screen.getChar(getPosX(), getPosY() - 1) == '\u035E')
+                {
+                    LoseHealth();
+                    Console.SetCursorPosition(0, WindowHeight);
+                    Console.WriteLine("Try: {0} Points: {1}", lifeNo, points);
+                    return;
+                }
                 Console.SetCursorPosition(pos_x, pos_y);
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
