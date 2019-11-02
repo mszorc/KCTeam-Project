@@ -9,6 +9,7 @@ namespace GameProject
     public class Screen
     {
         private static int width = 100;
+
         private static int height = 30;
         private static char[,] screen = new char[height, width];
         public static int titleBeg = height / 4, menuBeg = height / 2, middle = width / 2;
@@ -16,7 +17,6 @@ namespace GameProject
         private static int finishY = height - 4;
         private static bool change = false;
 
-       
         public static int getFinishX()
         {
             return finishX;
@@ -92,7 +92,6 @@ namespace GameProject
                 }
             }
 
-
             buffer = l.BlocksGenerator(buffer, height, width);
 
             return buffer;
@@ -100,7 +99,8 @@ namespace GameProject
 
         public static char[,] FillMenu()
         {
-            string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝldɯɐs", menu1 = "New Game", menu2 = "Credits", menu3 = "Exit";
+            string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝןdɯɐs", menu1 = "New Game", menu2 = "Ranking", menu3 = "Credits";
+            string menu4 = "Exit";
 
             char[,] buffer = new char[height, width];
             for (int i = 0; i < height; i++)
@@ -110,7 +110,7 @@ namespace GameProject
 
                     if (i == titleBeg && j == (middle - 8))
                     {
-                        for (int k = 0; k < 16; k++)
+                        for (int k = 0; k < title1.Length; k++)
                         {
                             buffer[i, j] = title1[k];
                             j++;
@@ -120,7 +120,7 @@ namespace GameProject
                     else
                     if (i == titleBeg + 2 && j == (middle - 8))
                     {
-                        for (int k = 0; k < 16; k++)
+                        for (int k = 0; k < title2.Length; k++)
                         {
                             buffer[i, j] = title2[k];
                             j++;
@@ -128,7 +128,7 @@ namespace GameProject
                     }
                     if (i == menuBeg && j == middle - 8)
                     {
-                        for (int k = 0; k < 8; k++)
+                        for (int k = 0; k < menu1.Length; k++)
                         {
                             buffer[i, j] = menu1[k];
                             j++;
@@ -137,7 +137,7 @@ namespace GameProject
                     else
                     if (i == menuBeg + 2 && j == middle - 8)
                     {
-                        for (int k = 0; k < 7; k++)
+                        for (int k = 0; k < menu2.Length; k++)
                         {
                             buffer[i, j] = menu2[k];
                             j++;
@@ -146,9 +146,18 @@ namespace GameProject
                     else
                     if (i == menuBeg + 4 && j == middle - 8)
                     {
-                        for (int k = 0; k < 4; k++)
+                        for (int k = 0; k < menu3.Length; k++)
                         {
                             buffer[i, j] = menu3[k];
+                            j++;
+                        }
+                    }
+                    else
+                    if (i == menuBeg + 6 && j == middle - 8)
+                    {
+                        for (int k = 0; k < menu4.Length; k++)
+                        {
+                            buffer[i, j] = menu4[k];
                             j++;
                         }
                     }
@@ -158,7 +167,6 @@ namespace GameProject
         }
         public static char[,] FillCredits()
         {
-
             string name1 = "Adam Sulima Dolina", name2 = "Michał Szorc", name3 = "Piotr Awramiuk";
             char[,] buffer = new char[height, width];
             for (int i = 0; i < height; i++)
@@ -196,6 +204,13 @@ namespace GameProject
             }
             return buffer;
         }
+
+        public static char[,] FillRanking()
+        {
+            char[,] buffer = new char[height, width];
+            return buffer;
+        }
+
         public static void DisplayMenu(int position)
         {
             screen = FillMenu();
@@ -204,7 +219,6 @@ namespace GameProject
             Console.CursorVisible = false;
             Console.Clear();
             Console.SetCursorPosition(0, 0);
-            
             
             for (int i = 0; i < height; i++)
             {
@@ -247,11 +261,42 @@ namespace GameProject
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(screen[i, j]);
                         }
+                    if (position == 4)
+                        if (i == menuBeg + 6)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(screen[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write(screen[i, j]);
+                        }
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
 
+        }
+        public static void DisplayRanking()
+        {
+            screen = FillRanking();
+            Console.SetCursorPosition(0, 0);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.CursorVisible = false;
+
+            
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    Console.Write(screen[i, j]);
+                }
+                Console.WriteLine();
+            }
+            Console.SetCursorPosition(0, 0);
+            RankingFile.Read();
         }
 
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze
@@ -288,7 +333,7 @@ namespace GameProject
                 Console.WriteLine();
             }
             //Console.WriteLine();
-            Console.WriteLine("Try: {0}",champ.lifeNo); //do zrobienia
+            Console.WriteLine("Health: {0} Points: {1}", champ.getHealth(), champ.getPoints()); //do zrobienia
         }
 
 
