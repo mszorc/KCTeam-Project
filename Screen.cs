@@ -86,19 +86,20 @@ namespace GameProject
                 {
                     if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
                     {
-                        buffer[i, j] = '@';
+                        buffer[i, j] = '\u2593';
                     }
                 }
             }
-            buffer = l.Generator(buffer, height, width);
-            
-            
+
+            buffer = l.BlocksGenerator(buffer, height, width);
+
             return buffer;
         }
 
         public static char[,] FillMenu()
         {
-            string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝןdɯɐs", menu1 = "New Game", menu2 = "Credits", menu3 = "Exit";
+            string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝןdɯɐs", menu1 = "New Game", menu2 = "Ranking", menu3 = "Credits";
+            string menu4 = "Exit";
 
             char[,] buffer = new char[height, width];
             for (int i = 0; i < height; i++)
@@ -108,7 +109,7 @@ namespace GameProject
 
                     if (i == titleBeg && j == (middle - 8))
                     {
-                        for (int k = 0; k < 16; k++)
+                        for (int k = 0; k < title1.Length; k++)
                         {
                             buffer[i, j] = title1[k];
                             j++;
@@ -118,7 +119,7 @@ namespace GameProject
                     else
                     if (i == titleBeg + 2 && j == (middle - 8))
                     {
-                        for (int k = 0; k < 16; k++)
+                        for (int k = 0; k < title2.Length; k++)
                         {
                             buffer[i, j] = title2[k];
                             j++;
@@ -126,7 +127,7 @@ namespace GameProject
                     }
                     if (i == menuBeg && j == middle - 8)
                     {
-                        for (int k = 0; k < 8; k++)
+                        for (int k = 0; k < menu1.Length; k++)
                         {
                             buffer[i, j] = menu1[k];
                             j++;
@@ -135,7 +136,7 @@ namespace GameProject
                     else
                     if (i == menuBeg + 2 && j == middle - 8)
                     {
-                        for (int k = 0; k < 7; k++)
+                        for (int k = 0; k < menu2.Length; k++)
                         {
                             buffer[i, j] = menu2[k];
                             j++;
@@ -144,9 +145,18 @@ namespace GameProject
                     else
                     if (i == menuBeg + 4 && j == middle - 8)
                     {
-                        for (int k = 0; k < 4; k++)
+                        for (int k = 0; k < menu3.Length; k++)
                         {
                             buffer[i, j] = menu3[k];
+                            j++;
+                        }
+                    }
+                    else
+                    if (i == menuBeg + 6 && j == middle - 8)
+                    {
+                        for (int k = 0; k < menu4.Length; k++)
+                        {
+                            buffer[i, j] = menu4[k];
                             j++;
                         }
                     }
@@ -156,7 +166,7 @@ namespace GameProject
         }
         public static char[,] FillCredits()
         {
-            string name1 = "Adam Sulima-Dolina", name2 = "Michał Szorc", name3 = "Piotr Awramiuk";
+            string name1 = "Adam Sulima Dolina", name2 = "Michał Szorc", name3 = "Piotr Awramiuk";
             char[,] buffer = new char[height, width];
             for (int i = 0; i < height; i++)
             {
@@ -191,6 +201,12 @@ namespace GameProject
                     }
                 }
             }
+            return buffer;
+        }
+
+        public static char[,] FillRanking()
+        {
+            char[,] buffer = new char[height, width];
             return buffer;
         }
         public static void DisplayMenu(int position)
@@ -240,11 +256,43 @@ namespace GameProject
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(screen[i, j]);
                         }
+                    if (position == 4)
+                        if (i == menuBeg + 6)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(screen[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write(screen[i, j]);
+                        }
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
 
+        }
+
+        public static void DisplayRanking()
+        {
+            screen = FillRanking();
+            Console.SetCursorPosition(0, 0);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.CursorVisible = false;
+
+            
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    Console.Write(screen[i, j]);
+                }
+                Console.WriteLine();
+            }
+            Console.SetCursorPosition(0, 0);
+            RankingFile.Read();
         }
 
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze
