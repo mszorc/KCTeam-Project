@@ -74,6 +74,7 @@ namespace GameProject
                         }
 
                         for (int i = tmp_helper; i < tmp_helper + 2; i++)
+
                         {
                             for (int j = last_block_width; j < last_block_width + block_width; j++)
                             {
@@ -85,6 +86,9 @@ namespace GameProject
                 }
             }
             buffer = TornsGenerator(buffer, height, width, blockList);
+
+
+            buffer = GapGenertor(buffer, height, width, blockList);
 
             /*for(int i = 1; i < height-1; i = i + (height - 3))
             {
@@ -101,7 +105,9 @@ namespace GameProject
                     }
                 }
             }*/
-
+            //generowanie punktów - do zrobienia
+            buffer[2, 4] = '*';
+            buffer[2, 5] = '*';
             return buffer;
         }
 
@@ -130,7 +136,7 @@ namespace GameProject
                 }
                 if (torn_sets_number == 2)
                 {
-                    if(b.getDirection() != Block.direction_full)
+                    if (b.getDirection() != Block.direction_full)
                     {
                         torn_number = rnd.Next(1, b.getWidth());
                         if (b.getDirection() == Block.direction_down) position = 1;
@@ -171,7 +177,7 @@ namespace GameProject
 
                 if (torn_sets_number == 4)
                 {
-                    if(b.getDirection() != Block.direction_full)
+                    if (b.getDirection() != Block.direction_full)
                     {
                         torn_number = rnd.Next(3, b.getHeight());
                         position = b.getFinishX();
@@ -196,14 +202,14 @@ namespace GameProject
 
                 if (b.getDirection() == Block.direction_full)
                 {
-                    
+
                     starting_block = rnd.Next(1, height / 2);
                     torn_number = rnd.Next(1, height - 2);
                     int sides = rnd.Next(0, 4);
-                    if(sides == 0)
+                    if (sides == 0)
                     {
                         position = b.getStartX() - 1;
-                        for (int i = starting_block; i< starting_block + torn_number && i < height-2; i++)
+                        for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
                         {
                             if (buffer[i, position + 1] != ' ') buffer[i, position] = '#';
                             else break;
@@ -222,5 +228,99 @@ namespace GameProject
             }
             return buffer;
         }
+
+        public char[,] GapGenertor(char[,] buffer, int height, int width, List<Block> blockList)
+        {
+            Random rnd = new Random();
+            int length = 0;
+            int isGapRoll = 0;
+            int j = 1;
+            bool isGap = false;
+            bool wasGap = false;
+
+            foreach (Block b in blockList) if (string.Equals(b.getDirection(), "down") == false)
+                {
+
+                    while (j < b.getStartX())
+                    {
+                        isGapRoll = rnd.Next(1, 100);
+                        length = rnd.Next(1, 5);
+
+                        if (wasGap == true)
+                        {
+                            j += length;
+                            wasGap = false;
+                        }
+                        else
+                        {
+                            if (isGapRoll < 20) isGap = true;
+
+                            if (isGap == true)
+                            {
+                                for (int k = 0; k < length; k++)
+                                {
+                                    if (j < b.getStartX()) buffer[0, j] = '\u035E';
+                                    j++;
+                                }
+                                wasGap = true;
+                            }
+                            else
+                            {
+                                j += (length - 1);
+                                wasGap = false;
+                            }
+                        }
+
+                    }
+                    j = b.getFinishX() + 1;
+                }
+
+            isGap = false;
+            wasGap = false;
+            isGapRoll = 0;
+            j = 5;
+            length = 0;
+
+            foreach (Block b in blockList) if (string.Equals(b.getDirection(), "up") == false)
+                {
+
+                    while (j < b.getStartX())
+                    {
+                        isGapRoll = rnd.Next(1, 100);
+                        length = rnd.Next(1, 5);
+
+                        if (wasGap == true)
+                        {
+                            j += length;
+                            wasGap = false;
+                        }
+                        else
+                        {
+                            if (isGapRoll < 51) isGap = true;
+
+                            if (isGap == true)
+                            {
+                                for (int k = 0; k < length; k++)
+                                {
+                                    if (j < b.getStartX()) buffer[height - 1, j] = '_';
+                                    j++;
+                                }
+                                wasGap = true;
+                            }
+                            else
+                            {
+                                j += (length - 1);
+                                wasGap = false;
+                            }
+                        }
+
+                    }
+                    j = b.getFinishX() + 1;
+                }
+            return buffer;
+        }
+
     }
 }
+
+
