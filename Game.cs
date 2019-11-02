@@ -11,7 +11,7 @@ namespace GameProject
         public void Start()
         {   
             Console.CursorVisible = false;
-            Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
+            Champion champ = new Champion(1, Screen.getHeight() - 2,Screen.getHeight(),Screen.getWidth()); // tworzenie nowej postaci
 
             Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
             while (true)
@@ -74,27 +74,27 @@ namespace GameProject
                         champ.MoveChamp(1, 0);
                         if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         else champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(20); //delay
+                       // System.Threading.Thread.Sleep(20); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
                         if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         else champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(20); //delay
+                        //System.Threading.Thread.Sleep(20); //delay
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
                         champ.MoveChamp(0, 1);
 
-                        System.Threading.Thread.Sleep(30); //delay
+                        //System.Threading.Thread.Sleep(30); //delay
 
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
                         champ.MoveChamp(0, -1);
 
-                        System.Threading.Thread.Sleep(30); //delay
+                        //System.Threading.Thread.Sleep(30); //delay
 
                         break;
 

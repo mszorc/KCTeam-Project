@@ -287,8 +287,8 @@ namespace GameProject
                 }
                 Console.WriteLine();
             }
-            
-            Console.WriteLine("Try number: {0}",champ.lifeNo); //do zrobienia
+            //Console.WriteLine();
+            Console.WriteLine("Try: {0}",champ.lifeNo); //do zrobienia
         }
 
 

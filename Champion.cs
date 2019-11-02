@@ -12,11 +12,15 @@ namespace GameProject
         private string directionDown = "DOWN";
         private string direction = "null";
         public int lifeNo = 1;
+        public int WindowHeight = 0;
+        public int WindowWidth = 0;
 
-        public Champion(int x, int y)
+        public Champion(int x, int y,int height,int width)
         {
             pos_x = x;
             pos_y = y;
+            WindowHeight = height;
+            WindowWidth = width;
         }
 
         public int getPosX()
@@ -90,10 +94,21 @@ namespace GameProject
             {
                 return false;
             }
-            if (Screen.getChar(x, y + 1) == '_'|| Screen.getChar(x,y-1) == '\u035E') LoseHealth();
+            if (Screen.getChar(x, y + 1) == '_'|| Screen.getChar(x,y-1) == '\u035E')
+            {
+                LoseHealth();
+                Console.SetCursorPosition(0, WindowHeight);
+                Console.WriteLine("Try: {0}", lifeNo);
+            }
             if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593')
             {
-                if (Screen.getChar(x, y) != '\u2588') LoseHealth();
+                System.Threading.Thread.Sleep(30);
+                if (Screen.getChar(x, y) != '\u2588')
+                {
+                    LoseHealth();
+                    Console.SetCursorPosition(0,WindowHeight);
+                    Console.WriteLine("Try: {0}", lifeNo);
+                }
                 return false;
             }
 
@@ -110,6 +125,7 @@ namespace GameProject
         {
             if (CanMove(pos_x + x, pos_y + y))
             {
+                //System.Threading.Thread.Sleep(30);
                 RemoveChamp(pos_x, pos_y);
                 Console.Write(Screen.getChar(Console.CursorLeft, Console.CursorTop));
                 Console.SetCursorPosition(pos_x + x, pos_y + y);
@@ -120,6 +136,7 @@ namespace GameProject
             }
             else
             {
+                //System.Threading.Thread.Sleep(30);
                 Console.SetCursorPosition(pos_x, pos_y);
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
