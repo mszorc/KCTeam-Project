@@ -42,9 +42,9 @@ namespace GameProject
             return screen[y, x];
         }
 
-        public static void setChar(int x, int y)
+        public static void setChar(int x, int y, char c)
         {
-            screen[y, x] = ' ';
+            screen[y, x] = c;
         }
 
         public static void ChangeMap(bool state)
@@ -93,7 +93,7 @@ namespace GameProject
             }
 
             buffer = l.BlocksGenerator(buffer, height, width);
-
+            buffer = l.PointsGenerator(buffer, height, width);
             return buffer;
         }
 
@@ -333,7 +333,7 @@ namespace GameProject
                 Console.WriteLine();
             }
             //Console.WriteLine();
-            Console.WriteLine("Try: {0} Points: {1}", champ.lifeNo, champ.getPoints()); //do zrobienia
+            Console.WriteLine("Health: {0} Points: {1}", champ.getHealth(), champ.getPoints()); //do zrobienia
         }
 
 
