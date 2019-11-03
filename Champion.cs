@@ -117,7 +117,11 @@ namespace GameProject
 
             if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
             {
-                if (x >= Screen.getFinishX() || y >= Screen.getFinishY()) Screen.ChangeMap(true);
+                if (x >= Screen.getFinishX() || y >= Screen.getFinishY())
+                {
+                    Screen.ChangeMap(true);
+                    if (Screen.getLevel() < 15) Screen.setLevel(Screen.getLevel() + 3);
+                }
                 return false;
             }
             return true;
