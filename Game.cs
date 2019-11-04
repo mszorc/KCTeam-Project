@@ -10,7 +10,7 @@ namespace GameProject
 
         public void Start()
         {   
-            //Console.CursorVisible = false;
+            Console.CursorVisible = false;
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
 
             Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
@@ -51,8 +51,6 @@ namespace GameProject
             ConsoleKeyInfo key;
             while (true)
             {
-
-                Console.Clear();
                 Screen.DisplayMenu(pos);
                 key = Console.ReadKey();
                 switch (key.Key)
@@ -98,16 +96,18 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+                        //champ.MoveChamp(0, 0);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+                        //champ.MoveChamp(0, 0);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         break;
@@ -139,17 +139,17 @@ namespace GameProject
                         {
                             champ.MoveChamp(0, -1);
                             if (!champ.CanMove(champ.getPosX(), champ.getPosY() - 1)) break;
-                            System.Threading.Thread.Sleep(30);
+                            //System.Threading.Thread.Sleep(30);
 
                         }
                         else
                         {
                             champ.MoveChamp(0, 1);
                             if (!champ.CanMove(champ.getPosX(), champ.getPosY() + 1)) break;
-                            System.Threading.Thread.Sleep(30);
+                            //System.Threading.Thread.Sleep(30);
 
                         }
-                        System.Threading.Thread.Sleep(40);
+                        System.Threading.Thread.Sleep(60);
                         
                     }
                     move = true;

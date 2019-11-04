@@ -218,7 +218,7 @@ namespace GameProject
                 Console.WriteLine();
             }
             //Console.WriteLine();
-            Console.WriteLine("Health: {0} Points: {1}", champ.getHealth(), champ.getPoints()); //do zrobienia
+            Console.WriteLine("Health: {0} Points: {1} Level: {2}", champ.getHealth(), champ.getPoints(),level); 
         }
 
 

@@ -275,7 +275,7 @@ namespace GameProject
                         }
                         else
                         {
-                            if (isGapRoll < 20) isGap = true;
+                            if (isGapRoll < 51) isGap = true;
 
                             if (isGap == true)
                             {
