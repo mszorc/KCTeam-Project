@@ -51,6 +51,7 @@ namespace GameProject
             ConsoleKeyInfo key;
             while (true)
             {
+                
                 Screen.DisplayMenu(pos);
                 key = Console.ReadKey();
                 switch (key.Key)
@@ -68,8 +69,12 @@ namespace GameProject
                     case ConsoleKey.Enter:
                         if (pos == 1) Start(); //zacznij gre
                         if (pos == 2) Ranking(); //ranking
-                        if (pos == 3) Credits(); //napisy
-                        if (pos == 4) 
+                        if (pos == 3)
+                        {
+                            Credits(); //napisy
+                            Console.Clear();
+                        }
+                            if (pos == 4) 
                         {
                             RankingFile.WriteToFile();
                             Environment.Exit(0); //wyjdz z gry
