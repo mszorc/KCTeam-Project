@@ -95,29 +95,28 @@ namespace GameProject
 
         public bool CanMove(int x, int y)
         {
-            //Console.SetCursorPosition(x, y);
-            //Console.Write(Screen.getChar(x, y));
-            /*if (x < 1 || x >= Screen.getWidth() - 1)
-            {
-                return false;
-            }
-            if (y < 1 || y >= Screen.getHeight() - 1)
-            {
-                return false;
-            }*/
+            //if (Screen.getChar(getPosX(), getPosY()) == '_' || Screen.getChar(getPosX(), getPosY()) == '\u035E')
+            //{
+            //    LoseHealth();
+            //    Console.SetCursorPosition(0, WindowHeight);
+            //    Console.WriteLine("Health: {0} Points: {1}", health, points);
+
+            //    return;
+            //}
+
             if (Screen.getChar(x, y) == '\u2593') return false;
-            
-            if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
-            {
-                //System.Threading.Thread.Sleep(30);
-                if (Screen.getChar(x, y) != '\u2588')
-                {
-                    LoseHealth();
-                    Console.SetCursorPosition(0,WindowHeight);
-                    Console.WriteLine("Health: {0} Points: {1}", health, points);
-                }
-                return false;
-            }
+
+            //if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
+            //{
+            //    System.Threading.Thread.Sleep(30);
+            //    if (Screen.getChar(x, y) != '\u2588')
+            //    {
+            //        LoseHealth();
+            //        Console.SetCursorPosition(0, WindowHeight);
+            //        Console.WriteLine("Health: {0} Points: {1}", health, points);
+            //    }
+            //    return false;
+            //}
 
             if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
             {
@@ -133,16 +132,20 @@ namespace GameProject
 
         public void MoveChamp(int x, int y)
         {
-            if (CanMove(pos_x + x, pos_y + y))
+
+            if (Screen.getChar(pos_x + x, pos_y + y) != ' ' && Screen.getChar(pos_x + x, pos_y + y) != '\u2593' && Screen.getChar(pos_x + x, pos_y + y) != '*')
             {
-                if (Screen.getChar(getPosX(), getPosY() + 1) == '_' || Screen.getChar(getPosX(), getPosY() - 1) == '\u035E')
+                //System.Threading.Thread.Sleep(30);
+                if (Screen.getChar(pos_x + x, pos_y + y) != '\u2588')
                 {
                     LoseHealth();
                     Console.SetCursorPosition(0, WindowHeight);
                     Console.WriteLine("Health: {0} Points: {1}", health, points);
-
-                    return;
                 }
+                return;
+            }
+            if (CanMove(pos_x + x, pos_y + y))
+            {
                 RemoveChamp(pos_x, pos_y);
                 Console.Write(Screen.getChar(Console.CursorLeft, Console.CursorTop));
                 pos_x += x;
@@ -154,29 +157,23 @@ namespace GameProject
                 else
                 {
                     incrementPoints();
-                    //Console.Write(' ');
                     Screen.setChar(pos_x, pos_y, ' ');
                     Console.SetCursorPosition(0, WindowHeight);
                     Console.WriteLine("Health: {0} Points: {1}", health, points);
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
-                //System.Threading.Thread.Sleep(30);
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
             }
             else
             {
-                if (Screen.getChar(getPosX(), getPosY() + 1) == '_' || Screen.getChar(getPosX(), getPosY() - 1) == '\u035E')
-                {
-                    LoseHealth();
-                    Console.SetCursorPosition(0, WindowHeight);
-                    Console.WriteLine("Health: {0} Points: {1}", health, points);
-                    return;
-                }
                 Console.SetCursorPosition(pos_x, pos_y);
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
             }
+            
+
+
         }
 
         public void LoseHealth()

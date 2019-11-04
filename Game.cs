@@ -96,16 +96,16 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         break;
