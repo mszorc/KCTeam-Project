@@ -41,6 +41,7 @@ namespace GameProject
             Console.Clear();
             string name = Console.ReadLine();
             RankingFile.AddToList(name, champ.getPoints());
+            Console.Clear();
         }
 
         public void Ranking()
@@ -70,7 +71,11 @@ namespace GameProject
                         break;
                     case ConsoleKey.Enter:
                         if (pos == 1) Start(); //zacznij gre
-                        if (pos == 2) Ranking(); //ranking
+                        if (pos == 2)
+                        {
+                            Ranking(); //ranking
+                            Console.Clear();
+                        }
 
                         if (pos == 3)
                         {
@@ -96,8 +101,9 @@ namespace GameProject
             ConsoleKeyInfo key;
             Console.SetCursorPosition(champ.getPosX(), champ.getPosY());
             Console.Write(champ.model);
-            while (!Screen.getChange())
+            while (!Screen.getChange() && champ.getHealth()>0)
             {
+               
                 key = Console.ReadKey();
 
                 switch (key.Key)
@@ -105,7 +111,7 @@ namespace GameProject
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
 
-                        //champ.MoveChamp(0, 0);
+                        
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
 
@@ -116,7 +122,6 @@ namespace GameProject
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
 
-                        //champ.MoveChamp(0, 0);
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
 
@@ -125,15 +130,9 @@ namespace GameProject
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
-                        champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(50); //delay
-
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
-                        champ.MoveChamp(0, -1);
-                        System.Threading.Thread.Sleep(50); //delay
-
                         break;
 
                     case ConsoleKey.Escape:
@@ -166,8 +165,8 @@ namespace GameProject
                     }
                     move = true;
                 }
-                if (champ.getHealth() <= 0) break;
-                
+               // if (champ.getHealth() <= 0) break;
+
             }
             Screen.ChangeMap(false);
         }

@@ -97,26 +97,6 @@ namespace GameProject
 
         public bool CanMove(int x, int y)
         {
-
-
-            //if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
-            //{
-            //    //System.Threading.Thread.Sleep(30);
-            //    if (Screen.getChar(x, y) != '\u2588') //block
-            //    {
-            //        LoseHealth();
-            //        Console.SetCursorPosition(0, WindowHeight);
-            //        Console.WriteLine("Health: {0} Points: {1}", health, points);
-            //    }
-            //    else
-            //    {
-            //        Screen.setChar(x, y, '\u2588');
-            //        Console.SetCursorPosition(pos_x, pos_y);
-                    
-            //    }
-
-            //    return false;
-            //}
             if (Screen.getChar(x, y) == '\u2593') return false;
 
             if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
@@ -136,7 +116,6 @@ namespace GameProject
 
             if (Screen.getChar(pos_x + x, pos_y + y) != ' ' && Screen.getChar(pos_x + x, pos_y + y) != '\u2593' && Screen.getChar(pos_x + x, pos_y + y) != '*')
             {
-                System.Threading.Thread.Sleep(30);
                 if (Screen.getChar(pos_x + x, pos_y + y) != '\u2588') //block
                 {
                     LoseHealth();
@@ -147,8 +126,9 @@ namespace GameProject
                 {
                     Screen.setChar(pos_x + x, pos_y + y, '\u2588');
                     Console.SetCursorPosition(pos_x, pos_y);
+                    Console.Write(model);
+                    Console.SetCursorPosition(pos_x, pos_y);
                 }
-
                 return;
             }
 
@@ -181,9 +161,6 @@ namespace GameProject
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
             }
-
-
-
         }
 
         public void LoseHealth()
@@ -195,6 +172,7 @@ namespace GameProject
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(model);
             health--;
+
         }
 
         private static void RemoveChamp(int x, int y)

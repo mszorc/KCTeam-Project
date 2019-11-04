@@ -186,23 +186,6 @@ namespace GameProject
             //RankingFile.ReadFromFile();
 
         }
-        public static void DisplayRanking()
-        {
-            //screen = FillRanking();
-            Console.Clear();
-            Console.SetCursorPosition(0, 0);
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.CursorVisible = false;
-            List<SplitData> placements = RankingFile.getPlacements();
-            
-            foreach(var placement in placements)
-            {
-                Console.WriteLine(placement.name + ' ' + placement.score);
-            }
-            Console.SetCursorPosition(0, 0);
-            //RankingFile.ReadFromFile();
-
-        }
 
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze
         {
