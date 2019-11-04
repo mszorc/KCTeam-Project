@@ -99,7 +99,7 @@ namespace GameProject
                         if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         else champ.MoveChamp(0, 1);
                         move = true;
-                        System.Threading.Thread.Sleep(50); //delay
+                        //System.Threading.Thread.Sleep(50); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
@@ -107,7 +107,7 @@ namespace GameProject
                         if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         else champ.MoveChamp(0, 1);
                         move = true;
-                        System.Threading.Thread.Sleep(50); //delay
+                        //System.Threading.Thread.Sleep(50); //delay
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
@@ -152,19 +152,8 @@ namespace GameProject
                     }
                     move = true;
                 }
+                if (champ.getHealth() <= 0) break;
                 
-                if (champ.getHealth() <= 0)
-                {
-                    RankingFile.Write(Convert.ToString(champ.getPoints()));
-                    break;
-                }
-                
-                if (champ.getHealth() <= 0)
-                {
-                    //RankingFile.Write(Convert.ToString(champ.getPoints()));
-                    break;
-
-                }
             }
             Screen.ChangeMap(false);
         }

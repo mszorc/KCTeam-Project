@@ -109,7 +109,7 @@ namespace GameProject
             
             if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
             {
-                System.Threading.Thread.Sleep(30);
+                //System.Threading.Thread.Sleep(30);
                 if (Screen.getChar(x, y) != '\u2588')
                 {
                     LoseHealth();
@@ -160,7 +160,7 @@ namespace GameProject
                     Console.WriteLine("Health: {0} Points: {1}", health, points);
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
-                System.Threading.Thread.Sleep(30);
+                //System.Threading.Thread.Sleep(30);
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
             }
