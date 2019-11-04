@@ -12,7 +12,6 @@ namespace GameProject
         private string directionDown = "DOWN";
         private string direction = "null";
         private int health;
-        
         public int WindowHeight = 0;
         public int WindowWidth = 0;
 
@@ -73,6 +72,11 @@ namespace GameProject
             return health;
         }
 
+        public void setHealth(int health)
+        {
+            this.health = health;
+        }
+
         public bool isDirectionDown()
         {
             if (direction == directionDown) return true;
@@ -105,7 +109,7 @@ namespace GameProject
             
             if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
             {
-                System.Threading.Thread.Sleep(30);
+                //System.Threading.Thread.Sleep(30);
                 if (Screen.getChar(x, y) != '\u2588')
                 {
                     LoseHealth();
@@ -117,7 +121,11 @@ namespace GameProject
 
             if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
             {
-                if (x >= Screen.getFinishX() || y >= Screen.getFinishY()) Screen.ChangeMap(true);
+                if (x >= Screen.getFinishX() || y >= Screen.getFinishY())
+                {
+                    Screen.ChangeMap(true);
+                    if (Screen.getLevel() < 15) Screen.setLevel(Screen.getLevel() + 3);
+                }
                 return false;
             }
             return true;
@@ -132,6 +140,7 @@ namespace GameProject
                     LoseHealth();
                     Console.SetCursorPosition(0, WindowHeight);
                     Console.WriteLine("Health: {0} Points: {1}", health, points);
+
                     return;
                 }
                 RemoveChamp(pos_x, pos_y);
@@ -145,13 +154,13 @@ namespace GameProject
                 else
                 {
                     incrementPoints();
-                    Console.Write(' ');
-                    Screen.setChar(pos_x, pos_y);
+                    //Console.Write(' ');
+                    Screen.setChar(pos_x, pos_y, ' ');
                     Console.SetCursorPosition(0, WindowHeight);
                     Console.WriteLine("Health: {0} Points: {1}", health, points);
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
-                System.Threading.Thread.Sleep(30);
+                //System.Threading.Thread.Sleep(30);
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
             }
