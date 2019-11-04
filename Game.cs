@@ -96,6 +96,7 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
+                        //champ.MoveChamp(0, 0);
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
                         move = true;
@@ -104,6 +105,7 @@ namespace GameProject
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
+                        //champ.MoveChamp(0, 0);
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
                         move = true;
