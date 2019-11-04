@@ -84,6 +84,7 @@ namespace GameProject
 
         public void Move(Champion champ)
         {
+            bool move = true;
             ConsoleKeyInfo key;
             Console.SetCursorPosition(champ.getPosX(), champ.getPosY());
             Console.Write(champ.model);
@@ -95,30 +96,29 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        //else champ.MoveChamp(0, 1);
-
-                        System.Threading.Thread.Sleep(20); //delay
-
+                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        else champ.MoveChamp(0, 1);
+                        move = true;
+                        System.Threading.Thread.Sleep(50); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        //else champ.MoveChamp(0, 1);
-
-                        //System.Threading.Thread.Sleep(20); //delay
+                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        else champ.MoveChamp(0, 1);
+                        move = true;
+                        System.Threading.Thread.Sleep(50); //delay
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
                         champ.MoveChamp(0, 1);
-                        //System.Threading.Thread.Sleep(30); //delay
+                        System.Threading.Thread.Sleep(50); //delay
 
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
                         champ.MoveChamp(0, -1);
-                        //System.Threading.Thread.Sleep(30); //delay
+                        System.Threading.Thread.Sleep(50); //delay
 
                         break;
 
@@ -131,21 +131,32 @@ namespace GameProject
                 }
                 while (!Console.KeyAvailable)
                 {
-                    if (champ.isDirectionUp())
+                    if (move)
                     {
-                        champ.MoveChamp(0, -1);
-                        if (!champ.CanMove(champ.getPosX(), champ.getPosY() - 1)) break; 
-                        //System.Threading.Thread.Sleep(30);
+                        if (champ.isDirectionUp())
+                        {
+                            champ.MoveChamp(0, -1);
+                            if (!champ.CanMove(champ.getPosX(), champ.getPosY() - 1)) break;
+                            //System.Threading.Thread.Sleep(30);
 
-                    }
-                    else
-                    {
-                        champ.MoveChamp(0, 1);
-                        if (!champ.CanMove(champ.getPosX(), champ.getPosY() + 1)) break;
-                        //System.Threading.Thread.Sleep(30);
+                        }
+                        else
+                        {
+                            champ.MoveChamp(0, 1);
+                            if (!champ.CanMove(champ.getPosX(), champ.getPosY() + 1)) break;
+                            //System.Threading.Thread.Sleep(30);
 
+                        }
+                        System.Threading.Thread.Sleep(60);
+                        
                     }
-                    System.Threading.Thread.Sleep(50);
+                    move = true;
+                }
+                
+                if (champ.getHealth() <= 0)
+                {
+                    RankingFile.Write(Convert.ToString(champ.getPoints()));
+                    break;
                 }
                 
                 if (champ.getHealth() <= 0)

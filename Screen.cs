@@ -16,6 +16,17 @@ namespace GameProject
         private static int finishX = width - 4;
         private static int finishY = height - 4;
         private static bool change = false;
+        private static int level = 0;
+
+        public static void setLevel(int lvl)
+        {
+            level = lvl;
+        }
+
+        public static int getLevel()
+        {
+            return level;
+        }
 
         public static int getFinishX()
         {
@@ -204,12 +215,12 @@ namespace GameProject
             }
             return buffer;
         }
-        /*
+
         public static char[,] FillRanking()
         {
             char[,] buffer = new char[height, width];
             return buffer;
-        }*/
+        }
 
         public static void DisplayMenu(int position)
         {
@@ -217,7 +228,6 @@ namespace GameProject
             //Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
-            //Console.Clear();
             Console.SetCursorPosition(0, 0);
             
             for (int i = 0; i < height; i++)
@@ -294,6 +304,7 @@ namespace GameProject
             }
             Console.SetCursorPosition(0, 0);
             //RankingFile.ReadFromFile();
+
         }
 
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze
