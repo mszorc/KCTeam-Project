@@ -177,7 +177,7 @@ namespace GameProject
                     }
                 }
 
-                if (b.getDirection() == Block.direction_full)
+                if (b.getDirection() == Block.direction_full && Screen.getLevel()>10)
                 {
 
                     starting_block = rnd.Next(1, height / 2);
