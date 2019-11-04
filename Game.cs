@@ -12,7 +12,7 @@ namespace GameProject
         {   
             Console.CursorVisible = false;
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
-
+            Screen.setLevel(1);
             Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
             while (champ.getHealth() > 0)
             {

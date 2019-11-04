@@ -16,7 +16,7 @@ namespace GameProject
         private static int finishX = width - 4;
         private static int finishY = height - 4;
         private static bool change = false;
-        private static int level = 0;
+        private static int level = 1;
 
         public static void setLevel(int lvl)
         {

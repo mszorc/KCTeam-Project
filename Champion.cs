@@ -103,7 +103,7 @@ namespace GameProject
                 {
                     LoseHealth();
                     Console.SetCursorPosition(0, WindowHeight);
-                    Console.WriteLine("Health: {0} Points: {1}", health, points);
+                    Console.WriteLine("Health: {0} Points: {1} Level: {2}", health, points,Screen.getLevel());
                 }
                 else
                 {
@@ -120,7 +120,7 @@ namespace GameProject
                 if (x >= Screen.getFinishX() || y >= Screen.getFinishY())
                 {
                     Screen.ChangeMap(true);
-                    if (Screen.getLevel() < 15) Screen.setLevel(Screen.getLevel() + 3);
+                    if (Screen.getLevel() < 15) Screen.setLevel(Screen.getLevel() + 1);
                 }
                 return false;
             }
@@ -162,7 +162,7 @@ namespace GameProject
                     incrementPoints();
                     Screen.setChar(pos_x, pos_y, ' ');
                     Console.SetCursorPosition(0, WindowHeight);
-                    Console.WriteLine("Health: {0} Points: {1}", health, points);
+                    Console.WriteLine("Health: {0} Points: {1} Level: {2}", health, points, Screen.getLevel());
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
                 Console.Write(model);
