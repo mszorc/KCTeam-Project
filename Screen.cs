@@ -204,12 +204,12 @@ namespace GameProject
             }
             return buffer;
         }
-
+        /*
         public static char[,] FillRanking()
         {
             char[,] buffer = new char[height, width];
             return buffer;
-        }
+        }*/
 
         public static void DisplayMenu(int position)
         {
@@ -217,7 +217,7 @@ namespace GameProject
             //Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
-            Console.Clear();
+            //Console.Clear();
             Console.SetCursorPosition(0, 0);
             
             for (int i = 0; i < height; i++)
@@ -281,22 +281,19 @@ namespace GameProject
         }
         public static void DisplayRanking()
         {
-            screen = FillRanking();
+            //screen = FillRanking();
+            Console.Clear();
             Console.SetCursorPosition(0, 0);
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
-
+            List<SplitData> placements = RankingFile.getPlacements();
             
-            for (int i = 0; i < height; i++)
+            foreach(var placement in placements)
             {
-                for (int j = 0; j < width; j++)
-                {
-                    Console.Write(screen[i, j]);
-                }
-                Console.WriteLine();
+                Console.WriteLine(placement.name + ' ' + placement.score);
             }
             Console.SetCursorPosition(0, 0);
-            RankingFile.Read();
+            //RankingFile.ReadFromFile();
         }
 
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze

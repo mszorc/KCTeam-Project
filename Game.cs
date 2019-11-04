@@ -21,6 +21,7 @@ namespace GameProject
                 Move(champ);
                 if (champ.getHealth() > 0) champ.setHealth(3);
             }
+            AddPlacement(champ);
             Menu();
 
         }
@@ -28,6 +29,16 @@ namespace GameProject
         {
             Screen.DisplayCredits();
             Console.ReadKey();
+        }
+
+        public void AddPlacement(Champion champ)
+        {
+            Console.CursorVisible = true;
+            Console.SetCursorPosition(0, 0);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
+            string name = Console.ReadLine();
+            RankingFile.AddToList(name, champ.getPoints());
         }
 
         public void Ranking()
@@ -58,7 +69,11 @@ namespace GameProject
                         if (pos == 1) Start(); //zacznij gre
                         if (pos == 2) Ranking(); //ranking
                         if (pos == 3) Credits(); //napisy
-                        if (pos == 4) Environment.Exit(0); //wyjdz z gry
+                        if (pos == 4) 
+                        {
+                            RankingFile.WriteToFile();
+                            Environment.Exit(0); //wyjdz z gry
+                        }
                         break;
                     default:
                         Screen.DisplayMenu(pos);
@@ -108,7 +123,8 @@ namespace GameProject
                         break;
 
                     case ConsoleKey.Escape:
-                        //Console.Clear();
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.Clear();
                         Menu();
                         break;
 
@@ -134,7 +150,7 @@ namespace GameProject
                 
                 if (champ.getHealth() <= 0)
                 {
-                    RankingFile.Write(Convert.ToString(champ.getPoints()));
+                    //RankingFile.Write(Convert.ToString(champ.getPoints()));
                     break;
 
                 }
