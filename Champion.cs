@@ -98,6 +98,7 @@ namespace GameProject
         public bool CanMove(int x, int y)
         {
 
+
             //if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
             //{
             //    //System.Threading.Thread.Sleep(30);
@@ -150,6 +151,7 @@ namespace GameProject
 
                 return;
             }
+
             if (CanMove(pos_x + x, pos_y + y))
             {
                 RemoveChamp(pos_x, pos_y);
@@ -165,7 +167,9 @@ namespace GameProject
                     incrementPoints();
                     Screen.setChar(pos_x, pos_y, ' ');
                     Console.SetCursorPosition(0, WindowHeight);
-                    Console.WriteLine("Health: {0} Points: {1}", health, points);
+
+                    Console.WriteLine("Health: {0} Points: {1} Level: {2}", health, points, Screen.getLevel());
+
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
                 Console.Write(model);
