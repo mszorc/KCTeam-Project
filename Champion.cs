@@ -116,6 +116,7 @@ namespace GameProject
         {
 
             if (Screen.getChar(pos_x + x, pos_y + y) != ' ' && Screen.getChar(pos_x + x, pos_y + y) != '\u2593' && Screen.getChar(pos_x + x, pos_y + y) != '$')
+
             {
 
                 if (Screen.getChar(pos_x + x, pos_y + y) != '\u2588') //block
@@ -134,6 +135,7 @@ namespace GameProject
 
                 return;
             }
+
             if (CanMove(pos_x + x, pos_y + y))
             {
                 RemoveChamp(pos_x, pos_y);
@@ -174,12 +176,13 @@ namespace GameProject
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(model);
             health--;
+
         }
 
         private static void RemoveChamp(int x, int y)
         {
             Console.SetCursorPosition(x, y);
-            Console.BackgroundColor = ConsoleColor.DarkGray;
+            //Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.Write(' ');
             Console.SetCursorPosition(x, y);
         }

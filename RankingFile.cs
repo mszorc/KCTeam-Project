@@ -94,6 +94,7 @@ namespace GameProject
                         break;
                     case ConsoleKey.LeftArrow:
                         break;
+
                     default:
                         {
                             if (sb.Length < 3)

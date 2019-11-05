@@ -15,7 +15,11 @@ namespace GameProject
 
             Screen.setLevel(1);
 
+<<<<<<< HEAD
             Console.SetWindowSize(Screen.getWidth()+1, Screen.getHeight()+2);
+=======
+            Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
+>>>>>>> Piotr
             while (champ.getHealth() > 0)
             {
                 champ.setPosStart();
@@ -100,9 +104,7 @@ namespace GameProject
             {
                
                 key = Console.ReadKey(true);
-
-
-                switch (key.Key)
+		switch (key.Key)
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
@@ -141,6 +143,8 @@ namespace GameProject
                         Console.BackgroundColor = ConsoleColor.Black;
                         Console.Clear();
                         Menu();
+                        break;
+                    default:
                         break;
 
                 }

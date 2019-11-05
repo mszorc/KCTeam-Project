@@ -295,11 +295,11 @@ namespace GameProject
         public char[,] PointsGenerator(char[,] buffer, int height, int width) 
         {
             Random rnd = new Random();
+<<<<<<< HEAD
             int numOfPoints = rnd.Next(5, 10);
             int rndWidth = 0;
             int rndHeight = 0;
             for (int i = 0; i< numOfPoints; i++)
-
             {
                 while(buffer[rndHeight, rndWidth] != ' ')
                 {
@@ -308,6 +308,7 @@ namespace GameProject
                 }
                 buffer[rndHeight, rndWidth] = '$';
             }
+
             return buffer;
         }
     }

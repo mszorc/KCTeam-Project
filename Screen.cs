@@ -1,13 +1,15 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Drawing;
 
 
 namespace GameProject
 {
     public class Screen
     {
+
+        
+
         private static int width = 100;
 
         private static int height = 30;
@@ -17,6 +19,10 @@ namespace GameProject
         private static int finishY = height - 4;
         private static bool change = false;
         private static int level = 1;
+
+
+        public static WaveOutEvent waveOut = new WaveOutEvent();
+        public static WaveFileReader waveFileReader = new WaveFileReader("music.wav");
 
         public static void setLevel(int lvl)
         {
@@ -68,6 +74,8 @@ namespace GameProject
             return change;
         }
 
+        
+
         public static ConsoleColor pickColor() //losowy wybor kolorów
         {
             Random rnd = new Random();
@@ -107,12 +115,20 @@ namespace GameProject
             buffer = l.PointsGenerator(buffer, height, width);
             return buffer;
         }
+       
+        public static char[,] FillRanking()
+        {
+
+            char[,] buffer = new char[height, width];
+            return buffer;
+        }
 
         public static void DisplayMenu(int position)
         {
-
+            StopMusic();
             //Console.Clear();
             Console.CursorVisible = false;
+            
             Console.BackgroundColor = ConsoleColor.Black;
             Console.SetCursorPosition(0, 0);
             string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝldɯɐs", menu1 = "New Game", menu2 = "Ranking", menu3 = "Credits", menu4 = "Exit";
@@ -168,51 +184,148 @@ namespace GameProject
             Console.BackgroundColor = ConsoleColor.Black;
             //Console.CursorVisible = false;
             List<SplitData> placements = RankingFile.getPlacements();
-            Console.SetCursorPosition(middle, 2);
+
+            Console.SetCursorPosition(middle, 6);
+
             foreach(var placement in placements)
             {
                 Console.WriteLine(counter + ". " + placement.name + ' ' + placement.score);
                 Console.SetCursorPosition(middle, Console.CursorTop + 2);
                 counter++;
-            }
-            while (counter <= 10)
-            {
-                Console.WriteLine(counter + ". ");
-                Console.SetCursorPosition(middle, Console.CursorTop + 2);
-                counter++;
+
             }
             Console.SetCursorPosition(0, 0);
             //RankingFile.ReadFromFile();
 
         }
 
+        public class ScreenColor
+        {
+
+            public void ScreenBackground(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        break;
+                    case 2:
+                        Console.BackgroundColor = ConsoleColor.Cyan;
+                        break;
+                    case 3:
+                        Console.BackgroundColor = ConsoleColor.White;
+                        break;
+                    case 4:
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        break;
+                }
+            }
+            public void ScreenForeground(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        break;
+                    case 2:
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        break;
+                    case 3:
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        break;
+                    case 4:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        break;
+                }
+            }
+            public void ScreenBorder(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        break;
+                    case 2:
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        break;
+                    case 3:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        break;
+                    case 4:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        break;
+                }
+            }
+            public void ScreenGoal(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        break;
+                    case 2:
+                        Console.BackgroundColor = ConsoleColor.Magenta;
+                        break;
+                    case 3:
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        break;
+                    case 4:
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        break;
+                }
+            }
+        }
+        
+
+            public static void PlayMusic()
+            {
+                waveOut.Init(waveFileReader);
+                waveOut.Play();
+            //if (Equals(waveOut.PlaybackState, "Stopped")) waveOut.Play();
+            }
+            public static void StopMusic()
+            {
+                waveOut.Stop();
+            }
+        
+        
+
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze
         {
+            
+            StopMusic();
+            ScreenColor color = new ScreenColor();
+            Random rnd = new Random();
+            int roll = rnd.Next(1, 4);
+            int rollReggae = rnd.Next(1, 17);
+            if (rollReggae == 16) roll = 4;
+            ///int roll = 4;
             screen = Fill(champ);
             Console.SetCursorPosition(0, 0);
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-
-            //Console.CursorVisible = false;
+            //Console.BackgroundColor = ConsoleColor.DarkGray;
+            color.ScreenBackground(roll);
+            if (roll == 4) PlayMusic();
+            Console.CursorVisible = false;
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
                     if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
                     {
-                        Console.ForegroundColor = ConsoleColor.White;
+                        color.ScreenBorder(roll);
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        color.ScreenForeground(roll);
                     }
                     
                     if (i >= height - 4 && i < height - 1 && j >= width - 4 && j < width - 1)
                     {
-                        Console.BackgroundColor = ConsoleColor.Green;
+                        color.ScreenGoal(roll);
                     }
                     else
                     {
-                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        color.ScreenBackground(roll);
                     }
                     Console.Write(screen[i, j]);
 
@@ -221,8 +334,8 @@ namespace GameProject
             }
             //Console.WriteLine();
 
-            Console.WriteLine("Health: {0} Points: {1} Level: {2}", champ.getHealth(), champ.getPoints(),level); 
-
+            Console.WriteLine("Health: {0} Points: {1} Level: {2}", champ.getHealth(), champ.getPoints(),level);
+           
         }
 
 
