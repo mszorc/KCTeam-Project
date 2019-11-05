@@ -50,7 +50,7 @@ namespace GameProject
             {
                 
                 Screen.DisplayMenu(pos);
-                key = Console.ReadKey();
+                key = Console.ReadKey(true);
                 switch (key.Key)
                 {
                     case ConsoleKey.UpArrow:

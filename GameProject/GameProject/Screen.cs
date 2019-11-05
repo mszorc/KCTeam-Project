@@ -113,13 +113,6 @@ namespace GameProject
             buffer = l.PointsGenerator(buffer, height, width);
             return buffer;
         }
-       
-        public static char[,] FillRanking()
-        {
-
-            char[,] buffer = new char[height, width];
-            return buffer;
-        }
 
         public static void DisplayMenu(int position)
         {
@@ -191,6 +184,12 @@ namespace GameProject
                 Console.SetCursorPosition(middle+4, Console.CursorTop + 2);
                 counter++;
 
+            }
+            while(counter <= 10)
+            {
+                Console.WriteLine(counter + ". ");
+                Console.SetCursorPosition(middle + 4, Console.CursorTop + 2);
+                counter++;
             }
             Console.SetCursorPosition(0, 0);
             //RankingFile.ReadFromFile();
