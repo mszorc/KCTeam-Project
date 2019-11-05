@@ -20,6 +20,10 @@ namespace GameProject
         private static bool change = false;
         private static int level = 1;
 
+
+        public static WaveOutEvent waveOut = new WaveOutEvent();
+        public static WaveFileReader waveFileReader = new WaveFileReader("music.wav");
+
         public static void setLevel(int lvl)
         {
             level = lvl;
@@ -122,7 +126,7 @@ namespace GameProject
 
         public static void DisplayMenu(int position)
         {
-           
+            StopMusic();
             //Console.Clear();
             Console.CursorVisible = false;
             
@@ -269,27 +273,37 @@ namespace GameProject
                 }
             }
         }
+        
 
-        public static void PlayMusic()
-        {
-            var waveOut = new WaveOutEvent();
-            WaveFileReader waveFileReader = new WaveFileReader("music.wav");
-            waveOut.Init(waveFileReader);
-            waveOut.Play();            
-        }
+            public static void PlayMusic()
+            {
+                waveOut.Init(waveFileReader);
+                waveOut.Play();
+            //if (Equals(waveOut.PlaybackState, "Stopped")) waveOut.Play();
+            }
+            public static void StopMusic()
+            {
+                waveOut.Stop();
+            }
+        
+        
 
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze
         {
+            
+            StopMusic();
             ScreenColor color = new ScreenColor();
             Random rnd = new Random();
-            int roll = rnd.Next(1, 5);
-            //int roll = 4;
+            int roll = rnd.Next(1, 4);
+            int rollReggae = rnd.Next(1, 17);
+            if (rollReggae == 16) roll = 4;
+            ///int roll = 4;
             screen = Fill(champ);
             Console.SetCursorPosition(0, 0);
             //Console.BackgroundColor = ConsoleColor.DarkGray;
             color.ScreenBackground(roll);
-            
-            //Console.CursorVisible = false;
+            if (roll == 4) PlayMusic();
+            Console.CursorVisible = false;
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
@@ -319,7 +333,7 @@ namespace GameProject
             //Console.WriteLine();
 
             Console.WriteLine("Health: {0} Points: {1} Level: {2}", champ.getHealth(), champ.getPoints(),level);
-            if (roll == 4) PlayMusic();
+           
         }
 
 
