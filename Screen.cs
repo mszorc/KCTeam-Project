@@ -108,14 +108,6 @@ namespace GameProject
             return buffer;
         }
 
-       
-        public static char[,] FillRanking()
-        {
-
-            char[,] buffer = new char[height, width];
-            return buffer;
-        }
-
         public static void DisplayMenu(int position)
         {
 
@@ -176,10 +168,16 @@ namespace GameProject
             Console.BackgroundColor = ConsoleColor.Black;
             //Console.CursorVisible = false;
             List<SplitData> placements = RankingFile.getPlacements();
-            Console.SetCursorPosition(middle, 6);
+            Console.SetCursorPosition(middle, 2);
             foreach(var placement in placements)
             {
                 Console.WriteLine(counter + ". " + placement.name + ' ' + placement.score);
+                Console.SetCursorPosition(middle, Console.CursorTop + 2);
+                counter++;
+            }
+            while (counter <= 10)
+            {
+                Console.WriteLine(counter + ". ");
                 Console.SetCursorPosition(middle, Console.CursorTop + 2);
                 counter++;
             }

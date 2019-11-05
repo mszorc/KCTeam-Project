@@ -7,7 +7,8 @@ namespace GameProject
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(100, 40);
+            //Console.SetWindowSize(100, 40);
+            Console.SetWindowSize(Screen.getWidth(), Screen.getHeight() + 2);
             RankingFile.ReadFromFile();
             Game g = new Game();
             Console.Title = "Sample Text Game";

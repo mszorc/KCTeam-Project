@@ -97,6 +97,7 @@ namespace GameProject
                
                 key = Console.ReadKey(true);
 
+
                 switch (key.Key)
                 {
                     case ConsoleKey.RightArrow:
