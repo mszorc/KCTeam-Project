@@ -1,0 +1,14 @@
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\hostpolicy.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\hostfxr.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\GameProject.exe
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\GameProject.deps.json
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\GameProject.runtimeconfig.json
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\GameProject.runtimeconfig.dev.json
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\GameProject.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\bin\Release\netcoreapp2.2\win-x64\GameProject.pdb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\obj\Release\netcoreapp2.2\win-x64\GameProject.csprojAssemblyReference.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\obj\Release\netcoreapp2.2\win-x64\GameProject.csproj.CoreCompileInputs.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\obj\Release\netcoreapp2.2\win-x64\GameProject.AssemblyInfoInputs.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\obj\Release\netcoreapp2.2\win-x64\GameProject.AssemblyInfo.cs
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\obj\Release\netcoreapp2.2\win-x64\GameProject.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt1\GameProject\GameProject\obj\Release\netcoreapp2.2\win-x64\GameProject.pdb
