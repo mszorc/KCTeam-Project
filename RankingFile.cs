@@ -86,6 +86,14 @@ namespace GameProject
                         break;
                     case ConsoleKey.Tab:
                         break;
+                    case ConsoleKey.UpArrow:
+                        break;
+                    case ConsoleKey.DownArrow:
+                        break;
+                    case ConsoleKey.RightArrow:
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        break;
                     default:
                         {
                             if (sb.Length < 3)

@@ -60,9 +60,11 @@ namespace GameProject
                         break;
                     case ConsoleKey.Enter:
                         if (pos == 1) Start(); //zacznij gre
+
                         if (pos == 2) //ranking
                         {
                             Ranking();
+
                             Console.Clear();
                         }
 
@@ -90,14 +92,16 @@ namespace GameProject
             ConsoleKeyInfo key;
             Console.SetCursorPosition(champ.getPosX(), champ.getPosY());
             Console.Write(champ.model);
-            while (!Screen.getChange())
+            while (!Screen.getChange() && champ.getHealth()>0)
             {
+               
                 key = Console.ReadKey();
 
                 switch (key.Key)
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
+
 
                         //champ.MoveChamp(0, 0);
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
@@ -110,7 +114,9 @@ namespace GameProject
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
 
+
                         //champ.MoveChamp(0, 0);
+
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
 
@@ -119,15 +125,11 @@ namespace GameProject
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
-                        champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(50); //delay
-
+                        champ.MoveChamp(0, 0);
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
-                        champ.MoveChamp(0, -1);
-                        System.Threading.Thread.Sleep(50); //delay
-
+                        champ.MoveChamp(0, 0);
                         break;
 
                     case ConsoleKey.Escape:
@@ -155,13 +157,13 @@ namespace GameProject
                             //System.Threading.Thread.Sleep(30);
 
                         }
-                        System.Threading.Thread.Sleep(60);
+                        System.Threading.Thread.Sleep(50);
                         
                     }
                     move = true;
                 }
-                if (champ.getHealth() <= 0) break;
-                
+               // if (champ.getHealth() <= 0) break;
+
             }
             Screen.ChangeMap(false);
         }
