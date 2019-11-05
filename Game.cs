@@ -13,6 +13,8 @@ namespace GameProject
             Console.CursorVisible = false;
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
 
+            Screen.setLevel(1);
+
             Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
             while (champ.getHealth() > 0)
             {
@@ -21,7 +23,7 @@ namespace GameProject
                 Move(champ);
                 if (champ.getHealth() > 0) champ.setHealth(3);
             }
-            AddPlacement(champ);
+            Screen.AddPlacement(champ);
             Menu();
 
         }
@@ -29,16 +31,6 @@ namespace GameProject
         {
             Screen.DisplayCredits();
             Console.ReadKey();
-        }
-
-        public void AddPlacement(Champion champ)
-        {
-            Console.CursorVisible = true;
-            Console.SetCursorPosition(0, 0);
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
-            string name = Console.ReadLine();
-            RankingFile.AddToList(name, champ.getPoints());
         }
 
         public void Ranking()
@@ -51,6 +43,7 @@ namespace GameProject
             ConsoleKeyInfo key;
             while (true)
             {
+                
                 Screen.DisplayMenu(pos);
                 key = Console.ReadKey();
                 switch (key.Key)
@@ -67,9 +60,18 @@ namespace GameProject
                         break;
                     case ConsoleKey.Enter:
                         if (pos == 1) Start(); //zacznij gre
-                        if (pos == 2) Ranking(); //ranking
-                        if (pos == 3) Credits(); //napisy
-                        if (pos == 4) 
+                        if (pos == 2) //ranking
+                        {
+                            Ranking();
+                            Console.Clear();
+                        }
+
+                        if (pos == 3)
+                        {
+                            Credits(); //napisy
+                            Console.Clear();
+                        }
+                            if (pos == 4) 
                         {
                             RankingFile.WriteToFile();
                             Environment.Exit(0); //wyjdz z gry
@@ -96,16 +98,22 @@ namespace GameProject
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+
+                        //champ.MoveChamp(0, 0);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
+
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
-                        if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
-                        else champ.MoveChamp(0, 1);
+
+                        //champ.MoveChamp(0, 0);
+                        //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
+                        //else champ.MoveChamp(0, 1);
+
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         break;

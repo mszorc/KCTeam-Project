@@ -177,7 +177,7 @@ namespace GameProject
                     }
                 }
 
-                if (b.getDirection() == Block.direction_full)
+                if (b.getDirection() == Block.direction_full && Screen.getLevel()>10)
                 {
 
                     starting_block = rnd.Next(1, height / 2);
@@ -215,7 +215,8 @@ namespace GameProject
             bool isGap = false;
             bool wasGap = false;
 
-            foreach (Block b in blockList) if (string.Equals(b.getDirection(), "down") == false)
+
+            foreach (Block b in blockList) //if (string.Equals(b.getDirection(), "down") == false)
                 {
 
                     while (j < b.getStartX())
@@ -231,7 +232,8 @@ namespace GameProject
                         }
                         else
                         {
-                            if (isGapRoll < 20) isGap = true;
+                            if (isGapRoll < 40) isGap = true;
+
 
                             if (isGap == true)
                             {
@@ -259,7 +261,8 @@ namespace GameProject
             j = 5;
             length = 0;
 
-            foreach (Block b in blockList) if (string.Equals(b.getDirection(), "up") == false)
+
+            foreach (Block b in blockList) //if (string.Equals(b.getDirection(), "up") == false)
                 {
 
                     while (j < b.getStartX())
@@ -275,7 +278,7 @@ namespace GameProject
                         }
                         else
                         {
-                            if (isGapRoll < 51) isGap = true;
+                            if (isGapRoll < 40) isGap = true;
 
                             if (isGap == true)
                             {
