@@ -27,7 +27,7 @@ namespace GameProject
                 else
                 {
                     double_block = rnd.Next(0, 100);
-                    if (double_block % 2 == 0)
+                    if (double_block % 2 == 0 && Screen.getLevel()>5)
                     {
                         direction = 2;
                         tmp_helper = rnd.Next(4, height - 4);
@@ -35,7 +35,7 @@ namespace GameProject
                     }
 
                 }
-                if (last_block_width + block_width >= width - 5)
+                if (last_block_width + block_width >= width - 6)
                 {
                     block_width = width - last_block_width - 5;
                     direction = 0;
@@ -97,9 +97,9 @@ namespace GameProject
         public char[,] TornsGenerator(char[,] buffer, int height, int width, List<Block> blockList)
         {
             Random rnd = new Random();
+            int counter = 0;
             foreach (Block b in blockList)
             {
-                int counter = 1;
                 if (Screen.getLevel() > counter)
                 {
                     counter++;
@@ -109,7 +109,7 @@ namespace GameProject
                 int torn_number = 0;
                 int position = 0;
                 int starting_block = 0;
-                if (torn_sets_number >= 1 && b.getDirection() != Block.direction_full)
+                if (torn_sets_number >= 1 && b.getDirection() != Block.direction_full && Screen.getLevel()>=0)
                 {
                     torn_number = rnd.Next(1, b.getWidth());
                     if (b.getDirection() == Block.direction_down) position = height - b.getHeight();

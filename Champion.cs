@@ -132,11 +132,9 @@ namespace GameProject
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
 
-                }
-
-
                 return;
             }
+        
 
             if (CanMove(pos_x + x, pos_y + y))
             {
@@ -194,3 +192,4 @@ namespace GameProject
 
     }
 }
+

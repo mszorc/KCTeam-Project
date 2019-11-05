@@ -125,9 +125,11 @@ namespace GameProject
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
+                        champ.MoveChamp(0, 0);
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
+                        champ.MoveChamp(0, 0);
                         break;
 
                     case ConsoleKey.Escape:
@@ -155,7 +157,7 @@ namespace GameProject
                             //System.Threading.Thread.Sleep(30);
 
                         }
-                        System.Threading.Thread.Sleep(60);
+                        System.Threading.Thread.Sleep(50);
                         
                     }
                     move = true;
