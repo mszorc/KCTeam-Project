@@ -1,13 +1,15 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Drawing;
 
 
 namespace GameProject
 {
     public class Screen
     {
+
+        
+
         private static int width = 100;
 
         private static int height = 30;
@@ -68,6 +70,8 @@ namespace GameProject
             return change;
         }
 
+        
+
         public static ConsoleColor pickColor() //losowy wybor kolorów
         {
             Random rnd = new Random();
@@ -111,14 +115,17 @@ namespace GameProject
        
         public static char[,] FillRanking()
         {
+
             char[,] buffer = new char[height, width];
             return buffer;
         }
 
         public static void DisplayMenu(int position)
         {
+           
             //Console.Clear();
             Console.CursorVisible = false;
+            
             Console.BackgroundColor = ConsoleColor.Black;
             Console.SetCursorPosition(0, 0);
             string title1 = "sample text game", title2 = "ǝɯɐƃ ʇxǝʇ ǝldɯɐs", menu1 = "New Game", menu2 = "Ranking", menu3 = "Credits", menu4 = "Exit";
@@ -166,30 +173,122 @@ namespace GameProject
             }
 
         }
+
         public static void DisplayRanking()
         {
-            //screen = FillRanking();
+            int counter = 1;
             Console.Clear();
-            Console.SetCursorPosition(0, 0);
             Console.BackgroundColor = ConsoleColor.Black;
             //Console.CursorVisible = false;
             List<SplitData> placements = RankingFile.getPlacements();
-            
+            Console.SetCursorPosition(middle, 6);
             foreach(var placement in placements)
             {
-                Console.WriteLine(placement.name + ' ' + placement.score);
+                Console.WriteLine(counter + ". " + placement.name + ' ' + placement.score);
+                Console.SetCursorPosition(middle, Console.CursorTop + 2);
+                counter++;
             }
             Console.SetCursorPosition(0, 0);
             //RankingFile.ReadFromFile();
 
         }
 
+        public class ScreenColor
+        {
+
+            public void ScreenBackground(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        break;
+                    case 2:
+                        Console.BackgroundColor = ConsoleColor.Cyan;
+                        break;
+                    case 3:
+                        Console.BackgroundColor = ConsoleColor.White;
+                        break;
+                    case 4:
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        break;
+                }
+            }
+            public void ScreenForeground(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        break;
+                    case 2:
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        break;
+                    case 3:
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        break;
+                    case 4:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        break;
+                }
+            }
+            public void ScreenBorder(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        break;
+                    case 2:
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        break;
+                    case 3:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        break;
+                    case 4:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        break;
+                }
+            }
+            public void ScreenGoal(int roll)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        break;
+                    case 2:
+                        Console.BackgroundColor = ConsoleColor.Magenta;
+                        break;
+                    case 3:
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        break;
+                    case 4:
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        break;
+                }
+            }
+        }
+
+        public static void PlayMusic()
+        {
+            var waveOut = new WaveOutEvent();
+            WaveFileReader waveFileReader = new WaveFileReader("music.wav");
+            waveOut.Init(waveFileReader);
+            waveOut.Play();            
+        }
+
         public static void DisplayGame(Champion champ) //wyswietlenie tego co w buforze
         {
+            ScreenColor color = new ScreenColor();
+            Random rnd = new Random();
+            int roll = rnd.Next(1, 5);
+            //int roll = 4;
             screen = Fill(champ);
             Console.SetCursorPosition(0, 0);
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-
+            //Console.BackgroundColor = ConsoleColor.DarkGray;
+            color.ScreenBackground(roll);
+            
             //Console.CursorVisible = false;
             for (int i = 0; i < height; i++)
             {
@@ -197,20 +296,20 @@ namespace GameProject
                 {
                     if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
                     {
-                        Console.ForegroundColor = ConsoleColor.White;
+                        color.ScreenBorder(roll);
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        color.ScreenForeground(roll);
                     }
                     
                     if (i >= height - 4 && i < height - 1 && j >= width - 4 && j < width - 1)
                     {
-                        Console.BackgroundColor = ConsoleColor.Green;
+                        color.ScreenGoal(roll);
                     }
                     else
                     {
-                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        color.ScreenBackground(roll);
                     }
                     Console.Write(screen[i, j]);
 
@@ -218,7 +317,9 @@ namespace GameProject
                 Console.WriteLine();
             }
             //Console.WriteLine();
-            Console.WriteLine("Health: {0} Points: {1} Level: {2}", champ.getHealth(), champ.getPoints(),level); 
+
+            Console.WriteLine("Health: {0} Points: {1} Level: {2}", champ.getHealth(), champ.getPoints(),level);
+            if (roll == 4) PlayMusic();
         }
 
 
@@ -251,6 +352,43 @@ namespace GameProject
 
                 Console.WriteLine();
             }
+        }
+
+        public static void AddPlacement(Champion champ)
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
+            var list = RankingFile.getPlacements();
+            Console.CursorVisible = true;
+            string points = "Great job! You got " + champ.getPoints() + " points!";
+            string signature = "Please enter your three letter signature: ";
+            Console.SetCursorPosition(width / 2 - points.Length / 2, height / 2 - 4);
+            Console.WriteLine(points);
+            if (list.Count < 10)
+            {
+                Console.SetCursorPosition(width / 2 - signature.Length / 2, height / 2 - 2);
+                Console.WriteLine(signature);
+                Console.SetCursorPosition(width / 2 - 1, height / 2);
+                string name = RankingFile.ReadThreeCharacters();
+                RankingFile.AddToList(name, champ.getPoints());
+                Console.Clear();
+                return;
+            }
+            if (list[list.Count - 1].score < champ.getPoints())
+            {
+                Console.SetCursorPosition(width / 2 - signature.Length / 2, height / 2 - 2);
+                Console.WriteLine(signature);
+                Console.SetCursorPosition(width / 2 - 1, height / 2);
+                string name = RankingFile.ReadThreeCharacters();
+                RankingFile.AddToList(name, champ.getPoints());
+            }
+            else
+            {
+                Console.CursorVisible = false;
+                Console.ReadKey();
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
         }
     }
 }

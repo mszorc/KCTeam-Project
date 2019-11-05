@@ -12,7 +12,9 @@ namespace GameProject
         {   
             Console.CursorVisible = false;
             Champion champ = new Champion(1, Screen.getHeight() - 2); // tworzenie nowej postaci
+
             Screen.setLevel(1);
+
             Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
             while (champ.getHealth() > 0)
             {
@@ -21,7 +23,7 @@ namespace GameProject
                 Move(champ);
                 if (champ.getHealth() > 0) champ.setHealth(3);
             }
-            AddPlacement(champ);
+            Screen.AddPlacement(champ);
             Menu();
 
         }
@@ -29,16 +31,6 @@ namespace GameProject
         {
             Screen.DisplayCredits();
             Console.ReadKey();
-        }
-
-        public void AddPlacement(Champion champ)
-        {
-            Console.CursorVisible = true;
-            Console.SetCursorPosition(0, 0);
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
-            string name = Console.ReadLine();
-            RankingFile.AddToList(name, champ.getPoints());
         }
 
         public void Ranking()
@@ -68,7 +60,14 @@ namespace GameProject
                         break;
                     case ConsoleKey.Enter:
                         if (pos == 1) Start(); //zacznij gre
-                        if (pos == 2) Ranking(); //ranking
+
+                        if (pos == 2) //ranking
+                        {
+                            Ranking();
+
+                            Console.Clear();
+                        }
+
                         if (pos == 3)
                         {
                             Credits(); //napisy
@@ -93,46 +92,51 @@ namespace GameProject
             ConsoleKeyInfo key;
             Console.SetCursorPosition(champ.getPosX(), champ.getPosY());
             Console.Write(champ.model);
-            while (!Screen.getChange())
+            while (!Screen.getChange() && champ.getHealth()>0)
             {
-                key = Console.ReadKey();
-
+               
+                key = Console.ReadKey(true);
                 switch (key.Key)
                 {
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
+
+
                         //champ.MoveChamp(0, 0);
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
+
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
+
+
                         //champ.MoveChamp(0, 0);
+
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
+
                         move = true;
                         //System.Threading.Thread.Sleep(50); //delay
                         break;
                     case ConsoleKey.DownArrow:
                         champ.setDirectionDown();
-                        champ.MoveChamp(0, 1);
-                        System.Threading.Thread.Sleep(50); //delay
-
+                        champ.MoveChamp(0, 0);
                         break;
                     case ConsoleKey.UpArrow:
                         champ.setDirectionUp();
-                        champ.MoveChamp(0, -1);
-                        System.Threading.Thread.Sleep(50); //delay
-
+                        champ.MoveChamp(0, 0);
                         break;
 
                     case ConsoleKey.Escape:
                         Console.BackgroundColor = ConsoleColor.Black;
                         Console.Clear();
                         Menu();
+                        break;
+                    default:
                         break;
 
                 }
@@ -154,13 +158,13 @@ namespace GameProject
                             //System.Threading.Thread.Sleep(30);
 
                         }
-                        System.Threading.Thread.Sleep(60);
+                        System.Threading.Thread.Sleep(50);
                         
                     }
                     move = true;
                 }
-                if (champ.getHealth() <= 0) break;
-                
+               // if (champ.getHealth() <= 0) break;
+
             }
             Screen.ChangeMap(false);
         }

@@ -93,26 +93,11 @@ namespace GameProject
             points++;
         }
 
+
+
         public bool CanMove(int x, int y)
         {
 
-            if (Screen.getChar(x, y) != ' ' && Screen.getChar(x, y) != '\u2593' && Screen.getChar(x, y) != '*')
-            {
-                //System.Threading.Thread.Sleep(30);
-                if (Screen.getChar(x, y) != '\u2588') //block
-                {
-                    LoseHealth();
-                    Console.SetCursorPosition(0, WindowHeight);
-                    Console.WriteLine("Health: {0} Points: {1} Level: {2}", health, points,Screen.getLevel());
-                }
-                else
-                {
-                    Screen.setChar(x, y, '\u2588');
-                    Console.SetCursorPosition(pos_x, pos_y);
-                }
-
-                return false;
-            }
             if (Screen.getChar(x, y) == '\u2593') return false;
 
             if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
@@ -120,7 +105,7 @@ namespace GameProject
                 if (x >= Screen.getFinishX() || y >= Screen.getFinishY())
                 {
                     Screen.ChangeMap(true);
-                    if (Screen.getLevel() < 15) Screen.setLevel(Screen.getLevel() + 1);
+                    Screen.setLevel(Screen.getLevel() + 1);
                 }
                 return false;
             }
@@ -130,23 +115,27 @@ namespace GameProject
         public void MoveChamp(int x, int y)
         {
 
-            //if (Screen.getChar(pos_x + x, pos_y + y) != ' ' && Screen.getChar(pos_x + x, pos_y + y) != '\u2593' && Screen.getChar(pos_x + x, pos_y + y) != '*')
-            //{
-            //    System.Threading.Thread.Sleep(30);
-            //    if (Screen.getChar(pos_x + x, pos_y + y) != '\u2588') //block
-            //    {
-            //        LoseHealth();
-            //        Console.SetCursorPosition(0, WindowHeight);
-            //        Console.WriteLine("Health: {0} Points: {1}", health, points);
-            //    }
-            //    else
-            //    {
-            //        Screen.setChar(pos_x + x, pos_y + y, '\u2588');
-            //        Console.SetCursorPosition(pos_x, pos_y);
-            //    }
+            if (Screen.getChar(pos_x + x, pos_y + y) != ' ' && Screen.getChar(pos_x + x, pos_y + y) != '\u2593' && Screen.getChar(pos_x + x, pos_y + y) != '*')
+            {
 
-            //    return;
-            //}
+                if (Screen.getChar(pos_x + x, pos_y + y) != '\u2588') //block
+                {
+                    LoseHealth();
+                    Console.SetCursorPosition(0, WindowHeight);
+                    Console.WriteLine("Health: {0} Points: {1}", health, points);
+                }
+                else
+                {
+                    Screen.setChar(pos_x + x, pos_y + y, '\u2588');
+                    Console.SetCursorPosition(pos_x, pos_y);
+                    Console.Write(model);
+                    Console.SetCursorPosition(pos_x, pos_y);
+                }
+
+                return;
+            }
+        
+
             if (CanMove(pos_x + x, pos_y + y))
             {
                 RemoveChamp(pos_x, pos_y);
@@ -162,7 +151,9 @@ namespace GameProject
                     incrementPoints();
                     Screen.setChar(pos_x, pos_y, ' ');
                     Console.SetCursorPosition(0, WindowHeight);
+
                     Console.WriteLine("Health: {0} Points: {1} Level: {2}", health, points, Screen.getLevel());
+
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
                 Console.Write(model);
@@ -188,15 +179,17 @@ namespace GameProject
             Console.SetCursorPosition(pos_x, pos_y);
             Console.Write(model);
             health--;
+
         }
 
         private static void RemoveChamp(int x, int y)
         {
             Console.SetCursorPosition(x, y);
-            Console.BackgroundColor = ConsoleColor.DarkGray;
+            //Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.Write(' ');
             Console.SetCursorPosition(x, y);
         }
 
     }
 }
+
