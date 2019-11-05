@@ -97,6 +97,7 @@ namespace GameProject
 
         public bool CanMove(int x, int y)
         {
+
             if (Screen.getChar(x, y) == '\u2593') return false;
 
             if (x >= Screen.getFinishX() && y >= Screen.getFinishY())
@@ -116,6 +117,7 @@ namespace GameProject
 
             if (Screen.getChar(pos_x + x, pos_y + y) != ' ' && Screen.getChar(pos_x + x, pos_y + y) != '\u2593' && Screen.getChar(pos_x + x, pos_y + y) != '*')
             {
+
                 if (Screen.getChar(pos_x + x, pos_y + y) != '\u2588') //block
                 {
                     LoseHealth();
@@ -129,6 +131,10 @@ namespace GameProject
                     Console.Write(model);
                     Console.SetCursorPosition(pos_x, pos_y);
                 }
+
+                }
+
+
                 return;
             }
 
@@ -161,6 +167,9 @@ namespace GameProject
                 Console.Write(model);
                 Console.SetCursorPosition(pos_x, pos_y);
             }
+
+
+
         }
 
         public void LoseHealth()

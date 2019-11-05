@@ -171,16 +171,17 @@ namespace GameProject
 
         public static void DisplayRanking()
         {
-            //screen = FillRanking();
+            int counter = 1;
             Console.Clear();
-            Console.SetCursorPosition(0, 0);
             Console.BackgroundColor = ConsoleColor.Black;
             //Console.CursorVisible = false;
             List<SplitData> placements = RankingFile.getPlacements();
-            
+            Console.SetCursorPosition(middle, 6);
             foreach(var placement in placements)
             {
-                Console.WriteLine(placement.name + ' ' + placement.score);
+                Console.WriteLine(counter + ". " + placement.name + ' ' + placement.score);
+                Console.SetCursorPosition(middle, Console.CursorTop + 2);
+                counter++;
             }
             Console.SetCursorPosition(0, 0);
             //RankingFile.ReadFromFile();
@@ -256,6 +257,43 @@ namespace GameProject
 
                 Console.WriteLine();
             }
+        }
+
+        public static void AddPlacement(Champion champ)
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
+            var list = RankingFile.getPlacements();
+            Console.CursorVisible = true;
+            string points = "Great job! You got " + champ.getPoints() + " points!";
+            string signature = "Please enter your three letter signature: ";
+            Console.SetCursorPosition(width / 2 - points.Length / 2, height / 2 - 4);
+            Console.WriteLine(points);
+            if (list.Count < 10)
+            {
+                Console.SetCursorPosition(width / 2 - signature.Length / 2, height / 2 - 2);
+                Console.WriteLine(signature);
+                Console.SetCursorPosition(width / 2 - 1, height / 2);
+                string name = RankingFile.ReadThreeCharacters();
+                RankingFile.AddToList(name, champ.getPoints());
+                Console.Clear();
+                return;
+            }
+            if (list[list.Count - 1].score < champ.getPoints())
+            {
+                Console.SetCursorPosition(width / 2 - signature.Length / 2, height / 2 - 2);
+                Console.WriteLine(signature);
+                Console.SetCursorPosition(width / 2 - 1, height / 2);
+                string name = RankingFile.ReadThreeCharacters();
+                RankingFile.AddToList(name, champ.getPoints());
+            }
+            else
+            {
+                Console.CursorVisible = false;
+                Console.ReadKey();
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
         }
     }
 }

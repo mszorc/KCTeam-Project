@@ -15,13 +15,13 @@ namespace GameProject
         {
             List<SplitData> sorted = placements.OrderByDescending(o => o.score).ToList();
             sorted = sorted.Take(10).ToList();
-            using (StreamWriter writer = new StreamWriter(Path))
+            StreamWriter writer = new StreamWriter(Path);
+            foreach (var line in sorted)
             {
-                foreach(var line in sorted)
-                {
-                    writer.WriteLine(line.name + ' ' + line.score);
-                }
+                writer.WriteLine(line.name + ' ' + line.score);
             }
+            placements = sorted;
+            writer.Close();
         }
         public static void ReadFromFile()
         {
@@ -44,6 +44,7 @@ namespace GameProject
             else
             {
                 StreamWriter writer = new StreamWriter(Path);
+                writer.Close();
             }
         }
         public static List<SplitData> getPlacements()
@@ -55,6 +56,53 @@ namespace GameProject
         public static void AddToList(string name, int score)
         {
             placements.Add(new SplitData(name, score));
+            WriteToFile();
+        }
+
+        public static string ReadThreeCharacters()
+        {
+            StringBuilder sb = new StringBuilder();
+            bool loop = true;
+            while (loop)
+            {
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true); // won't show up in console
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.Enter:
+                        if(sb.Length == 3) loop = false;
+                        break;
+                    case ConsoleKey.Backspace:
+                        {
+                            if (sb.Length > 0) 
+                            {
+                                sb.Remove(sb.Length - 1, 1);
+                                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+                                Console.Write(' ');
+                                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+                            }                          
+                        }
+                        break;
+                    case ConsoleKey.Spacebar:
+                        break;
+                    case ConsoleKey.Tab:
+                        break;
+                    default:
+                        {
+                            if (sb.Length < 3)
+                            {
+                                sb.Append(keyInfo.KeyChar);
+                                Console.Write(keyInfo.KeyChar);
+                            }
+                            break;
+                        }
+                }
+            }
+            while (sb.Length < 3)
+            {
+                sb.Append(' ');
+            }
+
+            return sb.ToString();
         }
     }
 

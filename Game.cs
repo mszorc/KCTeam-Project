@@ -23,7 +23,7 @@ namespace GameProject
                 Move(champ);
                 if (champ.getHealth() > 0) champ.setHealth(3);
             }
-            AddPlacement(champ);
+            Screen.AddPlacement(champ);
             Menu();
 
         }
@@ -31,17 +31,6 @@ namespace GameProject
         {
             Screen.DisplayCredits();
             Console.ReadKey();
-        }
-
-        public void AddPlacement(Champion champ)
-        {
-            Console.CursorVisible = true;
-            Console.SetCursorPosition(0, 0);
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
-            string name = Console.ReadLine();
-            RankingFile.AddToList(name, champ.getPoints());
-            Console.Clear();
         }
 
         public void Ranking()
@@ -71,9 +60,11 @@ namespace GameProject
                         break;
                     case ConsoleKey.Enter:
                         if (pos == 1) Start(); //zacznij gre
-                        if (pos == 2)
+
+                        if (pos == 2) //ranking
                         {
-                            Ranking(); //ranking
+                            Ranking();
+
                             Console.Clear();
                         }
 
@@ -111,7 +102,8 @@ namespace GameProject
                     case ConsoleKey.RightArrow:
                         champ.MoveChamp(1, 0);
 
-                        
+
+                        //champ.MoveChamp(0, 0);
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
 
@@ -121,6 +113,9 @@ namespace GameProject
                         break;
                     case ConsoleKey.LeftArrow:
                         champ.MoveChamp(-1, 0);
+
+
+                        //champ.MoveChamp(0, 0);
 
                         //if (champ.isDirectionUp()) champ.MoveChamp(0, -1);
                         //else champ.MoveChamp(0, 1);
