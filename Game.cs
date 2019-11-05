@@ -15,7 +15,7 @@ namespace GameProject
 
             Screen.setLevel(1);
 
-            Console.SetWindowSize(Screen.getWidth(), Screen.getHeight()+2);
+            Console.SetWindowSize(Screen.getWidth()+1, Screen.getHeight()+2);
             while (champ.getHealth() > 0)
             {
                 champ.setPosStart();
@@ -95,7 +95,7 @@ namespace GameProject
             while (!Screen.getChange() && champ.getHealth()>0)
             {
                
-                key = Console.ReadKey();
+                key = Console.ReadKey(true);
 
                 switch (key.Key)
                 {
