@@ -21,7 +21,11 @@ namespace GameProject
                 champ.setPosStart();
                 Screen.DisplayGame(champ);
                 Move(champ);
-                if (champ.getHealth() > 0) champ.setHealth(3);
+                if (champ.getHealth() > 0)
+                {
+                    champ.incrementPoints(15);
+                    champ.setHealth(3);
+                }
             }
             Screen.AddPlacement(champ);
             Menu();

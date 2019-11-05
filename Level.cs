@@ -306,17 +306,8 @@ namespace GameProject
                     rndHeight = rnd.Next(2, height - 2);
                     rndWidth = rnd.Next(4, width - 5);
                 }
-                buffer[rndHeight, rndWidth] = '*';
-            }*/
-            for(int i = width/6; i < width - 5; i+=width/6)
-            {
-                while (buffer[rndHeight, i] != ' ')
-                {
-                    rndHeight = rnd.Next(2, height - 2);
-                }
-                buffer[rndHeight, i] = '*';
+                buffer[rndHeight, rndWidth] = '$';
             }
-
             return buffer;
         }
     }
