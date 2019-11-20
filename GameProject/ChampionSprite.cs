@@ -27,25 +27,27 @@ namespace GameProject
             {
                 if (Sprite == this) 
                 {
-                    if (Direction == DirectionUp)
-                    {
-                        Velocity.Y = -Speed;
-                    }
-                    if (Direction == DirectionDown)
-                    {
-                        Velocity.Y = Speed;
-                    }
                     continue;
                 }
-                if ((this.Velocity.X > 0 && this.IsTouchingLeft(Sprite)) || 
-                    (this.Velocity.X < 0 && this.IsTouchingRight(Sprite)))
+               
+                if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
                 {
-                    this.Velocity.X = 0;
+                    this.Velocity.X = Sprite.Rectangle.Left - this.Rectangle.Right;
                 }
-                if ((this.Velocity.Y > 0 && this.IsTouchingTop(Sprite)) ||
-                    (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite)))
+
+                if (this.Velocity.X < 0 && this.IsTouchingRight(Sprite))
                 {
-                    this.Velocity.Y = 0;
+                    this.Velocity.X = - (this.Rectangle.Left - Sprite.Rectangle.Right);
+                }
+
+                if (this.Velocity.Y > 0 && this.IsTouchingTop(Sprite))
+                {
+                    this.Velocity.Y = this.Rectangle.Bottom - Sprite.Rectangle.Top;
+                }
+
+                if (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite))
+                {
+                    this.Velocity.Y = - (Sprite.Rectangle.Bottom - this.Rectangle.Top);
                 }
             }
 
@@ -76,6 +78,15 @@ namespace GameProject
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 Velocity.X = Speed;
+            }
+
+            if (Direction == DirectionUp)
+            {
+                Velocity.Y = -Speed;
+            }
+            if (Direction == DirectionDown)
+            {
+                Velocity.Y = Speed;
             }
         }
     }

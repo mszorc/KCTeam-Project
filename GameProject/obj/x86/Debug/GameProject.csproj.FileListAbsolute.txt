@@ -79,3 +79,32 @@ C:\Users\szorc\Desktop\KCTeam-Project-Adamv2\GameProject\GameProject\obj\x86\Deb
 C:\Users\szorc\Desktop\KCTeam-Project-Adamv2\GameProject\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
 C:\Users\szorc\Desktop\KCTeam-Project-Adamv2\GameProject\GameProject\obj\x86\Debug\GameProject.exe
 C:\Users\szorc\Desktop\KCTeam-Project-Adamv2\GameProject\GameProject\obj\x86\Debug\GameProject.pdb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Block.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Border.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Champ.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Space.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Torn.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\GameProject.exe
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\GameProject.pdb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\NAudio.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\NAudio.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.csprojAssemblyReference.cache
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.exe
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.pdb

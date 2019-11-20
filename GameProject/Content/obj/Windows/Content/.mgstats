@@ -1,1 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Border.png","C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/bin/Windows/Content/Border.xnb","TextureProcessor","Texture2DContent",129,565,0
+"C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Champ.png","C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/bin/Windows/Content/Champ.xnb","TextureProcessor","Texture2DContent",121,565,0
+"C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Space.png","C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/bin/Windows/Content/Space.xnb","TextureProcessor","Texture2DContent",134,565,0
