@@ -4,13 +4,15 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Block.png</File>
-    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Border.png</File>
-    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Champ.png</File>
-    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Space.png</File>
-    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Torn.png</File>
+    <File>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Block.png</File>
+    <File>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Border.png</File>
+    <File>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Champ.png</File>
+    <File>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Point.png</File>
+    <File>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Space.png</File>
+    <File>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Torn.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

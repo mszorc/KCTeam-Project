@@ -11,7 +11,7 @@ namespace GameProject
         public Vector2 Position;
         public Vector2 Velocity;
         public Color Colour = Color.White;
-        public float Speed = 2f;
+        public float Speed = 5f;
         public Rectangle Rectangle
         {
             get
@@ -23,8 +23,8 @@ namespace GameProject
         public Sprite(Texture2D texture)
         {
             _texture = texture;
-            Position.X = 100;
-            Position.Y = 100;
+            Position.X = 10;
+            Position.Y = (Screen.getHeight()-2)*10;
         }
 
         public Sprite(BoardElements elem)
@@ -47,9 +47,9 @@ namespace GameProject
             }
             else
             {
-                _texture = Board._spaceTexture;
+                _texture = Board._pointTexture;
             }
-            Position = new Vector2(elem.PosX * 10, elem.PosY * 12);
+            Position = new Vector2(elem.PosX * 10, elem.PosY * 10);
         }
 
         public virtual void Update(List<Sprite> sprites)

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Block.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Border.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Champ.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Space.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/GameProject/Content/Torn.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

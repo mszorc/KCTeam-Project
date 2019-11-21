@@ -53,12 +53,12 @@ namespace GameProject
             
             _champ = new ChampionSprite(_texture)
             {
-                Position = new Vector2(100, 100),
-                Speed = 3f,
+                Speed = 2f,
             };
             
             _board = new Board(Content.Load<Texture2D>("Border"), Content.Load<Texture2D>("Block"),
-                Content.Load<Texture2D>("Torn"), Content.Load<Texture2D>("Space"));
+                Content.Load<Texture2D>("Torn"), Content.Load<Texture2D>("Space"),
+                Content.Load<Texture2D>("Point"));
 
             _sprites = new List<Sprite>()
             {
