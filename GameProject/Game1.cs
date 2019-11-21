@@ -29,11 +29,6 @@ namespace GameProject
             _nextState = state;
         }
 
-        private Texture2D _texture;
-        private ChampionSprite _champ;
-        private Board _board;
-        private List<Sprite> _sprites;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);

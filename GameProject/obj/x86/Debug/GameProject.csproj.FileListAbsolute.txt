@@ -203,3 +203,7 @@ C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\obj\x86\Debug\Ga
 C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
 C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Background.xnb
 C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Controls\Background.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Point.xnb
