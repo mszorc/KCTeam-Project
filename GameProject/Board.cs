@@ -19,13 +19,15 @@ namespace GameProject
         public static Texture2D _blockTexture;
         public static Texture2D _tornTexture;
         public static Texture2D _spaceTexture;
+        public static Texture2D _pointTexture;
 
-        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D space)
+        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D space, Texture2D point)
         {
             _borderTexture = border;
             _blockTexture = block;
             _tornTexture = torn;
             _spaceTexture = space;
+            _pointTexture = point;
             _elemList = new List<BoardElements>();
             char[,] buffer = Screen.Fill();
             for(int i=0; i<buffer.GetLength(0); i++)

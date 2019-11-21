@@ -1,1 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Controls/Background.png","C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/bin/Windows/Content/Controls/Background.xnb","TextureProcessor","Texture2DContent",36965,4352085,0,2749942
+"C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Controls/Button.png","C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/bin/Windows/Content/Controls/Button.xnb","TextureProcessor","Texture2DContent",301,60085,0,013989
+"C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Fonts/Font.spritefont","C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/bin/Windows/Content/Fonts/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2008,21521,0,1859947

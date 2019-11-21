@@ -12,11 +12,15 @@ namespace GameProject
 {
     public class ChampionSprite: Sprite
     {
-        private String Direction = "NULL";
+        private String Direction = "DOWN";
         private String DirectionUp = "UP";
-        private String DirectionDown = "Down";
+        private String DirectionDown = "DOWN";
+
+        private int Points { get; set; }
+        private int Health { get; set; }
         public ChampionSprite(Texture2D texture): base(texture)
         {
+            this.Health = 3;
         }
 
         public override void Update(List<Sprite> sprites)
@@ -29,29 +33,53 @@ namespace GameProject
                 {
                     continue;
                 }
-               
+                if (Sprite._texture == Board._pointTexture)
+                {
+                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
+                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
+                    {
+                        this.GetPoint(Sprite, sprites);
+                        break;
+                    }
+                }
                 if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
                 {
-                    //this.Velocity.X = Sprite.Rectangle.Left - this.Rectangle.Right;
-                    this.Velocity.X = 0;
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    {
+                        this.LoseHealth();
+                        break;
+                    }
+                    this.Velocity.X = Sprite.Rectangle.Left - this.Rectangle.Right;
                 }
 
                 if (this.Velocity.X < 0 && this.IsTouchingRight(Sprite))
                 {
-                    //this.Velocity.X = - (this.Rectangle.Left - Sprite.Rectangle.Right);
-                    this.Velocity.X = 0;
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    {
+                        this.LoseHealth();
+                        break;
+                    }
+                    this.Velocity.X = - (this.Rectangle.Left - Sprite.Rectangle.Right);
                 }
 
                 if (this.Velocity.Y > 0 && this.IsTouchingTop(Sprite))
                 {
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    {
+                        this.LoseHealth();
+                        break;
+                    }
                     this.Velocity.Y = this.Rectangle.Bottom - Sprite.Rectangle.Top;
-                    //this.Velocity.Y = 0;
                 }
 
                 if (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite))
                 {
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    {
+                        this.LoseHealth();
+                        break;
+                    }
                     this.Velocity.Y = - (Sprite.Rectangle.Bottom - this.Rectangle.Top);
-                    //this.Velocity.Y = 0;
                 }
             }
 
@@ -92,6 +120,29 @@ namespace GameProject
             {
                 Velocity.Y = Speed;
             }
+        }
+
+        private void GetPoint(Sprite Sprite, List<Sprite> Sprites)
+        {
+            Sprites.Remove(Sprite);
+            Velocity = Vector2.Zero;
+            this.Points++;
+        }
+
+        private void LoseHealth()
+        {
+            SoundPlayer sound = new SoundPlayer("death.wav");
+            SetPositionStart();
+            this.Health--;
+            this.Direction = "DOWN";
+            sound.PlayMusic();
+        }
+
+        private void SetPositionStart()
+        {
+            Position.X = 16;
+            Position.Y = (Screen.getHeight() - 2) * 16;
+            this.Velocity = Vector2.Zero;
         }
     }
 }

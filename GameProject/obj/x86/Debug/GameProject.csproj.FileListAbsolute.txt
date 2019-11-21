@@ -138,35 +138,68 @@ E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.cspro
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.exe
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.pdb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Block.xnb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Border.xnb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Champ.xnb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Space.xnb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Torn.xnb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\GameProject.exe
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\GameProject.pdb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\NAudio.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\NAudio.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.csprojAssemblyReference.cache
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.exe
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.pdb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb
-C:\Users\piawr\Desktop\sample text game 2\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Button.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Point.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\Content\Block.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\Content\Border.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\Content\Champ.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\Content\Point.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\Content\Space.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\Content\Torn.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\GameProject.exe
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\GameProject.pdb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\NAudio.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.dll
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\NAudio.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.xml
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\obj\x86\Debug\GameProject.csprojAssemblyReference.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\obj\x86\Debug\GameProject.csproj.CoreCompileInputs.cache
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\obj\x86\Debug\GameProject.exe
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt_Monogame\GameProject\obj\x86\Debug\GameProject.pdb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Block.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Border.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Champ.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Point.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Space.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Torn.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\GameProject.exe
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\GameProject.pdb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\NAudio.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\NAudio.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.csprojAssemblyReference.cache
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.exe
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.pdb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Background.xnb
+C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb

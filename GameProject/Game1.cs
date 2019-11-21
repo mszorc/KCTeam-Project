@@ -7,6 +7,12 @@ using GameProject.States;
 
 namespace GameProject
 {
+
+    enum GameState
+    {
+        MainMenu,
+        Gamplay,
+    }
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
@@ -18,7 +24,7 @@ namespace GameProject
         private State _currentState;
         private State _nextState;
 
-        public void ChangeState (State state)
+        public void ChangeState(State state)
         {
             _nextState = state;
         }
@@ -32,7 +38,7 @@ namespace GameProject
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1600;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 800;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferHeight = 680;   // set this value to the desired height of your window
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
@@ -45,6 +51,7 @@ namespace GameProject
         /// </summary>
         protected override void Initialize()
         {
+            // TODO: Add your initialization logic here
             IsMouseVisible = true;
             ChangeState(new MenuState(this, graphics.GraphicsDevice, Content));
 
@@ -59,17 +66,19 @@ namespace GameProject
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            //_currentState = new MenuState(this,graphics.GraphicsDevice, Content);
+
+            //champ
 
             //_texture = Content.Load<Texture2D>("Champ");
             
             //_champ = new ChampionSprite(_texture)
             //{
-            //    Speed = 5f,
+            //    Speed = 8f,
             //};
             
             //_board = new Board(Content.Load<Texture2D>("Border"), Content.Load<Texture2D>("Block"),
-            //    Content.Load<Texture2D>("Torn"), Content.Load<Texture2D>("Space"));
+            //    Content.Load<Texture2D>("Torn"), Content.Load<Texture2D>("Space"),
+            //    Content.Load<Texture2D>("Point"));
 
             //_sprites = new List<Sprite>()
             //{
@@ -82,7 +91,7 @@ namespace GameProject
             //    _sprites.Add(Sprite);
             //}
 
-            // TODO: use this.Content to load your game content here
+            
         }
 
         /// <summary>
@@ -103,19 +112,19 @@ namespace GameProject
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            if(_nextState!= null)
+            if (_nextState != null)
             {
                 _currentState = _nextState;
                 _nextState = null;
             }
+
             /*foreach (var sprite in _sprites)
             {
                 sprite.Update(_sprites);
             }*/
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
-
-            //_champ.Update(_sprites);
+            // _champ.Update(_sprites);
 
             // TODO: Add your update logic here
 
@@ -132,15 +141,16 @@ namespace GameProject
 
             _currentState.Draw(gameTime, spriteBatch);
 
-            //spriteBatch.Begin();
-            ////_champ.Draw(spriteBatch);
-            ////_board.Draw(spriteBatch);
-            //foreach (var sprite in _sprites)
-            //{
-            //    sprite.Draw(spriteBatch);
-            //}
-            //spriteBatch.End();
-
+            /*
+            spriteBatch.Begin();
+            //_champ.Draw(spriteBatch);
+            //_board.Draw(spriteBatch);
+            foreach (var sprite in _sprites)
+            {
+                sprite.Draw(spriteBatch);
+            }
+            spriteBatch.End();
+            */
             base.Draw(gameTime);
         }
     }

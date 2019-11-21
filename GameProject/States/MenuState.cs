@@ -19,8 +19,13 @@ namespace GameProject.States
         {
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
+            var backgroundTexture = _content.Load<Texture2D>("Controls/background");
 
-            
+            var background = new Background(backgroundTexture)
+            {
+                Position = new Vector2(0, 0)
+            };
+
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
@@ -56,6 +61,7 @@ namespace GameProject.States
 
             _components = new List<Component>()
             {
+                background,
                 newGameButton,
                 rankingButton,
                 creditsButton,
@@ -63,7 +69,7 @@ namespace GameProject.States
             };
         }
 
-        
+
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -107,10 +113,10 @@ namespace GameProject.States
             _game.Exit();
         }
 
-        
 
-        
 
-        
+
+
+
     }
 }

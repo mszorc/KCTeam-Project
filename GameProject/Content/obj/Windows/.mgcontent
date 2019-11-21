@@ -4,15 +4,19 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Block.png</File>
-    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Border.png</File>
-    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Champ.png</File>
-    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Controls/Button.png</File>
-    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Fonts/Font.spritefont</File>
-    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Space.png</File>
-    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Torn.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Block.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Border.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Champ.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Controls/Background.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Controls/Button.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Fonts/Font.spritefont</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Point.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Space.png</File>
+    <File>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Torn.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
