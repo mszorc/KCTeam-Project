@@ -36,31 +36,30 @@ namespace GameProject.States
                 Text = "Ranking",
             };
 
-            newGameButton.Click += RankingButton_Click;
+            rankingButton.Click += RankingButton_Click;
 
             var creditsButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(650, 460),
-                Text = "Ranking",
+                Text = "Credits",
             };
 
-            newGameButton.Click += CreditsButton_Click;
+            creditsButton.Click += CreditsButton_Click;
 
             var exitButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(650, 520),
-                Text = "Ranking",
+                Text = "Exit",
             };
 
-            newGameButton.Click += ExitButton_Click;
+            exitButton.Click += ExitButton_Click;
 
             _components = new List<Component>()
             {
                 newGameButton,
                 rankingButton,
                 creditsButton,
-                exitButton
-
+                exitButton,
             };
         }
 
