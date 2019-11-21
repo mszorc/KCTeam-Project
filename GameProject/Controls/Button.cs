@@ -60,7 +60,7 @@ namespace GameProject.Controls
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            var colour = Color.Transparent;
+            var colour = Color.White;
 
             if (_isHovering)
                 colour = Color.Red;

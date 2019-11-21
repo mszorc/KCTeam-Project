@@ -20,11 +20,7 @@ namespace GameProject.States
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
 
-            Texture2D backgroundTexture = content.Load<Texture2D>("Background");
-            var background = new Sprite(backgroundTexture)
-            {
-                Position = new Vector2(0,0)
-            };
+            
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
@@ -60,7 +56,6 @@ namespace GameProject.States
 
             _components = new List<Component>()
             {
-                background,
                 newGameButton,
                 rankingButton,
                 creditsButton,
