@@ -45,9 +45,13 @@ namespace GameProject
             {
                 _texture = Board._spaceTexture;
             }
-            else
+            else if (elem.Char == '$')
             {
                 _texture = Board._pointTexture;
+            }
+            else
+            {
+                _texture = Board._exitTexture;
             }
             Position = new Vector2(elem.PosX * 16, elem.PosY * 16);
         }

@@ -20,14 +20,17 @@ namespace GameProject
         public static Texture2D _tornTexture;
         public static Texture2D _spaceTexture;
         public static Texture2D _pointTexture;
+        public static Texture2D _exitTexture;
 
-        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D space, Texture2D point)
+        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D space, Texture2D point, Texture2D exit)
         {
             _borderTexture = border;
             _blockTexture = block;
             _tornTexture = torn;
             _spaceTexture = space;
             _pointTexture = point;
+            _exitTexture = exit;
+
             _elemList = new List<BoardElements>();
             char[,] buffer = Screen.Fill();
             for(int i=0; i<buffer.GetLength(0); i++)
@@ -45,7 +48,14 @@ namespace GameProject
                 }
 
             }
+            BoardElements elem_exit = new BoardElements();
+            elem_exit.PosX = Screen.getWidth() - 3;
+            elem_exit.PosY = Screen.getHeight() - 3;
+            elem_exit.Char = '>';
+            _elemList.Add(elem_exit);
+
         }
+
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -67,6 +77,10 @@ namespace GameProject
                 else if (elem.Char == '\u035E' || elem.Char == '_')
                 {
                     spriteBatch.Draw(_spaceTexture, Position, Color.White);
+                }
+                else if ( elem.Char == '>')
+                {
+                    spriteBatch.Draw(_exitTexture, Position, Color.White);
                 }
             }
             //spriteBatch.Draw(_texture, Position, Color.White);

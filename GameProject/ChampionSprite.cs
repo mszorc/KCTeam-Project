@@ -42,6 +42,15 @@ namespace GameProject
                         break;
                     }
                 }
+                if (Sprite._texture == Board._exitTexture)
+                {
+                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
+                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
+                    {
+                        Screen.ChangeMap(true);
+                        break;
+                    }
+                }
                 if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
                 {
                     if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)

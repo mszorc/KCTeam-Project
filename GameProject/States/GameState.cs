@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameProject.Logic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
+
 
 namespace GameProject.States
 {
@@ -19,7 +22,6 @@ namespace GameProject.States
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             _texture = content.Load<Texture2D>("Champ");
-
             _champ = new ChampionSprite(_texture)
             {
                 Speed = 8f,
@@ -27,7 +29,7 @@ namespace GameProject.States
 
             _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
                 content.Load<Texture2D>("Torn"), content.Load<Texture2D>("Space"),
-                content.Load<Texture2D>("Point"));
+                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"));
 
             _sprites = new List<Sprite>()
             {
@@ -61,8 +63,13 @@ namespace GameProject.States
 
         public override void Update(GameTime gameTime)
         {
-            
 
+            if (Screen.getChange())
+            {
+                Screen.ChangeMap(false);
+                _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+                
+            }
             _champ.Update(_sprites);
         }
     }
