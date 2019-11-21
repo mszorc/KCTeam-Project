@@ -6,6 +6,12 @@ using System.Collections.Generic;
 
 namespace GameProject
 {
+
+    enum GameState
+    {
+        MainMenu,
+        Gamplay,
+    }
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
@@ -23,7 +29,7 @@ namespace GameProject
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1600;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 800;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferHeight = 680;   // set this value to the desired height of your window
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
@@ -53,7 +59,7 @@ namespace GameProject
             
             _champ = new ChampionSprite(_texture)
             {
-                Speed = 2f,
+                Speed = 8f,
             };
             
             _board = new Board(Content.Load<Texture2D>("Border"), Content.Load<Texture2D>("Block"),

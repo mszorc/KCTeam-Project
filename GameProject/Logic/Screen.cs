@@ -15,7 +15,7 @@ namespace GameProject
 
         private static int width = 100;
 
-        private static int height = 30;
+        private static int height = 40;
         private static char[,] screen = new char[height, width];
         public static int titleBeg = height / 4, menuBeg = height / 2, middle = width / 2-8;
         private static int finishX = width - 4;

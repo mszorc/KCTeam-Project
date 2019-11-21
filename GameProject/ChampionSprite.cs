@@ -12,7 +12,7 @@ namespace GameProject
 {
     public class ChampionSprite: Sprite
     {
-        private String Direction = "NULL";
+        private String Direction = "DOWN";
         private String DirectionUp = "UP";
         private String DirectionDown = "DOWN";
 
@@ -134,14 +134,14 @@ namespace GameProject
             SoundPlayer sound = new SoundPlayer("death.wav");
             SetPositionStart();
             this.Health--;
-            this.Direction = "NULL";
+            this.Direction = "DOWN";
             sound.PlayMusic();
         }
 
         private void SetPositionStart()
         {
-            Position.X = 10;
-            Position.Y = (Screen.getHeight() - 2) * 10;
+            Position.X = 16;
+            Position.Y = (Screen.getHeight() - 2) * 16;
             this.Velocity = Vector2.Zero;
         }
     }
