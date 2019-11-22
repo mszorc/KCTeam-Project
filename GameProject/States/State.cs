@@ -34,6 +34,13 @@ namespace GameProject.States
             _content = content;
         }
 
+        public State(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, ChampionSprite champ)
+        {
+            _game = game;
+            _graphicsDevice = graphicsDevice;
+            _content = content;
+        }
+
         public abstract void Update(GameTime gameTime);
 
         #endregion

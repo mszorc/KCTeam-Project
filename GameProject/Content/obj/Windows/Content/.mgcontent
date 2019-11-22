@@ -11,12 +11,14 @@
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Controls/Background.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Controls/Button.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Exit.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Font.spritefont</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Fonts/Font.spritefont</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Point.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Space.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Torn.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

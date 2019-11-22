@@ -16,8 +16,8 @@ namespace GameProject
         private String DirectionUp = "UP";
         private String DirectionDown = "DOWN";
 
-        private int Points { get; set; }
-        private int Health { get; set; }
+        public int Points { get; set; }
+        public int Health { get; set; }
         public ChampionSprite(Texture2D texture, Texture2D texture_flip): base(texture, texture_flip)
         {
             this.Health = 3;
