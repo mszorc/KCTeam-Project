@@ -55,7 +55,7 @@ namespace GameProject.States
             _texture_flip = content.Load<Texture2D>("ChampFlip");
             _font = content.Load<SpriteFont>("Font");
             float tmp_speed = 0f;
-            if (Screen.getLevel() % 6 == 0) tmp_speed = champ.Speed * 2;
+            if (Screen.getLevel() % 10 == 0) tmp_speed = champ.Speed * 2;
             else tmp_speed = champ.Speed;
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
