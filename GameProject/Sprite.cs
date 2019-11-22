@@ -9,6 +9,7 @@ namespace GameProject
     {
         public Texture2D _texture;
         public Texture2D _texture_flip;
+        public Texture2D _texture_normal;
         public Vector2 Position;
         public Vector2 Velocity;
         public Color Colour = Color.White;
@@ -32,6 +33,7 @@ namespace GameProject
         {
             _texture_flip = texture_flip;
             _texture = texture;
+            _texture_normal = texture;
             Position.X = 16;
             Position.Y = (Screen.getHeight() - 3) * 16;
         }

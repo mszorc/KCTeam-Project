@@ -105,9 +105,7 @@ namespace GameProject
                 //Velocity.Y = Speed;
                 if (Direction != DirectionDown)
                 {
-                    tmp = _texture;
-                    _texture = _texture_flip;
-                    _texture_flip = tmp;
+                    _texture = _texture_normal;
                 }
                 Direction = DirectionDown;
                 
@@ -118,9 +116,7 @@ namespace GameProject
                 //Velocity.Y = -Speed;
                 if (Direction != DirectionUp)
                 {
-                    tmp = _texture;
                     _texture = _texture_flip;
-                    _texture_flip = tmp;
                 }
                 Direction = DirectionUp;
             }
@@ -159,6 +155,7 @@ namespace GameProject
             SetPositionStart();
             this.Health--;
             this.Direction = "DOWN";
+            this._texture = _texture_normal;
             sound.PlayMusic();
         }
 
