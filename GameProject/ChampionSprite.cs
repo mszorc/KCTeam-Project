@@ -16,9 +16,9 @@ namespace GameProject
         private String DirectionUp = "UP";
         private String DirectionDown = "DOWN";
 
-        private int Points { get; set; }
-        private int Health { get; set; }
-        public ChampionSprite(Texture2D texture): base(texture)
+        public int Points { get; set; }
+        public int Health { get; set; }
+        public ChampionSprite(Texture2D texture, Texture2D texture_flip): base(texture, texture_flip)
         {
             this.Health = 3;
         }
@@ -39,6 +39,15 @@ namespace GameProject
                         this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
                     {
                         this.GetPoint(Sprite, sprites);
+                        break;
+                    }
+                }
+                if (Sprite._texture == Board._exitTexture)
+                {
+                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
+                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
+                    {
+                        Screen.ChangeMap(true);
                         break;
                     }
                 }
@@ -93,12 +102,21 @@ namespace GameProject
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
                 //Velocity.Y = Speed;
+                if (Direction != DirectionDown)
+                {
+                    _texture = _texture_normal;
+                }
                 Direction = DirectionDown;
+                
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
                 //Velocity.Y = -Speed;
+                if (Direction != DirectionUp)
+                {
+                    _texture = _texture_flip;
+                }
                 Direction = DirectionUp;
             }
 
@@ -111,10 +129,11 @@ namespace GameProject
             {
                 Velocity.X = Speed;
             }
-
+            
             if (Direction == DirectionUp)
             {
                 Velocity.Y = -Speed;
+
             }
             if (Direction == DirectionDown)
             {
@@ -135,13 +154,14 @@ namespace GameProject
             SetPositionStart();
             this.Health--;
             this.Direction = "DOWN";
+            this._texture = _texture_normal;
             sound.PlayMusic();
         }
 
         private void SetPositionStart()
         {
             Position.X = 16;
-            Position.Y = (Screen.getHeight() - 2) * 16;
+            Position.Y = (Screen.getHeight() - 3) * 16;
             this.Velocity = Vector2.Zero;
         }
     }

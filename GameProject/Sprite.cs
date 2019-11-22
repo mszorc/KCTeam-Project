@@ -8,10 +8,12 @@ namespace GameProject
     public class Sprite
     {
         public Texture2D _texture;
+        public Texture2D _texture_flip;
+        public Texture2D _texture_normal;
         public Vector2 Position;
         public Vector2 Velocity;
         public Color Colour = Color.White;
-        public float Speed = 8f;
+        public float Speed = 4f;
         public Rectangle Rectangle
         {
             get
@@ -24,8 +26,18 @@ namespace GameProject
         {
             _texture = texture;
             Position.X = 16;
-            Position.Y = (Screen.getHeight()-2)*16;
+            Position.Y = (Screen.getHeight()-3)*16;
         }
+
+        public Sprite(Texture2D texture, Texture2D texture_flip)
+        {
+            _texture_flip = texture_flip;
+            _texture = texture;
+            _texture_normal = texture;
+            Position.X = 16;
+            Position.Y = (Screen.getHeight() - 3) * 16;
+        }
+
 
         public Sprite(BoardElements elem)
         {
@@ -45,9 +57,25 @@ namespace GameProject
             {
                 _texture = Board._spaceTexture;
             }
-            else
+            else if (elem.Char == '$')
             {
                 _texture = Board._pointTexture;
+            }
+            else if (elem.Char == '/')
+            {
+                _texture = Board._left_tornTexture;
+            }
+            else if (elem.Char == '?')
+            {
+                _texture = Board._right_tornTexture;
+            }
+            else if (elem.Char == '&')
+            {
+                _texture = Board._up_tornTexture;
+            }
+            else
+            {
+                _texture = Board._exitTexture;
             }
             Position = new Vector2(elem.PosX * 16, elem.PosY * 16);
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/szorc/Desktop/KCTeam-Project-Piotr_monogame/GameProject/Content/Controls/Button.png</SourceFile>
-  <SourceTime>2019-11-21T15:03:50+01:00</SourceTime>
-  <DestFile>C:/Users/szorc/Desktop/KCTeam-Project-Piotr_monogame/GameProject/Content/bin/Windows/Content/Controls/Button.xnb</DestFile>
-  <DestTime>2019-11-21T15:04:56.9983448+01:00</DestTime>
+  <SourceFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Controls/Button.png</SourceFile>
+  <SourceTime>2019-11-21T14:55:44.0691491+01:00</SourceTime>
+  <DestFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/bin/Windows/Content/Controls/Button.xnb</DestFile>
+  <DestTime>2019-11-21T22:14:08.6337141+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

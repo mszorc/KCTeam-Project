@@ -14,9 +14,10 @@ namespace GameProject.States
     public class MenuState : State
     {
         private List<Component> _components;
-
+        private SoundPlayer sound = new SoundPlayer("menu.wav");
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
+            sound.PlayMusic();
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
             var backgroundTexture = _content.Load<Texture2D>("Controls/background");
@@ -73,6 +74,8 @@ namespace GameProject.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            
+            
             spriteBatch.Begin();
 
             foreach (var component in _components)
@@ -95,21 +98,25 @@ namespace GameProject.States
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
+            sound.StopMusic();
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
         private void RankingButton_Click(object sender, EventArgs e)
         {
+            sound.StopMusic();
             throw new NotImplementedException();
         }
 
         private void CreditsButton_Click(object sender, EventArgs e)
         {
+            sound.StopMusic();
             throw new NotImplementedException();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            sound.StopMusic();
             _game.Exit();
         }
 
