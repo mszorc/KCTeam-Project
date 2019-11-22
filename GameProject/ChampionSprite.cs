@@ -99,7 +99,6 @@ namespace GameProject
 
         private void Move()
         {
-            Texture2D tmp;
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
                 //Velocity.Y = Speed;

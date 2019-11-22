@@ -117,7 +117,8 @@ namespace GameProject
                     starting_block = rnd.Next(b.getStartX(), b.getFinishX() - (b.getWidth() / 2));
                     for (int i = starting_block; i < starting_block + torn_number && i < b.getFinishX(); i++)
                     {
-                        buffer[position, i] = '#';
+                        if (b.getDirection() == Block.direction_down)  buffer[position, i] = '#';
+                        else buffer[position, i] = '&';
                     }
 
                 }
@@ -132,7 +133,7 @@ namespace GameProject
                         starting_block = rnd.Next(height - b.getHeight() + 1, height - 2);
                         for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
                         {
-                            buffer[i, position] = '#';
+                            buffer[i, position] = '/';
                         }
                     }
                     else
@@ -140,7 +141,7 @@ namespace GameProject
                         starting_block = rnd.Next(1, b.getHeight());
                         for (int i = starting_block; i < starting_block + torn_number && i < b.getHeight(); i++)
                         {
-                            buffer[i, position] = '#';
+                            buffer[i, position] = '/';
                         }
                     }
                 }
@@ -154,7 +155,7 @@ namespace GameProject
                         starting_block = rnd.Next(height - b.getHeight() + 1, height - 2);
                         for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
                         {
-                            buffer[i, position] = '#';
+                            buffer[i, position] = '?';
                         }
                     }
                     else
@@ -162,7 +163,7 @@ namespace GameProject
                         starting_block = rnd.Next(1, b.getHeight());
                         for (int i = starting_block; i < starting_block + torn_number && i < b.getHeight(); i++)
                         {
-                            buffer[i, position] = '#';
+                            buffer[i, position] = '?';
                         }
                     }
                 }
@@ -178,7 +179,7 @@ namespace GameProject
                         position = b.getStartX() - 1;
                         for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
                         {
-                            if (buffer[i, position + 1] != ' ') buffer[i, position] = '#';
+                            if (buffer[i, position + 1] != ' ') buffer[i, position] = '/';
                             else break;
                         }
                     }
@@ -187,7 +188,7 @@ namespace GameProject
                         position = b.getFinishX();
                         for (int i = starting_block; i < starting_block + torn_number && i < height - 2; i++)
                         {
-                            if (buffer[i, position - 1] != ' ') buffer[i, position] = '#';
+                            if (buffer[i, position - 1] != ' ') buffer[i, position] = '?';
                             else break;
                         }
                     }

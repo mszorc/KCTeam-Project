@@ -21,15 +21,23 @@ namespace GameProject
         public static Texture2D _spaceTexture;
         public static Texture2D _pointTexture;
         public static Texture2D _exitTexture;
+        public static Texture2D _left_tornTexture;
+        public static Texture2D _right_tornTexture;
+        public static Texture2D _up_tornTexture;
 
-        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D space, Texture2D point, Texture2D exit)
+        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D space, Texture2D point,
+            Texture2D exit, Texture2D left_torn, Texture2D right_torn, Texture2D up_torn)
         {
+            Position = new Vector2(0, 0);
             _borderTexture = border;
             _blockTexture = block;
             _tornTexture = torn;
             _spaceTexture = space;
             _pointTexture = point;
             _exitTexture = exit;
+            _right_tornTexture = right_torn;
+            _left_tornTexture = left_torn;
+            _up_tornTexture = up_torn;
 
             _elemList = new List<BoardElements>();
             char[,] buffer = Screen.Fill();
@@ -44,7 +52,8 @@ namespace GameProject
                         elem.PosY = i;
                         elem.Char = buffer[i, j];
                         _elemList.Add(elem);
-                    }                 
+                    } 
+                    
                 }
 
             }
@@ -57,11 +66,11 @@ namespace GameProject
         }
 
 
-        public void Draw(SpriteBatch spriteBatch)
+        /*public void Draw(SpriteBatch spriteBatch)
         {
-            foreach(BoardElements elem in _elemList)
+            foreach (BoardElements elem in _elemList)
             {
-                Position = new Vector2(elem.PosX*10, elem.PosY*10);
+                Position = new Vector2(elem.PosX * 10, elem.PosY * 10);
                 if (elem.Char == '\u2593')
                 {
                     spriteBatch.Draw(_borderTexture, Position, Color.White);
@@ -78,12 +87,21 @@ namespace GameProject
                 {
                     spriteBatch.Draw(_spaceTexture, Position, Color.White);
                 }
-                else if ( elem.Char == '>')
+                else if (elem.Char == '/')
+                {
+                    spriteBatch.Draw(_left_tornTexture, Position, Color.White);
+                }
+                else if (elem.Char == '?')
+                {
+                    spriteBatch.Draw(_right_tornTexture, Position, Color.White);
+                }
+                else if (elem.Char == '>')
                 {
                     spriteBatch.Draw(_exitTexture, Position, Color.White);
                 }
+                
             }
             //spriteBatch.Draw(_texture, Position, Color.White);
-        }
+        }*/
     }
 }

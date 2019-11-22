@@ -61,6 +61,18 @@ namespace GameProject
             {
                 _texture = Board._pointTexture;
             }
+            else if (elem.Char == '/')
+            {
+                _texture = Board._left_tornTexture;
+            }
+            else if (elem.Char == '?')
+            {
+                _texture = Board._right_tornTexture;
+            }
+            else if (elem.Char == '&')
+            {
+                _texture = Board._up_tornTexture;
+            }
             else
             {
                 _texture = Board._exitTexture;

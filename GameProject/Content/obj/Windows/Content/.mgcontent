@@ -16,8 +16,14 @@
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Point.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Space.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Torn.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/TornLeft.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/TornRight.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/TornUp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -33,7 +33,9 @@ namespace GameProject.States
 
             _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
                 content.Load<Texture2D>("Torn"), content.Load<Texture2D>("Space"),
-                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"));
+                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"),
+                content.Load<Texture2D>("TornLeft"), content.Load<Texture2D>("TornRight"),
+                content.Load<Texture2D>("TornUp"));
 
             _sprites = new List<Sprite>()
             {
@@ -52,15 +54,20 @@ namespace GameProject.States
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
             _font = content.Load<SpriteFont>("Font");
+            float tmp_speed = 0f;
+            if (Screen.getLevel() % 6 == 0) tmp_speed = champ.Speed * 2;
+            else tmp_speed = champ.Speed;
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
                 Points = champ.Points,
-                Speed = 4f,
+                Speed = tmp_speed,
             };
 
             _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
                 content.Load<Texture2D>("Torn"), content.Load<Texture2D>("Space"),
-                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"));
+                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"), 
+                content.Load<Texture2D>("TornLeft"), content.Load<Texture2D>("TornRight"),
+                content.Load<Texture2D>("TornUp"));
 
             _sprites = new List<Sprite>()
             {
@@ -97,6 +104,10 @@ namespace GameProject.States
 
         public override void Update(GameTime gameTime)
         {
+            if(_champ.Health <= 0)
+            {
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            }
             _champ.Update(_sprites);
             if (Screen.getChange())
             {
