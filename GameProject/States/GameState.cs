@@ -15,6 +15,7 @@ namespace GameProject.States
     public class GameState : State
     {
         private Texture2D _texture;
+        private Texture2D _texture_flip;
         private ChampionSprite _champ;
         private Board _board;
         private List<Sprite> _sprites;
@@ -22,9 +23,10 @@ namespace GameProject.States
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             _texture = content.Load<Texture2D>("Champ");
-            _champ = new ChampionSprite(_texture)
+            _texture_flip = content.Load<Texture2D>("ChampFlip");
+            _champ = new ChampionSprite(_texture, _texture_flip)
             {
-                Speed = 8f,
+                Speed = 4f,
             };
 
             _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
@@ -63,14 +65,14 @@ namespace GameProject.States
 
         public override void Update(GameTime gameTime)
         {
-
+            _champ.Update(_sprites);
             if (Screen.getChange())
             {
                 Screen.ChangeMap(false);
                 _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
                 
             }
-            _champ.Update(_sprites);
+            
         }
     }
 }

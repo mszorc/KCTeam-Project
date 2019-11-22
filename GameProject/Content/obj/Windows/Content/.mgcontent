@@ -7,6 +7,7 @@
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Block.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Border.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Champ.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ChampFlip.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Controls/Background.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Controls/Button.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Exit.png</File>
@@ -16,6 +17,7 @@
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Torn.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

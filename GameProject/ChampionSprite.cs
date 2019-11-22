@@ -18,7 +18,7 @@ namespace GameProject
 
         private int Points { get; set; }
         private int Health { get; set; }
-        public ChampionSprite(Texture2D texture): base(texture)
+        public ChampionSprite(Texture2D texture, Texture2D texture_flip): base(texture, texture_flip)
         {
             this.Health = 3;
         }
@@ -99,15 +99,29 @@ namespace GameProject
 
         private void Move()
         {
+            Texture2D tmp;
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
                 //Velocity.Y = Speed;
+                if (Direction != DirectionDown)
+                {
+                    tmp = _texture;
+                    _texture = _texture_flip;
+                    _texture_flip = tmp;
+                }
                 Direction = DirectionDown;
+                
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
                 //Velocity.Y = -Speed;
+                if (Direction != DirectionUp)
+                {
+                    tmp = _texture;
+                    _texture = _texture_flip;
+                    _texture_flip = tmp;
+                }
                 Direction = DirectionUp;
             }
 
@@ -120,10 +134,11 @@ namespace GameProject
             {
                 Velocity.X = Speed;
             }
-
+            
             if (Direction == DirectionUp)
             {
                 Velocity.Y = -Speed;
+
             }
             if (Direction == DirectionDown)
             {
@@ -150,7 +165,7 @@ namespace GameProject
         private void SetPositionStart()
         {
             Position.X = 16;
-            Position.Y = (Screen.getHeight() - 2) * 16;
+            Position.Y = (Screen.getHeight() - 3) * 16;
             this.Velocity = Vector2.Zero;
         }
     }

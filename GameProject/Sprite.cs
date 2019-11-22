@@ -8,10 +8,11 @@ namespace GameProject
     public class Sprite
     {
         public Texture2D _texture;
+        public Texture2D _texture_flip;
         public Vector2 Position;
         public Vector2 Velocity;
         public Color Colour = Color.White;
-        public float Speed = 8f;
+        public float Speed = 4f;
         public Rectangle Rectangle
         {
             get
@@ -24,8 +25,17 @@ namespace GameProject
         {
             _texture = texture;
             Position.X = 16;
-            Position.Y = (Screen.getHeight()-2)*16;
+            Position.Y = (Screen.getHeight()-3)*16;
         }
+
+        public Sprite(Texture2D texture, Texture2D texture_flip)
+        {
+            _texture_flip = texture_flip;
+            _texture = texture;
+            Position.X = 16;
+            Position.Y = (Screen.getHeight() - 3) * 16;
+        }
+
 
         public Sprite(BoardElements elem)
         {
