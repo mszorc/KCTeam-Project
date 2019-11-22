@@ -21,7 +21,7 @@ namespace GameProject
             {
                 direction = rnd.Next(blockDirection.Count);
                 block_width = rnd.Next(2, width/4);
-                block_height = rnd.Next(height / 3, height - 3);
+                block_height = rnd.Next(height / 3, height - 5);
 
                 if (k == 0) direction = 0;
                 else
@@ -208,43 +208,43 @@ namespace GameProject
 
 
             foreach (Block b in blockList) //if (string.Equals(b.getDirection(), "down") == false)
+            {
+                
+                while (j < b.getStartX())
                 {
+                    isGapRoll = rnd.Next(1, 100);
 
-                    while (j < b.getStartX())
+                    length = rnd.Next(2, 5);
+
+                    if (wasGap == true)
                     {
-                        isGapRoll = rnd.Next(1, 100);
-
-                        length = rnd.Next(2, 5);
-
-                        if (wasGap == true)
+                        j += length;
+                        wasGap = false;
+                        if (b.getStartX() - j < 3) break;
+                    }
+                    else
+                    {
+                        if (isGapRoll < 40) isGap = true;
+                        if (isGap == true)
                         {
-                            j += length;
-                            wasGap = false;
+                            for (int k = 0; k < length; k++)
+                            {
+                                //if (j < b.getStartX()) buffer[0, j] = '\u035E';
+                                if (j < b.getStartX()) buffer[0, j] = ' ';
+                                j++;
+                            }
+                            wasGap = true;
                         }
                         else
                         {
-                            if (isGapRoll < 40) isGap = true;
-
-
-                            if (isGap == true)
-                            {
-                                for (int k = 0; k < length; k++)
-                                {
-                                    if (j < b.getStartX()) buffer[0, j] = '\u035E';
-                                    j++;
-                                }
-                                wasGap = true;
-                            }
-                            else
-                            {
-                                j += (length - 1);
-                                wasGap = false;
-                            }
+                            j += (length - 1);
+                            wasGap = false;
                         }
-
                     }
-                    j = b.getFinishX() + 1;
+
                 }
+                j = b.getFinishX() + 1;
+            }
 
             isGap = false;
             wasGap = false;
@@ -254,42 +254,43 @@ namespace GameProject
 
 
             foreach (Block b in blockList) //if (string.Equals(b.getDirection(), "up") == false)
+            {
+                
+                while (j < b.getStartX())
                 {
+                    isGapRoll = rnd.Next(1, 100);
 
-                    while (j < b.getStartX())
+                    length = rnd.Next(2, 5);
+
+                    if (wasGap == true)
                     {
-                        isGapRoll = rnd.Next(1, 100);
-
-                        length = rnd.Next(2, 5);
-
-                        if (wasGap == true)
+                        j += length;
+                        wasGap = false;
+                        if (b.getStartX() - j < 3) break;
+                    }
+                    else
+                    {
+                        if (isGapRoll < 40) isGap = true;
+                        if (isGap == true)
                         {
-                            j += length;
-                            wasGap = false;
+                            for (int k = 0; k < length; k++)
+                            {
+                                //if (j < b.getStartX()) buffer[height - 1, j] = '_';
+                                if (j < b.getStartX()) buffer[height - 1, j] = ' ';
+                                j++;
+                            }
+                            wasGap = true;
                         }
                         else
                         {
-                            if (isGapRoll < 40) isGap = true;
-
-                            if (isGap == true)
-                            {
-                                for (int k = 0; k < length; k++)
-                                {
-                                    if (j < b.getStartX()) buffer[height - 1, j] = '_';
-                                    j++;
-                                }
-                                wasGap = true;
-                            }
-                            else
-                            {
-                                j += (length - 1);
-                                wasGap = false;
-                            }
+                            j += (length - 1);
+                            wasGap = false;
                         }
-
                     }
-                    j = b.getFinishX() + 1;
+
                 }
+                j = b.getFinishX() + 1;
+            }
             return buffer;
         }
 

@@ -133,7 +133,6 @@ E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\SharpDX.D
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\SharpDX.XInput.xml
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.csprojAssemblyReference.cache
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.csproj.CoreCompileInputs.cache
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.exe
@@ -246,3 +245,8 @@ E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\F
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornLeft.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornRight.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornUp.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\GameProject.exe.manifest
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\GameProject.application
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.exe.manifest
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.application
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\obj\x86\Debug\GameProject.csprojAssemblyReference.cache

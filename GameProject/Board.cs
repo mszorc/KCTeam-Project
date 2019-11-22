@@ -59,7 +59,7 @@ namespace GameProject
             }
             BoardElements elem_exit = new BoardElements();
             elem_exit.PosX = Screen.getWidth() - 3;
-            elem_exit.PosY = Screen.getHeight() - 3;
+            elem_exit.PosY = Screen.getHeight() - 5;
             elem_exit.Char = '>';
             _elemList.Add(elem_exit);
 
