@@ -19,6 +19,9 @@ namespace GameProject.States
         private string name;
         private List<SplitData> placements = RankingFile.getPlacements();
         private bool isNewRekord;
+
+        public static KeyboardState CurrentState;
+        public static KeyboardState PreviousState;
         public NewRekordState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
         }
@@ -72,7 +75,7 @@ namespace GameProject.States
             
             Vector2 vector1 = new Vector2(710, 270);
             Vector2 vector2 = new Vector2(665, 320);
-            Vector2 vector3 = new Vector2(820, 370);
+            Vector2 vector3 = new Vector2(780, 370);
 
             spriteBatch.Begin();
 
@@ -80,8 +83,7 @@ namespace GameProject.States
             if (isNewRekord)
             {
                 spriteBatch.DrawString(_font, signature, vector2, Color.White);
-
-                name += ReadThreeCharacters();
+                name = ReadCharacter(name);
                 spriteBatch.DrawString(_font, name, vector3, Color.White);
             }
 
@@ -110,18 +112,111 @@ namespace GameProject.States
             RankingFile.AddToList(name, champ.Points);
             _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
         }
-        private static string ReadThreeCharacters()
+
+
+        private static bool HasThreeCharacters(string name)
         {
-            var x = Keyboard.GetState().GetPressedKeys();
+            if (name == null) return false;
+            if (name.Length == 3) return true;
+            else return false;
+        }
+        private static string ReadCharacter(string name)
+        {
+            PreviousState = CurrentState;
+            CurrentState = Keyboard.GetState();
+
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i<x.Length; i++)
+            sb.Append(name);
+            if (ActionWasJustPressed(Keys.Back))
+                if (sb.Length > 0)
+                {
+                    sb.Remove(sb.Length - 1, 1);
+                }
+            if (!HasThreeCharacters(sb.ToString()))
             {
-                sb.Append(x[0].ToString());
-                
+                if (ActionWasJustPressed(Keys.Q))
+                    sb.Append('Q');
+                if (ActionWasJustPressed(Keys.W))
+                    sb.Append('W');
+                if (ActionWasJustPressed(Keys.E))
+                    sb.Append('E');
+                if (ActionWasJustPressed(Keys.R))
+                    sb.Append('R');
+                if (ActionWasJustPressed(Keys.T))
+                    sb.Append('T');
+                if (ActionWasJustPressed(Keys.Y))
+                    sb.Append('Y');
+                if (ActionWasJustPressed(Keys.U))
+                    sb.Append('U');
+                if (ActionWasJustPressed(Keys.I))
+                    sb.Append('I');
+                if (ActionWasJustPressed(Keys.O))
+                    sb.Append('O');
+                if (ActionWasJustPressed(Keys.P))
+                    sb.Append('P');
+                if (ActionWasJustPressed(Keys.A))
+                    sb.Append('A');
+                if (ActionWasJustPressed(Keys.S))
+                    sb.Append('S');
+                if (ActionWasJustPressed(Keys.D))
+                    sb.Append('D');
+                if (ActionWasJustPressed(Keys.F))
+                    sb.Append('F');
+                if (ActionWasJustPressed(Keys.G))
+                    sb.Append('G');
+                if (ActionWasJustPressed(Keys.H))
+                    sb.Append('H');
+                if (ActionWasJustPressed(Keys.J))
+                    sb.Append('J');
+                if (ActionWasJustPressed(Keys.K))
+                    sb.Append('K');
+                if (ActionWasJustPressed(Keys.L))
+                    sb.Append('L');
+                if (ActionWasJustPressed(Keys.Z))
+                    sb.Append('Z');
+                if (ActionWasJustPressed(Keys.X))
+                    sb.Append('X');
+                if (ActionWasJustPressed(Keys.C))
+                    sb.Append('C');
+                if (ActionWasJustPressed(Keys.V))
+                    sb.Append('V');
+                if (ActionWasJustPressed(Keys.B))
+                    sb.Append('B');
+                if (ActionWasJustPressed(Keys.N))
+                    sb.Append('N');
+                if (ActionWasJustPressed(Keys.M))
+                    sb.Append('M');
             }
+           
+
+            /*
+            if (HasFourCharacters(name))
+            {
+                sb.Remove(sb.Length - 1, 1);
+            }*/
 
             return sb.ToString();
         }
-                  
+
+
+
+
+        public static bool ActionWasJustPressed(Keys key)
+        {
+            if (ActionIsPressed(key) && PreviousState.IsKeyUp(key))
+                return true;
+            else
+                return false;
+
+        }
+
+        private static bool ActionIsPressed(Keys key)
+        {
+            if (CurrentState.IsKeyDown(key))
+                return true;
+            else
+                return false;
+        }
+
     }
 }
