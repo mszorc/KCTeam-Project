@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Font.spritefont</SourceFile>
-  <SourceTime>2018-12-08T17:35:46+01:00</SourceTime>
-  <DestFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/bin/Windows/Content/Font.xnb</DestFile>
-  <DestTime>2019-11-22T14:55:15.1937939+01:00</DestTime>
+  <SourceFile>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/Font.spritefont</SourceFile>
+  <SourceTime>2019-11-22T21:41:02+01:00</SourceTime>
+  <DestFile>C:/Users/szorc/Desktop/Semestr V/KCK/KCTeam-Project/GameProject/Content/bin/Windows/Content/Font.xnb</DestFile>
+  <DestTime>2019-11-22T21:53:56.7678212+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

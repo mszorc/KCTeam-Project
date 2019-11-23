@@ -246,3 +246,12 @@ E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\F
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornLeft.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornRight.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornUp.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Background.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\ChampFlip.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Exit.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Font.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\TornLeft.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\TornRight.xnb
+C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\TornUp.xnb

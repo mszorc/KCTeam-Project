@@ -78,7 +78,8 @@ namespace GameProject
                             Credits(); //napisy
                             Console.Clear();
                         }
-                            if (pos == 4) 
+
+                        if (pos == 4) 
                         {
                             RankingFile.WriteToFile();
                             Environment.Exit(0); //wyjdz z gry
