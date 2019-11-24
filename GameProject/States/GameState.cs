@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using System.Media;
 
 
 namespace GameProject.States
@@ -20,6 +21,8 @@ namespace GameProject.States
         private Board _board;
         private List<Sprite> _sprites;
         private SpriteFont _font;
+
+        private static SoundPlayer sound = new SoundPlayer("gameplay.wav");
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -134,8 +137,8 @@ namespace GameProject.States
             //_champ.Draw(spriteBatch);
             //_board.Draw(spriteBatch);
             spriteBatch.DrawString(_font, "Score: " + _champ.Points + "  ", new Vector2(0, Screen.getHeight()*16), Color.White);
-            spriteBatch.DrawString(_font, "  Level: " + Screen.getLevel() + "  ", new Vector2(100, Screen.getHeight()*16), Color.White);
-            spriteBatch.DrawString(_font, "  Health: " + _champ.Health + "  ", new Vector2(200, Screen.getHeight()*16), Color.White);
+            spriteBatch.DrawString(_font, "  Level: " + Screen.getLevel() + "  ", new Vector2((Screen.getWidth()/3)*16, Screen.getHeight()*16), Color.White);
+            spriteBatch.DrawString(_font, "  Health: " + _champ.Health + "  ", new Vector2((Screen.getWidth()* 2 / 3) * 16, Screen.getHeight()*16), Color.White);
             
             foreach (var sprite in _sprites)
             {

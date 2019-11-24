@@ -57,6 +57,7 @@
     <Compile Include="Logic\RankingFile.cs" />
     <Compile Include="Logic\Screen.cs" />
     <Compile Include="Logic\SoundPlayer.cs" />
+    <Compile Include="LoopStream.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprite.cs" />

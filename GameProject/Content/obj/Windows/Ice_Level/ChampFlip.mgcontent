@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/ChampFlip.png</SourceFile>
-  <SourceTime>2019-11-24T11:57:05.0039218+01:00</SourceTime>
-  <DestFile>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/bin/Windows/Ice_Level/ChampFlip.xnb</DestFile>
-  <DestTime>2019-11-24T17:28:52.7372219+01:00</DestTime>
+  <SourceFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Ice_Level/ChampFlip.png</SourceFile>
+  <SourceTime>2019-11-24T18:52:17.9290277+01:00</SourceTime>
+  <DestFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/bin/Windows/Ice_Level/ChampFlip.xnb</DestFile>
+  <DestTime>2019-11-24T19:01:05.6142775+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

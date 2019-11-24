@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Background.png</SourceFile>
-  <SourceTime>2019-11-24T17:39:24.5467951+01:00</SourceTime>
-  <DestFile>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/bin/Windows/Content/Red_Level/Background.xnb</DestFile>
-  <DestTime>2019-11-24T17:39:26.670975+01:00</DestTime>
+  <SourceFile>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Red_Level/Background.png</SourceFile>
+  <SourceTime>2019-11-24T23:55:27.1927284+01:00</SourceTime>
+  <DestFile>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/bin/Windows/Content/Red_Level/Background.xnb</DestFile>
+  <DestTime>2019-11-24T23:55:59.326809+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
