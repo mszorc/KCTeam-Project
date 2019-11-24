@@ -89,6 +89,8 @@
     <Compile Include="Sprite.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\MenuState.cs" />
+    <Compile Include="States\NewRekordState.cs" />
+    <Compile Include="States\RankingState.cs" />
     <Compile Include="States\State.cs" />
   </ItemGroup>
   <ItemGroup>

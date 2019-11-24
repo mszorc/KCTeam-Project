@@ -106,7 +106,9 @@ namespace GameProject.States
         {
             if(_champ.Health <= 0)
             {
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+
+                _game.ChangeState(new NewRekordState(_game, _graphicsDevice, _content, _champ));
+                return;
             }
             _champ.Update(_sprites);
             if (Screen.getChange())
