@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Fonts/Font.spritefont</SourceFile>
+  <SourceTime>2019-11-23T14:01:44.8776581+01:00</SourceTime>
+  <DestFile>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/bin/Windows/Content/Fonts/Font.xnb</DestFile>
+  <DestTime>2019-11-24T12:02:12.3365448+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

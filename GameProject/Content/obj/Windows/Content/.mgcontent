@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Block.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Border.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Champ.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/ChampFlip.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Controls/Background.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Controls/Button.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Exit.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Fonts/Font.spritefont</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/Background.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/Block.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/Border.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/Champ.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/ChampFlip.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/Exit.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/Point.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/Torn.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/TornLeft.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/TornRight.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Ice_Level/TornUp.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Point.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Background.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Block.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Border.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Champ.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/ChampFlip.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Exit.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Point.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/Torn.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/TornLeft.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/TornRight.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Red_Level/TornUp.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Space.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/Torn.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/TornLeft.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/TornRight.png</File>
+    <File>C:/Users/piawr/Desktop/sample text game 2/KCTeam-Project/GameProject/Content/TornUp.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
