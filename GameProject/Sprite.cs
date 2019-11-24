@@ -55,7 +55,7 @@ namespace GameProject
             }
             else if (elem.Char == '\u035E' || elem.Char == '_')
             {
-                _texture = Board._spaceTexture;
+                //_texture = Board._spaceTexture;
             }
             else if (elem.Char == '$')
             {

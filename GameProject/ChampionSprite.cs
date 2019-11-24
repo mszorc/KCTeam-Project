@@ -26,7 +26,10 @@ namespace GameProject
         public override void Update(List<Sprite> sprites)
         {
             Move();
-            
+            if (this.Position.Y == 0 || this.Position.Y == (Screen.getHeight() - 2) * 16)
+            {
+                this.LoseHealth();
+            }
             foreach (var Sprite in sprites)
             {
                 if (Sprite == this) 

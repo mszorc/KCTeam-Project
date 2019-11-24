@@ -18,7 +18,7 @@ namespace GameProject.States
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             RankingFile.ReadFromFile();
-            //sound.PlayMusic();
+            sound.PlayMusic();
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
             var backgroundTexture = _content.Load<Texture2D>("Controls/background");
