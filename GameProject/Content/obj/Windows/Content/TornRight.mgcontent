@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/TornRight.png</SourceFile>
-  <SourceTime>2019-11-24T00:38:06.9366566+01:00</SourceTime>
+  <SourceTime>2019-11-24T01:02:16.4425421+01:00</SourceTime>
   <DestFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/bin/Windows/Content/TornRight.xnb</DestFile>
-  <DestTime>2019-11-24T00:39:54.8625814+01:00</DestTime>
+  <DestTime>2019-11-24T01:03:11.2752516+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

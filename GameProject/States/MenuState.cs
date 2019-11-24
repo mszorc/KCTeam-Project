@@ -17,11 +17,8 @@ namespace GameProject.States
         private SoundPlayer sound = new SoundPlayer("menu.wav");
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-
-            sound.PlayMusic();
-
             RankingFile.ReadFromFile();
-
+            //sound.PlayMusic();
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
             var backgroundTexture = _content.Load<Texture2D>("Controls/background");
@@ -109,9 +106,7 @@ namespace GameProject.States
         private void RankingButton_Click(object sender, EventArgs e)
         {
             sound.StopMusic();
-
             _game.ChangeState(new RankingState(_game, _graphicsDevice, _content));
-
         }
 
         private void CreditsButton_Click(object sender, EventArgs e)

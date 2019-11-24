@@ -27,11 +27,6 @@ namespace GameProject
         {
             Move();
             
-            if(this.Position.Y == 0 || this.Position.Y == (Screen.getHeight()-2)*16)
-            {
-                this.LoseHealth();
-            }
-
             foreach (var Sprite in sprites)
             {
                 if (Sprite == this) 
@@ -44,21 +39,6 @@ namespace GameProject
                         this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
                     {
                         this.GetPoint(Sprite, sprites);
-                        break;
-                    }
-                    /*if(this.IsTouchingCenter(Sprite))
-                    {
-                        this.GetPoint(Sprite, sprites);
-                        continue;
-                    }*/
-                    continue;
-                }
-                if (Sprite._texture == Board._exitTexture)
-                {
-                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
-                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
-                    {
-                        Screen.ChangeMap(true);
                         break;
                     }
                 }

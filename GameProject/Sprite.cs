@@ -118,14 +118,6 @@ namespace GameProject
                 this.Rectangle.Right > sprite.Rectangle.Left &&
                 this.Rectangle.Left < sprite.Rectangle.Right;
         }
-
-        protected bool IsTouchingCenter(Sprite sprite)
-        {
-            return new Point(this.Rectangle.X, this.Rectangle.Top) == sprite.Rectangle.Center ||
-                new Point(this.Rectangle.X, this.Rectangle.Bottom) == sprite.Rectangle.Center ||
-                new Point(this.Rectangle.Right, this.Rectangle.Y) == sprite.Rectangle.Center ||
-                 new Point(this.Rectangle.Left, this.Rectangle.Y) == sprite.Rectangle.Center;
-        }
         #endregion
     }
 }
