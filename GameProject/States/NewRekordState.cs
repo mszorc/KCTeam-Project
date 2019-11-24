@@ -33,13 +33,13 @@ namespace GameProject.States
 
             var submitButton = new Button(buttonTexture, _font)
             {
-                Position = new Vector2(650, 570),
+                Position = new Vector2(550, 570),
                 Text = "Submit your score"
             };
 
             var backButton = new Button(buttonTexture, _font)
             {
-                Position = new Vector2(650, 570),
+                Position = new Vector2(550, 570),
                 Text = "Go to main menu"
             };
 
@@ -73,8 +73,8 @@ namespace GameProject.States
             string points = "Great job! You got " + champ.Points + " points!";
             string signature = "Please enter your three letter signature: ";
             
-            Vector2 vector1 = new Vector2(710, 270);
-            Vector2 vector2 = new Vector2(665, 320);
+            Vector2 vector1 = new Vector2(625, 270);
+            Vector2 vector2 = new Vector2(525, 320);
             Vector2 vector3 = new Vector2(780, 370);
 
             spriteBatch.Begin();

@@ -242,7 +242,6 @@ C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\obj\x86\Debug\G
 C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\obj\x86\Debug\GameProject.pdb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Exit.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\ChampFlip.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Font.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornLeft.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornRight.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornUp.xnb
@@ -255,3 +254,25 @@ C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\TornLeft.xnb
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\TornRight.xnb
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\TornUp.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\Background.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\Block.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\Border.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\Champ.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\ChampFlip.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\Exit.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\Point.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\Torn.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\TornLeft.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\TornRight.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Red_Level\TornUp.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\Background.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\Block.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\Border.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\Champ.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\ChampFlip.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\Exit.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\Point.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\Torn.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\TornLeft.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\TornRight.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Ice_Level\TornUp.xnb

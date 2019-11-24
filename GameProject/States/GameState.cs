@@ -25,23 +25,46 @@ namespace GameProject.States
         {
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
-            _font = content.Load<SpriteFont>("Font");
+            _font = content.Load<SpriteFont>("Fonts/Font");
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
                 Speed = 4f,
             };
-
-            _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
-                content.Load<Texture2D>("Torn"), content.Load<Texture2D>("Space"),
-                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"),
-                content.Load<Texture2D>("TornLeft"), content.Load<Texture2D>("TornRight"),
-                content.Load<Texture2D>("TornUp"));
-
-            _sprites = new List<Sprite>()
+            Random rnd = new Random();
+            int level = rnd.Next(1, 3);
+            //int level = 2;
+            switch (level)
             {
-                _champ
-            };
+                case 1:
+                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
+                content.Load<Texture2D>("Red_Level/Torn"),
+                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
+                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
+                content.Load<Texture2D>("Red_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
 
+                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+                case 2:
+                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
+                content.Load<Texture2D>("Ice_Level/Torn"),
+                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
+                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
+                content.Load<Texture2D>("Ice_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+            }
+                      
+
+            
             foreach (var x in Board._elemList)
             {
                 Sprite Sprite = new Sprite(x);
@@ -53,7 +76,7 @@ namespace GameProject.States
         {
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
-            _font = content.Load<SpriteFont>("Font");
+            _font = content.Load<SpriteFont>("Fonts/Font");
             float tmp_speed = 0f;
             if (Screen.getLevel() % 10 == 0) tmp_speed = champ.Speed * 2;
             else tmp_speed = champ.Speed;
@@ -63,16 +86,40 @@ namespace GameProject.States
                 Speed = tmp_speed,
             };
 
-            _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
-                content.Load<Texture2D>("Torn"), content.Load<Texture2D>("Space"),
-                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"), 
-                content.Load<Texture2D>("TornLeft"), content.Load<Texture2D>("TornRight"),
-                content.Load<Texture2D>("TornUp"));
 
-            _sprites = new List<Sprite>()
+            Random rnd = new Random();
+            int level = rnd.Next(1, 3);
+
+            switch (level)
             {
-                _champ
-            };
+                case 1:
+                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
+                content.Load<Texture2D>("Red_Level/Torn"),
+                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
+                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
+                content.Load<Texture2D>("Red_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+                case 2:
+                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
+                content.Load<Texture2D>("Ice_Level/Torn"),
+                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
+                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
+                content.Load<Texture2D>("Ice_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+            }
+
 
             foreach (var x in Board._elemList)
             {
@@ -86,10 +133,10 @@ namespace GameProject.States
             spriteBatch.Begin();
             //_champ.Draw(spriteBatch);
             //_board.Draw(spriteBatch);
-            spriteBatch.DrawString(_font, "Score: " + _champ.Points, new Vector2(0, Screen.getHeight()*16), Color.White);
-            spriteBatch.DrawString(_font, "Level: " + Screen.getLevel(), new Vector2(100, Screen.getHeight()*16), Color.White);
-            spriteBatch.DrawString(_font, "Health: " + _champ.Health, new Vector2(200, Screen.getHeight()*16), Color.White);
-
+            spriteBatch.DrawString(_font, "Score: " + _champ.Points + "  ", new Vector2(0, Screen.getHeight()*16), Color.White);
+            spriteBatch.DrawString(_font, "  Level: " + Screen.getLevel() + "  ", new Vector2((Screen.getWidth()/3)*16, Screen.getHeight()*16), Color.White);
+            spriteBatch.DrawString(_font, "  Health: " + _champ.Health + "  ", new Vector2((Screen.getWidth()* 2 / 3) * 16, Screen.getHeight()*16), Color.White);
+            
             foreach (var sprite in _sprites)
             {
                 sprite.Draw(spriteBatch);

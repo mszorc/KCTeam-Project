@@ -38,6 +38,13 @@ namespace GameProject
             Position.Y = (Screen.getHeight() - 3) * 16;
         }
 
+        public Sprite (Texture2D texture,int X, int Y)
+        {
+            _texture = texture;
+            Position.X = X;
+            Position.Y = Y;
+        }
+
 
         public Sprite(BoardElements elem)
         {

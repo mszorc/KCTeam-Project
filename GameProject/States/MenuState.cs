@@ -31,7 +31,7 @@ namespace GameProject.States
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 340),
+                Position = new Vector2(550, 340),
                 Text = "New Game",
             };
 
@@ -39,7 +39,7 @@ namespace GameProject.States
 
             var rankingButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 400),
+                Position = new Vector2(550, 400),
                 Text = "Ranking",
             };
 
@@ -47,7 +47,7 @@ namespace GameProject.States
 
             var creditsButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 460),
+                Position = new Vector2(550, 460),
                 Text = "Credits",
             };
 
@@ -55,7 +55,7 @@ namespace GameProject.States
 
             var exitButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 520),
+                Position = new Vector2(550, 520),
                 Text = "Exit",
             };
 
@@ -75,8 +75,8 @@ namespace GameProject.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            
-            
+
+
             spriteBatch.Begin();
 
             foreach (var component in _components)
@@ -112,7 +112,7 @@ namespace GameProject.States
         private void CreditsButton_Click(object sender, EventArgs e)
         {
             sound.StopMusic();
-            throw new NotImplementedException();
+            _game.ChangeState(new CreditsState(_game, _graphicsDevice, _content));
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
