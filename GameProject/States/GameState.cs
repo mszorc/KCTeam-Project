@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
-
+using NAudio.Wave;
 
 namespace GameProject.States
 {
@@ -20,9 +20,19 @@ namespace GameProject.States
         private Board _board;
         private List<Sprite> _sprites;
         private SpriteFont _font;
+        private static WaveOut sound;
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
+            if (!Game1.isMusicPlaying)
+            {
+                WaveFileReader reader = new WaveFileReader("gameplay.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
+            }
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
             _font = content.Load<SpriteFont>("Fonts/Font");
@@ -153,6 +163,10 @@ namespace GameProject.States
         {
             if(_champ.Health <= 0)
             {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                Game1.isMusicPlaying = false;
                 _game.ChangeState(new NewRekordState(_game, _graphicsDevice, _content, _champ));
                 return;
             }
@@ -163,6 +177,7 @@ namespace GameProject.States
                 _champ.Points += 15;
                 Screen.setLevel(Screen.getLevel() + 1);
                 _champ.Health = 3;
+                
                 _game.ChangeState(new GameState(_game, _graphicsDevice, _content, _champ));
                 
             }

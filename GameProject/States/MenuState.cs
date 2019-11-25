@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using NAudio.Wave;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,17 +15,25 @@ namespace GameProject.States
     {
         private List<Component> _components;
 
-        private static SoundPlayer sound = new SoundPlayer("menu.wav");
-
+        //private static SoundPlayer sound = new SoundPlayer("menu.wav");
+        private static WaveOut sound;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             RankingFile.ReadFromFile();
-            if (!Game1.isMusicPlaying)
+            /*if (!Game1.isMusicPlaying)
             {
                 sound.PlayMusic();
                 Game1.isMusicPlaying = true;
+            }*/
+            if(!Game1.isMusicPlaying)
+            {
+                WaveFileReader reader = new WaveFileReader("menu.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
             }
-            
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
             var backgroundTexture = _content.Load<Texture2D>("Controls/background");
@@ -105,7 +113,9 @@ namespace GameProject.States
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            sound.StopMusic();
+            sound.Stop();
+            sound.Dispose();
+            sound = null;
             Game1.isMusicPlaying = false;
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
@@ -124,7 +134,7 @@ namespace GameProject.States
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            sound.StopMusic();
+            //sound.StopMusic();
             _game.Exit();
         }
 
