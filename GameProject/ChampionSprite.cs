@@ -26,7 +26,7 @@ namespace GameProject
         public override void Update(List<Sprite> sprites)
         {
             Move();
-            if (this.Position.Y == 0 || this.Position.Y == (Screen.getHeight() - 2) * 16)
+            if (this.Position.Y <= 0 || this.Position.Y >= (Screen.getHeight() - 2) * 16)
             {
                 this.LoseHealth();
             }
@@ -38,12 +38,26 @@ namespace GameProject
                 }
                 if (Sprite._texture == Board._pointTexture)
                 {
+                    //Sprite coin = new Sprite(Board._pointTexture);
+                    Point tmp_point = Sprite.Rectangle.Center;
+                    var rect = new Rectangle(tmp_point.X, tmp_point.Y, 1, 1);
                     if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
                         this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
                     {
                         this.GetPoint(Sprite, sprites);
                         break;
                     }
+                    /*if (this.IsTouchingLeft(coin) || this.IsTouchingRight(coin) ||
+                        this.IsTouchingBottom(coin) || this.IsTouchingTop(coin))
+                    {
+                        this.GetPoint(Sprite, sprites);
+                        break;
+                    }*/
+                    /*if (this.Rectangle.Intersects(rect))
+                    {
+                        this.GetPoint(Sprite, sprites);
+                        break;
+                    }*/
                 }
                 if (Sprite._texture == Board._exitTexture)
                 {

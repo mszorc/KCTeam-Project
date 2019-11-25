@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using NAudio.Wave;
+using GameProject.Content;
 
 namespace GameProject.States
 {
@@ -40,47 +41,13 @@ namespace GameProject.States
             {
                 Speed = 4f,
             };
-            Random rnd = new Random();
-            int level = rnd.Next(1, 3);
-            //int level = 2;
-            switch (level)
-            {
-                case 1:
-                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
-                content.Load<Texture2D>("Red_Level/Torn"),
-                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
-                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
-                content.Load<Texture2D>("Red_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
 
-                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
-                case 2:
-                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
-                content.Load<Texture2D>("Ice_Level/Torn"),
-                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
-                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
-                content.Load<Texture2D>("Ice_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
-
-                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
-            }
-                      
-
+            ColorPattern _colorPattern = new ColorPattern();
+            _sprites = _colorPattern.LoadGraphics(content, _champ);
             
-            foreach (var x in Board._elemList)
-            {
-                Sprite Sprite = new Sprite(x);
-                _sprites.Add(Sprite);
-            }
         }
+
+        
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, ChampionSprite champ) : base(game, graphicsDevice, content, champ)
         {
@@ -97,46 +64,11 @@ namespace GameProject.States
             };
 
 
-            Random rnd = new Random();
-            int level = rnd.Next(1, 3);
-
-            switch (level)
-            {
-                case 1:
-                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
-                content.Load<Texture2D>("Red_Level/Torn"),
-                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
-                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
-                content.Load<Texture2D>("Red_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
-
-                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
-                case 2:
-                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
-                content.Load<Texture2D>("Ice_Level/Torn"),
-                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
-                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
-                content.Load<Texture2D>("Ice_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
-
-                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
-            }
-
-
-            foreach (var x in Board._elemList)
-            {
-                Sprite Sprite = new Sprite(x);
-                _sprites.Add(Sprite);
-            }
+            ColorPattern _colorPattern = new ColorPattern();
+            _sprites = _colorPattern.LoadGraphics(content, _champ);
         }
+
+       
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             
@@ -161,7 +93,16 @@ namespace GameProject.States
 
         public override void Update(GameTime gameTime)
         {
-            if(_champ.Health <= 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                Game1.isMusicPlaying = false;
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                return;
+            }
+            if (_champ.Health <= 0)
             {
                 sound.Stop();
                 sound.Dispose();

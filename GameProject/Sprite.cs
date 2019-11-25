@@ -20,6 +20,15 @@ namespace GameProject
             {
                 return new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
             }
+            set
+            {
+
+            }
+        }
+
+        public void setRect(Rectangle rect)
+        {
+            Rectangle = rect;
         }
 
         public Sprite(Texture2D texture)
@@ -44,6 +53,7 @@ namespace GameProject
             Position.X = X;
             Position.Y = Y;
         }
+
 
 
         public Sprite(BoardElements elem)
@@ -87,6 +97,47 @@ namespace GameProject
             Position = new Vector2(elem.PosX * 16, elem.PosY * 16);
         }
 
+
+        public Sprite(BoardElements elem, bool x)
+        {
+            if (elem.Char == '\u2593')
+            {
+                _texture = Board._borderTexture;
+            }
+            else if (elem.Char == '#')
+            {
+                _texture = Board._tornTexture;
+            }
+            else if (elem.Char == '\u2588')
+            {
+                _texture = Board._blockTexture;
+            }
+            else if (elem.Char == '\u035E' || elem.Char == '_')
+            {
+                //_texture = Board._spaceTexture;
+            }
+            else if (elem.Char == '$')
+            {
+                _texture = Board._pointTexture;
+            }
+            else if (elem.Char == '/')
+            {
+                _texture = Board._left_tornTexture;
+            }
+            else if (elem.Char == '?')
+            {
+                _texture = Board._right_tornTexture;
+            }
+            else if (elem.Char == '&')
+            {
+                _texture = Board._up_tornTexture;
+            }
+            else
+            {
+                _texture = Board._exitTexture;
+            }
+            Position = new Vector2((Screen.getWidth()-1-elem.PosX) * 16, (Screen.getHeight()-1-elem.PosY) * 16);
+        }
         public virtual void Update(List<Sprite> sprites)
         { 
         }
@@ -125,6 +176,8 @@ namespace GameProject
                 this.Rectangle.Right > sprite.Rectangle.Left &&
                 this.Rectangle.Left < sprite.Rectangle.Right;
         }
+
+     
         #endregion
     }
 }
