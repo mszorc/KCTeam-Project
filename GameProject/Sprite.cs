@@ -24,6 +24,7 @@ namespace GameProject
                 return new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
             }
             set { }
+
         }
 
         public void setRect(Rectangle rect)
@@ -129,12 +130,12 @@ namespace GameProject
                 _texture = Board._exitTexture;
             }
 
-
             if (_texture == Board._exitTexture)
             {
                 Position = new Vector2(16, 16);
             }
             else Position = new Vector2((Screen.getWidth()-1-elem.PosX) * 16, (Screen.getHeight()-1-elem.PosY) * 16);
+
         }
         public virtual void Update(List<Sprite> sprites)
         { 

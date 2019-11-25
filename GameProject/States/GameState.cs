@@ -27,17 +27,19 @@ namespace GameProject.States
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
             _font = content.Load<SpriteFont>("Fonts/Font");
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
-                Speed = 4f,
+
+                Speed = 8f,
+
             };
 
             ColorPattern _colorPattern = new ColorPattern();
             _sprites = _colorPattern.LoadGraphics(content, _champ);
+
             if (!Game1.isMusicPlaying)
             {
                 
@@ -49,6 +51,7 @@ namespace GameProject.States
                 sound.Play();
                 Game1.isMusicPlaying = true;
             }
+
         }
 
         
@@ -70,6 +73,7 @@ namespace GameProject.States
 
             ColorPattern _colorPattern = new ColorPattern();
             _sprites = _colorPattern.LoadGraphics(content, _champ);
+
 
             if(!ColorPattern.theSame && Sprite.specialLevel)
             {
@@ -95,6 +99,7 @@ namespace GameProject.States
                 sound.Play();
                 Game1.isMusicPlaying = true;
             }
+
         }
 
        

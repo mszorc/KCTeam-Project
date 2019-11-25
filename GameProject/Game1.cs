@@ -110,6 +110,7 @@ namespace GameProject
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+
             if (_nextState != null)
             {
                 _currentState = _nextState;

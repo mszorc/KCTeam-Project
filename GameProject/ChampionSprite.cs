@@ -40,11 +40,9 @@ namespace GameProject
                 }
                 if (Sprite._texture == Board._pointTexture)
                 {
-                    //Sprite coin = new Sprite(Board._pointTexture);
                     Point tmp_point = Sprite.Rectangle.Center;
                     var rect = new Rectangle(tmp_point.X, tmp_point.Y, 1, 1);
-                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
-                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
+                    if (this.Rectangle.Intersects(rect))
                     {
                         this.GetPoint(Sprite, sprites);
                         break;
@@ -61,57 +59,49 @@ namespace GameProject
                         break;
                     }*/
                 }
-                if (Sprite._texture == Board._exitTexture)
+                else if (Sprite._texture == Board._exitTexture)
                 {
-                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
-                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
+                    if (this.Rectangle.Intersects(Sprite.Rectangle))
                     {
                         Screen.ChangeMap(true);
                         break;
                     }
                 }
-                if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
-                {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
+                else if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
                         || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
-                    {
-                        this.LoseHealth();
-                        break;
-                    }
-                    this.Velocity.X = Sprite.Rectangle.Left - this.Rectangle.Right;
-                }
+                {
+                     if (this.Rectangle.Intersects(Sprite.Rectangle))
+                     {
 
-                if (this.Velocity.X < 0 && this.IsTouchingRight(Sprite))
-                {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
-                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
-                    {
                         this.LoseHealth();
                         break;
-                    }
-                    this.Velocity.X = - (this.Rectangle.Left - Sprite.Rectangle.Right);
+                     }
+                     
                 }
-
-                if (this.Velocity.Y > 0 && this.IsTouchingTop(Sprite))
+                else
                 {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
-                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
-                    {
-                        this.LoseHealth();
-                        break;
-                    }
-                    this.Velocity.Y = this.Rectangle.Bottom - Sprite.Rectangle.Top;
-                }
 
-                if (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite))
-                {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
-                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
+                    if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
+
                     {
-                        this.LoseHealth();
-                        break;
+                        this.Velocity.X = Sprite.Rectangle.Left - this.Rectangle.Right;
                     }
-                    this.Velocity.Y = - (Sprite.Rectangle.Bottom - this.Rectangle.Top);
+
+                    if (this.Velocity.X < 0 && this.IsTouchingRight(Sprite))
+
+                    {
+                        this.Velocity.X = Sprite.Rectangle.Right - this.Rectangle.Left;
+                    }
+
+                    if (this.Velocity.Y > 0 && this.IsTouchingTop(Sprite))
+
+                    {
+                        this.Velocity.Y = Sprite.Rectangle.Top - this.Rectangle.Bottom;
+                    }
+                    if (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite))
+                    {
+                        this.Velocity.Y = Sprite.Rectangle.Bottom - this.Rectangle.Top;
+                    }
                 }
             }
 
