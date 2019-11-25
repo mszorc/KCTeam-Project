@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using GameProject.Controls;
-using Microsoft.Xna.Framework.Input;
 
 namespace GameProject.States
 {
@@ -109,7 +108,6 @@ namespace GameProject.States
         {
             foreach (var component in _components)
                 component.Update(gameTime);
-
         }
 
 
@@ -138,11 +136,6 @@ namespace GameProject.States
         {
             //sound.StopMusic();
             _game.Exit();
-        }
-
-        private void EscButton_Click(object sender, EventArgs e)
-        {
-
         }
 
 

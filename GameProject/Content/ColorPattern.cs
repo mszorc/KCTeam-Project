@@ -12,14 +12,76 @@ namespace GameProject.Content
 {
     class ColorPattern
     {
-        public Board LoadBrick(ContentManager content)
+        public Board _board;
+        public List<Sprite> _sprites;
+        public ChampionSprite _champ;
+        public List<Sprite> LoadGraphics(ContentManager content, ChampionSprite _champ)
         {
-            Board board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
+            Random rnd = new Random();
+            int level = rnd.Next(1, 3);
+            switch (level)
+            {
+                case 1:
+                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
                 content.Load<Texture2D>("Red_Level/Torn"),
                 content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
                 content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
                 content.Load<Texture2D>("Red_Level/TornUp"));
-            return board;
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+                case 2:
+                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
+                content.Load<Texture2D>("Ice_Level/Torn"),
+                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
+                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
+                content.Load<Texture2D>("Ice_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+                case 3:
+                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
+                content.Load<Texture2D>("Ice_Level/Torn"),
+                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
+                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
+                content.Load<Texture2D>("Ice_Level/TornUp"));
+                    _champ.Position.X = (Screen.getWidth() - 3) * 16;
+                    _champ.Position.Y = 16;
+                    _champ._texture = _champ._texture_flip;
+                    _sprites = new List<Sprite>()
+                        {
+
+                            new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
+                            _champ
+                        };
+                    break;
+            }
+            if (level != 3)
+            {
+                foreach (var x in Board._elemList)
+                {
+                    Sprite Sprite = new Sprite(x);
+                    _sprites.Add(Sprite);
+                }
+            }
+            else
+            {
+                foreach (var x in Board._elemList)
+                {
+                    Sprite Sprite = new Sprite(x, true);
+                    _sprites.Add(Sprite);
+                }
+            }
+
+            return _sprites;
         }
     }
 }

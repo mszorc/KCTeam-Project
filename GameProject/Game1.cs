@@ -64,18 +64,18 @@ namespace GameProject
         protected override void LoadContent()
         {
             //SoundPlayer sound = new SoundPlayer("menu.wav");
-        // Create a new SpriteBatch, which can be used to draw textures.
+            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //champ
 
             //_texture = Content.Load<Texture2D>("Champ");
-            
+
             //_champ = new ChampionSprite(_texture)
             //{
             //    Speed = 8f,
             //};
-            
+
             //_board = new Board(Content.Load<Texture2D>("Border"), Content.Load<Texture2D>("Block"),
             //    Content.Load<Texture2D>("Torn"), Content.Load<Texture2D>("Space"),
             //    Content.Load<Texture2D>("Point"));
@@ -84,14 +84,14 @@ namespace GameProject
             //{
             //    _champ
             //};
-            
+
             //foreach(var x in Board._elemList)
             //{ 
             //    Sprite Sprite = new Sprite(x);
             //    _sprites.Add(Sprite);
             //}
 
-            
+
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace GameProject
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            
+
             if (_nextState != null)
             {
                 _currentState = _nextState;

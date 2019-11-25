@@ -65,7 +65,7 @@ namespace GameProject.States
                 };
                 isNewRekord = false;
             }
-        
+
         }
 
         public NewRekordState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, ChampionSprite champ, string name) : base(game, graphicsDevice, content, champ)
@@ -114,7 +114,7 @@ namespace GameProject.States
         {
             string points = "Great job! You got " + champ.Points + " points!";
             string signature = "Please enter your three letter signature: ";
-            
+
             Vector2 vector1 = new Vector2(625, 270);
             Vector2 vector2 = new Vector2(525, 320);
             Vector2 vector3 = new Vector2(780, 370);
@@ -131,7 +131,7 @@ namespace GameProject.States
 
             foreach (var component in _components)
                 component.Draw(gameTime, spriteBatch);
-            
+
             spriteBatch.End();
         }
 
@@ -159,7 +159,7 @@ namespace GameProject.States
             {
                 RankingFile.AddToList(name, champ.Points);
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
-            }           
+            }
         }
 
 
