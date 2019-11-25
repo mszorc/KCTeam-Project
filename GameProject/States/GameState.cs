@@ -22,18 +22,12 @@ namespace GameProject.States
         private List<Sprite> _sprites;
         private SpriteFont _font;
         private static WaveOut sound;
+        private static WaveFileReader reader;
+        public static int lastLevel = 0;
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            if (!Game1.isMusicPlaying)
-            {
-                WaveFileReader reader = new WaveFileReader("gameplay.wav");
-                LoopStream loop = new LoopStream(reader);
-                sound = new WaveOut();
-                sound.Init(loop);
-                sound.Play();
-                Game1.isMusicPlaying = true;
-            }
+            
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
             _font = content.Load<SpriteFont>("Fonts/Font");
@@ -44,7 +38,17 @@ namespace GameProject.States
 
             ColorPattern _colorPattern = new ColorPattern();
             _sprites = _colorPattern.LoadGraphics(content, _champ);
-            
+            if (!Game1.isMusicPlaying)
+            {
+                
+                if (!Sprite.specialLevel) reader = new WaveFileReader("gameplay.wav");
+                else reader = new WaveFileReader("special.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
+            }
         }
 
         
@@ -66,6 +70,31 @@ namespace GameProject.States
 
             ColorPattern _colorPattern = new ColorPattern();
             _sprites = _colorPattern.LoadGraphics(content, _champ);
+
+            if(!ColorPattern.theSame && Sprite.specialLevel)
+            {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                reader = new WaveFileReader("special.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
+            }
+            if (!ColorPattern.theSame && !Sprite.specialLevel)
+            {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                reader = new WaveFileReader("gameplay.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
+            }
         }
 
        

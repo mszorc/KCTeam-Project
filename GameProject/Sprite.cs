@@ -14,16 +14,16 @@ namespace GameProject
         public Vector2 Velocity;
         public Color Colour = Color.White;
         public float Speed = 4f;
+
+        public static bool specialLevel = false;
+
         public Rectangle Rectangle
         {
             get
             {
                 return new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
             }
-            set
-            {
-
-            }
+            set { }
         }
 
         public void setRect(Rectangle rect)
@@ -41,8 +41,8 @@ namespace GameProject
         public Sprite(Texture2D texture, Texture2D texture_flip)
         {
             _texture_flip = texture_flip;
-            _texture = texture;
             _texture_normal = texture;
+            _texture = _texture_normal;
             Position.X = 16;
             Position.Y = (Screen.getHeight() - 3) * 16;
         }
@@ -69,10 +69,6 @@ namespace GameProject
             else if (elem.Char == '\u2588')
             {
                 _texture = Board._blockTexture;
-            }
-            else if (elem.Char == '\u035E' || elem.Char == '_')
-            {
-                //_texture = Board._spaceTexture;
             }
             else if (elem.Char == '$')
             {
@@ -112,10 +108,6 @@ namespace GameProject
             {
                 _texture = Board._blockTexture;
             }
-            else if (elem.Char == '\u035E' || elem.Char == '_')
-            {
-                //_texture = Board._spaceTexture;
-            }
             else if (elem.Char == '$')
             {
                 _texture = Board._pointTexture;
@@ -136,7 +128,13 @@ namespace GameProject
             {
                 _texture = Board._exitTexture;
             }
-            Position = new Vector2((Screen.getWidth()-1-elem.PosX) * 16, (Screen.getHeight()-1-elem.PosY) * 16);
+
+
+            if (_texture == Board._exitTexture)
+            {
+                Position = new Vector2(16, 16);
+            }
+            else Position = new Vector2((Screen.getWidth()-1-elem.PosX) * 16, (Screen.getHeight()-1-elem.PosY) * 16);
         }
         public virtual void Update(List<Sprite> sprites)
         { 
