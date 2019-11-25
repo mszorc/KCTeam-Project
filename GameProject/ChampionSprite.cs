@@ -12,9 +12,11 @@ namespace GameProject
 {
     public class ChampionSprite: Sprite
     {
-        private String Direction = "DOWN";
+        private static String Direction;
         private String DirectionUp = "UP";
         private String DirectionDown = "DOWN";
+
+        public static void setDirection(string dir) => Direction = dir;
 
         public int Points { get; set; }
         public int Health { get; set; }
@@ -26,7 +28,7 @@ namespace GameProject
         public override void Update(List<Sprite> sprites)
         {
             Move();
-            if (this.Position.Y == 0 || this.Position.Y == (Screen.getHeight() - 2) * 16)
+            if (this.Position.Y <= 0 || this.Position.Y >= (Screen.getHeight() - 2) * 16)
             {
                 this.LoseHealth();
             }
@@ -38,64 +40,68 @@ namespace GameProject
                 }
                 if (Sprite._texture == Board._pointTexture)
                 {
-                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
-                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
+                    Point tmp_point = Sprite.Rectangle.Center;
+                    var rect = new Rectangle(tmp_point.X, tmp_point.Y, 1, 1);
+                    if (this.Rectangle.Intersects(rect))
                     {
                         this.GetPoint(Sprite, sprites);
                         break;
                     }
+                    /*if (this.IsTouchingLeft(coin) || this.IsTouchingRight(coin) ||
+                        this.IsTouchingBottom(coin) || this.IsTouchingTop(coin))
+                    {
+                        this.GetPoint(Sprite, sprites);
+                        break;
+                    }*/
+                    /*if (this.Rectangle.Intersects(rect))
+                    {
+                        this.GetPoint(Sprite, sprites);
+                        break;
+                    }*/
                 }
-                if (Sprite._texture == Board._exitTexture)
+                else if (Sprite._texture == Board._exitTexture)
                 {
-                    if (this.IsTouchingLeft(Sprite) || this.IsTouchingRight(Sprite) ||
-                        this.IsTouchingBottom(Sprite) || this.IsTouchingTop(Sprite))
+                    if (this.Rectangle.Intersects(Sprite.Rectangle))
                     {
                         Screen.ChangeMap(true);
                         break;
                     }
                 }
-                if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
-                {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
+                else if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
                         || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
-                    {
-                        this.LoseHealth();
-                        break;
-                    }
-                    this.Velocity.X = Sprite.Rectangle.Left - this.Rectangle.Right;
-                }
+                {
+                     if (this.Rectangle.Intersects(Sprite.Rectangle))
+                     {
 
-                if (this.Velocity.X < 0 && this.IsTouchingRight(Sprite))
-                {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
-                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
-                    {
                         this.LoseHealth();
                         break;
-                    }
-                    this.Velocity.X = - (this.Rectangle.Left - Sprite.Rectangle.Right);
+                     }
+                     
                 }
-
-                if (this.Velocity.Y > 0 && this.IsTouchingTop(Sprite))
+                else
                 {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
-                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
-                    {
-                        this.LoseHealth();
-                        break;
-                    }
-                    this.Velocity.Y = this.Rectangle.Bottom - Sprite.Rectangle.Top;
-                }
 
-                if (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite))
-                {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
-                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
+                    if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
+
                     {
-                        this.LoseHealth();
-                        break;
+                        this.Velocity.X = Sprite.Rectangle.Left - this.Rectangle.Right;
                     }
-                    this.Velocity.Y = - (Sprite.Rectangle.Bottom - this.Rectangle.Top);
+
+                    if (this.Velocity.X < 0 && this.IsTouchingRight(Sprite))
+
+                    {
+                        this.Velocity.X = Sprite.Rectangle.Right - this.Rectangle.Left;
+                    }
+
+                    if (this.Velocity.Y > 0 && this.IsTouchingTop(Sprite))
+
+                    {
+                        this.Velocity.Y = Sprite.Rectangle.Top - this.Rectangle.Bottom;
+                    }
+                    if (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite))
+                    {
+                        this.Velocity.Y = Sprite.Rectangle.Bottom - this.Rectangle.Top;
+                    }
                 }
             }
 
@@ -160,16 +166,34 @@ namespace GameProject
             SoundPlayer sound = new SoundPlayer("death.wav");
             SetPositionStart();
             this.Health--;
-            this.Direction = "DOWN";
-            this._texture = _texture_normal;
+            if (!specialLevel)
+            {
+                Direction = DirectionDown;
+                this._texture = _texture_normal;
+            }
+            else
+            {
+                Direction = DirectionUp;
+                this._texture = _texture_flip;
+            }
+            
             sound.PlayMusic();
         }
 
         private void SetPositionStart()
         {
-            Position.X = 16;
-            Position.Y = (Screen.getHeight() - 3) * 16;
-            this.Velocity = Vector2.Zero;
+            if (!specialLevel)
+            {
+                Position.X = 16;
+                Position.Y = (Screen.getHeight() - 3) * 16;
+                this.Velocity = Vector2.Zero;
+            }
+            else
+            {
+                Position.X = (Screen.getWidth() - 3) * 16;
+                Position.Y = 16;
+                this.Velocity = Vector2.Zero;
+            }
         }
     }
 }

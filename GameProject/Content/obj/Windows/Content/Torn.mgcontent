@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/Torn.png</SourceFile>
-  <SourceTime>2019-11-24T23:55:27.1997282+01:00</SourceTime>
-  <DestFile>C:/Users/piawr/Desktop/adam_monogame/KCTeam-Project/GameProject/Content/bin/Windows/Content/Torn.xnb</DestFile>
-  <DestTime>2019-11-24T23:55:59.5268028+01:00</DestTime>
+  <SourceFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Torn.png</SourceFile>
+  <SourceTime>2019-11-24T18:46:01.4411451+01:00</SourceTime>
+  <DestFile>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/bin/Windows/Content/Torn.xnb</DestFile>
+  <DestTime>2019-11-25T11:32:49.88924+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

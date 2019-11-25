@@ -36,12 +36,34 @@
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Red_Level/TornRight.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Red_Level/TornUp.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Space.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/Background.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/Block.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/Border.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/Champ.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/ChampFlip.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/Exit.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/Point.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/Torn.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/TornLeft.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/TornRight.png</File>
+    <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/ST_Level/TornUp.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/Torn.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/TornLeft.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/TornRight.png</File>
     <File>E:/Adas/STUDIA/SEMESTR5/KCK/Projekt2/GameProject/Content/TornUp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

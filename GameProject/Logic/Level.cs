@@ -210,7 +210,7 @@ namespace GameProject
             foreach (Block b in blockList) //if (string.Equals(b.getDirection(), "down") == false)
             {
 
-                while (j < b.getStartX())
+                while (j < b.getStartX()-1)
                 {
                     isGapRoll = rnd.Next(1, 100);
 
@@ -258,7 +258,7 @@ namespace GameProject
             foreach (Block b in blockList) //if (string.Equals(b.getDirection(), "up") == false)
             {
 
-                while (j < b.getStartX())
+                while (j < b.getStartX()-1)
                 {
                     isGapRoll = rnd.Next(1, 100);
 

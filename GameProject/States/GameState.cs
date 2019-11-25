@@ -8,8 +8,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
-using System.Media;
-
+using NAudio.Wave;
+using GameProject.Content;
 
 namespace GameProject.States
 {
@@ -21,8 +21,9 @@ namespace GameProject.States
         private Board _board;
         private List<Sprite> _sprites;
         private SpriteFont _font;
-
-        private static SoundPlayer sound = new SoundPlayer("gameplay.wav");
+        private static WaveOut sound;
+        private static WaveFileReader reader;
+        public static int lastLevel = 0;
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -31,49 +32,29 @@ namespace GameProject.States
             _font = content.Load<SpriteFont>("Fonts/Font");
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
-                Speed = 4f,
+
+                Speed = 8f,
+
             };
-            Random rnd = new Random();
-            int level = rnd.Next(1, 3);
-            //int level = 2;
-            switch (level)
+
+            ColorPattern _colorPattern = new ColorPattern();
+            _sprites = _colorPattern.LoadGraphics(content, _champ);
+
+            if (!Game1.isMusicPlaying)
             {
-                case 1:
-                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
-                content.Load<Texture2D>("Red_Level/Torn"),
-                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
-                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
-                content.Load<Texture2D>("Red_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
-
-                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
-                case 2:
-                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
-                content.Load<Texture2D>("Ice_Level/Torn"),
-                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
-                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
-                content.Load<Texture2D>("Ice_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
-
-                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
+                
+                if (!Sprite.specialLevel) reader = new WaveFileReader("gameplay.wav");
+                else reader = new WaveFileReader("special.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
             }
-                      
 
-            
-            foreach (var x in Board._elemList)
-            {
-                Sprite Sprite = new Sprite(x);
-                _sprites.Add(Sprite);
-            }
         }
+
+        
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, ChampionSprite champ) : base(game, graphicsDevice, content, champ)
         {
@@ -90,46 +71,38 @@ namespace GameProject.States
             };
 
 
-            Random rnd = new Random();
-            int level = rnd.Next(1, 3);
+            ColorPattern _colorPattern = new ColorPattern();
+            _sprites = _colorPattern.LoadGraphics(content, _champ);
 
-            switch (level)
+
+            if(!ColorPattern.theSame && Sprite.specialLevel)
             {
-                case 1:
-                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
-                content.Load<Texture2D>("Red_Level/Torn"),
-                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
-                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
-                content.Load<Texture2D>("Red_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
-
-                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
-                case 2:
-                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
-                content.Load<Texture2D>("Ice_Level/Torn"),
-                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
-                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
-                content.Load<Texture2D>("Ice_Level/TornUp"));
-                    _sprites = new List<Sprite>()
-                    {
-
-                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
-                        _champ
-                    };
-                    break;
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                reader = new WaveFileReader("special.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
+            }
+            if (!ColorPattern.theSame && !Sprite.specialLevel)
+            {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                reader = new WaveFileReader("gameplay.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
             }
 
-
-            foreach (var x in Board._elemList)
-            {
-                Sprite Sprite = new Sprite(x);
-                _sprites.Add(Sprite);
-            }
         }
+
+       
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             
@@ -154,8 +127,21 @@ namespace GameProject.States
 
         public override void Update(GameTime gameTime)
         {
-            if(_champ.Health <= 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                Game1.isMusicPlaying = false;
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                return;
+            }
+            if (_champ.Health <= 0)
+            {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                Game1.isMusicPlaying = false;
                 _game.ChangeState(new NewRekordState(_game, _graphicsDevice, _content, _champ));
                 return;
             }
@@ -166,6 +152,7 @@ namespace GameProject.States
                 _champ.Points += 15;
                 Screen.setLevel(Screen.getLevel() + 1);
                 _champ.Health = 3;
+                
                 _game.ChangeState(new GameState(_game, _graphicsDevice, _content, _champ));
                 
             }
