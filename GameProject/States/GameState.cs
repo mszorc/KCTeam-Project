@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
-
+using NAudio.Wave;
 
 namespace GameProject.States
 {
@@ -20,28 +20,61 @@ namespace GameProject.States
         private Board _board;
         private List<Sprite> _sprites;
         private SpriteFont _font;
+        private static WaveOut sound;
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
+            if (!Game1.isMusicPlaying)
+            {
+                WaveFileReader reader = new WaveFileReader("gameplay.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
+            }
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
-            _font = content.Load<SpriteFont>("Font");
+            _font = content.Load<SpriteFont>("Fonts/Font");
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
                 Speed = 4f,
             };
-
-            _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
-                content.Load<Texture2D>("Torn"), content.Load<Texture2D>("Space"),
-                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"),
-                content.Load<Texture2D>("TornLeft"), content.Load<Texture2D>("TornRight"),
-                content.Load<Texture2D>("TornUp"));
-
-            _sprites = new List<Sprite>()
+            Random rnd = new Random();
+            int level = rnd.Next(1, 3);
+            //int level = 2;
+            switch (level)
             {
-                _champ
-            };
+                case 1:
+                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
+                content.Load<Texture2D>("Red_Level/Torn"),
+                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
+                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
+                content.Load<Texture2D>("Red_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
 
+                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+                case 2:
+                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
+                content.Load<Texture2D>("Ice_Level/Torn"),
+                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
+                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
+                content.Load<Texture2D>("Ice_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+            }
+                      
+
+            
             foreach (var x in Board._elemList)
             {
                 Sprite Sprite = new Sprite(x);
@@ -53,7 +86,7 @@ namespace GameProject.States
         {
             _texture = content.Load<Texture2D>("Champ");
             _texture_flip = content.Load<Texture2D>("ChampFlip");
-            _font = content.Load<SpriteFont>("Font");
+            _font = content.Load<SpriteFont>("Fonts/Font");
             float tmp_speed = 0f;
             if (Screen.getLevel() % 10 == 0) tmp_speed = champ.Speed * 2;
             else tmp_speed = champ.Speed;
@@ -63,16 +96,40 @@ namespace GameProject.States
                 Speed = tmp_speed,
             };
 
-            _board = new Board(content.Load<Texture2D>("Border"), content.Load<Texture2D>("Block"),
-                content.Load<Texture2D>("Torn"), content.Load<Texture2D>("Space"),
-                content.Load<Texture2D>("Point"), content.Load<Texture2D>("Exit"), 
-                content.Load<Texture2D>("TornLeft"), content.Load<Texture2D>("TornRight"),
-                content.Load<Texture2D>("TornUp"));
 
-            _sprites = new List<Sprite>()
+            Random rnd = new Random();
+            int level = rnd.Next(1, 3);
+
+            switch (level)
             {
-                _champ
-            };
+                case 1:
+                    _board = new Board(content.Load<Texture2D>("Red_Level/Border"), content.Load<Texture2D>("Red_Level/Block"),
+                content.Load<Texture2D>("Red_Level/Torn"),
+                content.Load<Texture2D>("Red_Level/Point"), content.Load<Texture2D>("Red_Level/Exit"),
+                content.Load<Texture2D>("Red_Level/TornLeft"), content.Load<Texture2D>("Red_Level/TornRight"),
+                content.Load<Texture2D>("Red_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Red_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+                case 2:
+                    _board = new Board(content.Load<Texture2D>("Ice_Level/Border"), content.Load<Texture2D>("Ice_Level/Block"),
+                content.Load<Texture2D>("Ice_Level/Torn"),
+                content.Load<Texture2D>("Ice_Level/Point"), content.Load<Texture2D>("Ice_Level/Exit"),
+                content.Load<Texture2D>("Ice_Level/TornLeft"), content.Load<Texture2D>("Ice_Level/TornRight"),
+                content.Load<Texture2D>("Ice_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Ice_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
+            }
+
 
             foreach (var x in Board._elemList)
             {
@@ -86,10 +143,10 @@ namespace GameProject.States
             spriteBatch.Begin();
             //_champ.Draw(spriteBatch);
             //_board.Draw(spriteBatch);
-            spriteBatch.DrawString(_font, "Score: " + _champ.Points, new Vector2(0, Screen.getHeight()*16), Color.White);
-            spriteBatch.DrawString(_font, "Level: " + Screen.getLevel(), new Vector2(100, Screen.getHeight()*16), Color.White);
-            spriteBatch.DrawString(_font, "Health: " + _champ.Health, new Vector2(200, Screen.getHeight()*16), Color.White);
-
+            spriteBatch.DrawString(_font, "Score: " + _champ.Points + "  ", new Vector2(0, Screen.getHeight()*16), Color.White);
+            spriteBatch.DrawString(_font, "  Level: " + Screen.getLevel() + "  ", new Vector2((Screen.getWidth()/3)*16, Screen.getHeight()*16), Color.White);
+            spriteBatch.DrawString(_font, "  Health: " + _champ.Health + "  ", new Vector2((Screen.getWidth()* 2 / 3) * 16, Screen.getHeight()*16), Color.White);
+            
             foreach (var sprite in _sprites)
             {
                 sprite.Draw(spriteBatch);
@@ -104,8 +161,21 @@ namespace GameProject.States
 
         public override void Update(GameTime gameTime)
         {
-            if(_champ.Health <= 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                Game1.isMusicPlaying = false;
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                return;
+            }
+            if (_champ.Health <= 0)
+            {
+                sound.Stop();
+                sound.Dispose();
+                sound = null;
+                Game1.isMusicPlaying = false;
                 _game.ChangeState(new NewRekordState(_game, _graphicsDevice, _content, _champ));
                 return;
             }
@@ -116,6 +186,7 @@ namespace GameProject.States
                 _champ.Points += 15;
                 Screen.setLevel(Screen.getLevel() + 1);
                 _champ.Health = 3;
+                
                 _game.ChangeState(new GameState(_game, _graphicsDevice, _content, _champ));
                 
             }

@@ -26,7 +26,10 @@ namespace GameProject
         public override void Update(List<Sprite> sprites)
         {
             Move();
-            
+            if (this.Position.Y <= 0 || this.Position.Y >= (Screen.getHeight() - 2) * 16)
+            {
+                this.LoseHealth();
+            }
             foreach (var Sprite in sprites)
             {
                 if (Sprite == this) 
@@ -53,7 +56,8 @@ namespace GameProject
                 }
                 if (this.Velocity.X > 0 && this.IsTouchingLeft(Sprite))
                 {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
+                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
                     {
                         this.LoseHealth();
                         break;
@@ -63,7 +67,8 @@ namespace GameProject
 
                 if (this.Velocity.X < 0 && this.IsTouchingRight(Sprite))
                 {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
+                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
                     {
                         this.LoseHealth();
                         break;
@@ -73,7 +78,8 @@ namespace GameProject
 
                 if (this.Velocity.Y > 0 && this.IsTouchingTop(Sprite))
                 {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
+                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
                     {
                         this.LoseHealth();
                         break;
@@ -83,7 +89,8 @@ namespace GameProject
 
                 if (this.Velocity.Y < 0 && this.IsTouchingBottom(Sprite))
                 {
-                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._spaceTexture)
+                    if (Sprite._texture == Board._tornTexture || Sprite._texture == Board._left_tornTexture
+                        || Sprite._texture == Board._up_tornTexture || Sprite._texture == Board._right_tornTexture)
                     {
                         this.LoseHealth();
                         break;

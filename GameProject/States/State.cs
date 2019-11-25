@@ -43,6 +43,11 @@ namespace GameProject.States
 
         public abstract void Update(GameTime gameTime);
 
+        internal void NewRekordState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, ChampionSprite champ)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

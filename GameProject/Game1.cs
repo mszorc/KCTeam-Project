@@ -21,8 +21,11 @@ namespace GameProject
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public static bool isMusicPlaying;
+
         private State _currentState;
         private State _nextState;
+
 
         public void ChangeState(State state)
         {
@@ -31,6 +34,7 @@ namespace GameProject
 
         public Game1()
         {
+            isMusicPlaying = false;
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1600;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = 680;   // set this value to the desired height of your window
@@ -59,7 +63,8 @@ namespace GameProject
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
+            //SoundPlayer sound = new SoundPlayer("menu.wav");
+        // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //champ
@@ -105,8 +110,7 @@ namespace GameProject
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            
             if (_nextState != null)
             {
                 _currentState = _nextState;
