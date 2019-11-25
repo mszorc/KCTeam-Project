@@ -28,7 +28,7 @@ namespace GameProject.States
 
             var backButton = new Button(buttonTexture, _font)
             {
-                Position = new Vector2(650, 570),
+                Position = new Vector2(550, 570),
                 Text = "Go to main menu"
             };
 

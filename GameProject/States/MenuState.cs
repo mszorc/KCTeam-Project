@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using NAudio.Wave;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,11 +14,26 @@ namespace GameProject.States
     public class MenuState : State
     {
         private List<Component> _components;
-        private SoundPlayer sound = new SoundPlayer("menu.wav");
+
+        //private static SoundPlayer sound = new SoundPlayer("menu.wav");
+        private static WaveOut sound;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             RankingFile.ReadFromFile();
-            //sound.PlayMusic();
+            /*if (!Game1.isMusicPlaying)
+            {
+                sound.PlayMusic();
+                Game1.isMusicPlaying = true;
+            }*/
+            if(!Game1.isMusicPlaying)
+            {
+                WaveFileReader reader = new WaveFileReader("menu.wav");
+                LoopStream loop = new LoopStream(reader);
+                sound = new WaveOut();
+                sound.Init(loop);
+                sound.Play();
+                Game1.isMusicPlaying = true;
+            }
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
             var backgroundTexture = _content.Load<Texture2D>("Controls/background");
@@ -31,7 +46,7 @@ namespace GameProject.States
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 340),
+                Position = new Vector2(550, 340),
                 Text = "New Game",
             };
 
@@ -39,7 +54,7 @@ namespace GameProject.States
 
             var rankingButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 400),
+                Position = new Vector2(550, 400),
                 Text = "Ranking",
             };
 
@@ -47,7 +62,7 @@ namespace GameProject.States
 
             var creditsButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 460),
+                Position = new Vector2(550, 460),
                 Text = "Credits",
             };
 
@@ -55,7 +70,7 @@ namespace GameProject.States
 
             var exitButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(650, 520),
+                Position = new Vector2(550, 520),
                 Text = "Exit",
             };
 
@@ -75,8 +90,7 @@ namespace GameProject.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            
-            
+
             spriteBatch.Begin();
 
             foreach (var component in _components)
@@ -99,25 +113,28 @@ namespace GameProject.States
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            sound.StopMusic();
+            sound.Stop();
+            sound.Dispose();
+            sound = null;
+            Game1.isMusicPlaying = false;
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
         private void RankingButton_Click(object sender, EventArgs e)
         {
-            sound.StopMusic();
+            //sound.StopMusic();
             _game.ChangeState(new RankingState(_game, _graphicsDevice, _content));
         }
 
         private void CreditsButton_Click(object sender, EventArgs e)
         {
-            sound.StopMusic();
-            throw new NotImplementedException();
+            //sound.StopMusic();
+            _game.ChangeState(new CreditsState(_game, _graphicsDevice, _content));
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            sound.StopMusic();
+            //sound.StopMusic();
             _game.Exit();
         }
 

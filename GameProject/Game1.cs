@@ -21,8 +21,11 @@ namespace GameProject
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public static bool isMusicPlaying;
+
         private State _currentState;
         private State _nextState;
+
 
         public void ChangeState(State state)
         {
@@ -31,6 +34,7 @@ namespace GameProject
 
         public Game1()
         {
+            isMusicPlaying = false;
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1600;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = 680;   // set this value to the desired height of your window
@@ -59,18 +63,19 @@ namespace GameProject
         /// </summary>
         protected override void LoadContent()
         {
+            //SoundPlayer sound = new SoundPlayer("menu.wav");
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //champ
 
             //_texture = Content.Load<Texture2D>("Champ");
-            
+
             //_champ = new ChampionSprite(_texture)
             //{
             //    Speed = 8f,
             //};
-            
+
             //_board = new Board(Content.Load<Texture2D>("Border"), Content.Load<Texture2D>("Block"),
             //    Content.Load<Texture2D>("Torn"), Content.Load<Texture2D>("Space"),
             //    Content.Load<Texture2D>("Point"));
@@ -79,14 +84,14 @@ namespace GameProject
             //{
             //    _champ
             //};
-            
+
             //foreach(var x in Board._elemList)
             //{ 
             //    Sprite Sprite = new Sprite(x);
             //    _sprites.Add(Sprite);
             //}
 
-            
+
         }
 
         /// <summary>
@@ -105,8 +110,7 @@ namespace GameProject
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+
             if (_nextState != null)
             {
                 _currentState = _nextState;

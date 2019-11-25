@@ -18,21 +18,19 @@ namespace GameProject
         public static Texture2D _borderTexture;
         public static Texture2D _blockTexture;
         public static Texture2D _tornTexture;
-        public static Texture2D _spaceTexture;
         public static Texture2D _pointTexture;
         public static Texture2D _exitTexture;
         public static Texture2D _left_tornTexture;
         public static Texture2D _right_tornTexture;
         public static Texture2D _up_tornTexture;
 
-        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D space, Texture2D point,
+        public Board(Texture2D border, Texture2D block, Texture2D torn, Texture2D point,
             Texture2D exit, Texture2D left_torn, Texture2D right_torn, Texture2D up_torn)
         {
             Position = new Vector2(0, 0);
             _borderTexture = border;
             _blockTexture = block;
             _tornTexture = torn;
-            _spaceTexture = space;
             _pointTexture = point;
             _exitTexture = exit;
             _right_tornTexture = right_torn;
@@ -59,11 +57,12 @@ namespace GameProject
             }
             BoardElements elem_exit = new BoardElements();
             elem_exit.PosX = Screen.getWidth() - 3;
-            elem_exit.PosY = Screen.getHeight() - 3;
+            elem_exit.PosY = Screen.getHeight() - 5;
             elem_exit.Char = '>';
             _elemList.Add(elem_exit);
 
         }
+
 
 
         /*public void Draw(SpriteBatch spriteBatch)

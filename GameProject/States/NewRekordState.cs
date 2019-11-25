@@ -33,13 +33,13 @@ namespace GameProject.States
 
             var submitButton = new Button(buttonTexture, _font)
             {
-                Position = new Vector2(650, 570),
+                Position = new Vector2(550, 570),
                 Text = "Submit your score"
             };
 
             var backButton = new Button(buttonTexture, _font)
             {
-                Position = new Vector2(650, 570),
+                Position = new Vector2(550, 570),
                 Text = "Go to main menu"
             };
 
@@ -66,15 +66,57 @@ namespace GameProject.States
                 isNewRekord = false;
             }
 
-            
+        }
+
+        public NewRekordState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, ChampionSprite champ, string name) : base(game, graphicsDevice, content, champ)
+        {
+            this.name = name;
+
+            var buttonTexture = _content.Load<Texture2D>("Controls/Button");
+            _font = _content.Load<SpriteFont>("Fonts/Font");
+
+            var submitButton = new Button(buttonTexture, _font)
+            {
+                Position = new Vector2(550, 570),
+                Text = "Submit your score"
+            };
+
+            var backButton = new Button(buttonTexture, _font)
+            {
+                Position = new Vector2(550, 570),
+                Text = "Go to main menu"
+            };
+
+            backButton.Click += backButton_Click;
+            submitButton.Click += submitButton_Click;
+
+            var list = RankingFile.getPlacements();
+            this.champ = champ;
+
+            if (list.Count < 10 || list[list.Count - 1].score < champ.Points)
+            {
+                _components = new List<Component>()
+                {
+                    submitButton
+                };
+                isNewRekord = true;
+            }
+            else
+            {
+                _components = new List<Component>()
+                {
+                    backButton
+                };
+                isNewRekord = false;
+            }
         }
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             string points = "Great job! You got " + champ.Points + " points!";
             string signature = "Please enter your three letter signature: ";
-            
-            Vector2 vector1 = new Vector2(710, 270);
-            Vector2 vector2 = new Vector2(665, 320);
+
+            Vector2 vector1 = new Vector2(625, 270);
+            Vector2 vector2 = new Vector2(525, 320);
             Vector2 vector3 = new Vector2(780, 370);
 
             spriteBatch.Begin();
@@ -89,7 +131,7 @@ namespace GameProject.States
 
             foreach (var component in _components)
                 component.Draw(gameTime, spriteBatch);
-            
+
             spriteBatch.End();
         }
 
@@ -109,8 +151,15 @@ namespace GameProject.States
         }
         private void submitButton_Click(object sender, EventArgs e)
         {
-            RankingFile.AddToList(name, champ.Points);
-            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            if (!HasThreeCharacters(name))
+            {
+                _game.ChangeState(new NewRekordState(_game, _graphicsDevice, _content, champ, name));
+            }
+            else
+            {
+                RankingFile.AddToList(name, champ.Points);
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            }
         }
 
 
@@ -136,65 +185,57 @@ namespace GameProject.States
             {
                 if (ActionWasJustPressed(Keys.Q))
                     sb.Append('Q');
-                if (ActionWasJustPressed(Keys.W))
+                else if (ActionWasJustPressed(Keys.W))
                     sb.Append('W');
-                if (ActionWasJustPressed(Keys.E))
+                else if (ActionWasJustPressed(Keys.E))
                     sb.Append('E');
-                if (ActionWasJustPressed(Keys.R))
+                else if (ActionWasJustPressed(Keys.R))
                     sb.Append('R');
-                if (ActionWasJustPressed(Keys.T))
+                else if (ActionWasJustPressed(Keys.T))
                     sb.Append('T');
-                if (ActionWasJustPressed(Keys.Y))
+                else if (ActionWasJustPressed(Keys.Y))
                     sb.Append('Y');
-                if (ActionWasJustPressed(Keys.U))
+                else if (ActionWasJustPressed(Keys.U))
                     sb.Append('U');
-                if (ActionWasJustPressed(Keys.I))
+                else if (ActionWasJustPressed(Keys.I))
                     sb.Append('I');
-                if (ActionWasJustPressed(Keys.O))
+                else if (ActionWasJustPressed(Keys.O))
                     sb.Append('O');
-                if (ActionWasJustPressed(Keys.P))
+                else if (ActionWasJustPressed(Keys.P))
                     sb.Append('P');
-                if (ActionWasJustPressed(Keys.A))
+                else if (ActionWasJustPressed(Keys.A))
                     sb.Append('A');
-                if (ActionWasJustPressed(Keys.S))
+                else if (ActionWasJustPressed(Keys.S))
                     sb.Append('S');
-                if (ActionWasJustPressed(Keys.D))
+                else if (ActionWasJustPressed(Keys.D))
                     sb.Append('D');
-                if (ActionWasJustPressed(Keys.F))
+                else if (ActionWasJustPressed(Keys.F))
                     sb.Append('F');
-                if (ActionWasJustPressed(Keys.G))
+                else if (ActionWasJustPressed(Keys.G))
                     sb.Append('G');
-                if (ActionWasJustPressed(Keys.H))
+                else if (ActionWasJustPressed(Keys.H))
                     sb.Append('H');
-                if (ActionWasJustPressed(Keys.J))
+                else if (ActionWasJustPressed(Keys.J))
                     sb.Append('J');
-                if (ActionWasJustPressed(Keys.K))
+                else if (ActionWasJustPressed(Keys.K))
                     sb.Append('K');
-                if (ActionWasJustPressed(Keys.L))
+                else if (ActionWasJustPressed(Keys.L))
                     sb.Append('L');
-                if (ActionWasJustPressed(Keys.Z))
+                else if (ActionWasJustPressed(Keys.Z))
                     sb.Append('Z');
-                if (ActionWasJustPressed(Keys.X))
+                else if (ActionWasJustPressed(Keys.X))
                     sb.Append('X');
-                if (ActionWasJustPressed(Keys.C))
+                else if (ActionWasJustPressed(Keys.C))
                     sb.Append('C');
-                if (ActionWasJustPressed(Keys.V))
+                else if (ActionWasJustPressed(Keys.V))
                     sb.Append('V');
-                if (ActionWasJustPressed(Keys.B))
+                else if (ActionWasJustPressed(Keys.B))
                     sb.Append('B');
-                if (ActionWasJustPressed(Keys.N))
+                else if (ActionWasJustPressed(Keys.N))
                     sb.Append('N');
-                if (ActionWasJustPressed(Keys.M))
+                else if (ActionWasJustPressed(Keys.M))
                     sb.Append('M');
             }
-           
-
-            /*
-            if (HasFourCharacters(name))
-            {
-                sb.Remove(sb.Length - 1, 1);
-            }*/
-
             return sb.ToString();
         }
 

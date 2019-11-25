@@ -55,15 +55,19 @@ namespace GameProject.Controls
 
             _font = font;
 
-            PenColour = Color.Black;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             var colour = Color.White;
 
+            PenColour = Color.White;
+
             if (_isHovering)
+            {
+                PenColour = Color.Red;
                 colour = Color.Red;
+            }
 
             spriteBatch.Draw(_texture, Rectangle, colour);
 
