@@ -19,13 +19,15 @@ namespace GameProject.Content
         public List<Sprite> LoadGraphics(ContentManager content, ChampionSprite _champ)
         {
             Random rnd = new Random();
-            level = rnd.Next(1, 4);
-            //level = 3;
-            if (States.GameState.lastLevel != 3 && level == 3)
+            level = rnd.Next(1, 100);
+            //level = 4;
+            if (level % 16 == 0) level = 4;
+            else level = level % 3 + 1;
+            if (States.GameState.lastLevel != 4 && level == 4)
             {
                 theSame = false;
             }
-            else if (States.GameState.lastLevel == 3 && level != 3)
+            else if (States.GameState.lastLevel == 4 && level != 4)
             {
                 theSame = false;
             }
@@ -58,7 +60,7 @@ namespace GameProject.Content
                         _champ
                     };
                     break;
-                case 3:
+                case 4:
                     _board = new Board(content.Load<Texture2D>("ST_Level/Border"), content.Load<Texture2D>("ST_Level/Block"),
                 content.Load<Texture2D>("ST_Level/TornUp"),
                 content.Load<Texture2D>("ST_Level/Point"), content.Load<Texture2D>("ST_Level/Exit"),
@@ -74,8 +76,21 @@ namespace GameProject.Content
                             _champ
                         };
                     break;
+                case 3:
+                    _board = new Board(content.Load<Texture2D>("Green_Level/Border"), content.Load<Texture2D>("Green_Level/Block"),
+                content.Load<Texture2D>("Green_Level/Torn"),
+                content.Load<Texture2D>("Green_Level/Point"), content.Load<Texture2D>("Green_Level/Exit"),
+                content.Load<Texture2D>("Green_Level/TornLeft"), content.Load<Texture2D>("Green_Level/TornRight"),
+                content.Load<Texture2D>("Green_Level/TornUp"));
+                    _sprites = new List<Sprite>()
+                    {
+
+                        new Sprite(content.Load<Texture2D>("Green_Level/Background"), 0, 0),
+                        _champ
+                    };
+                    break;
             }
-            if (level != 3)
+            if (level != 4)
             {
                 Sprite.specialLevel = false;
 

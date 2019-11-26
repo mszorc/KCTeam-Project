@@ -108,11 +108,6 @@ C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\Ga
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.exe
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\obj\x86\Debug\GameProject.pdb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Block.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Border.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Champ.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Space.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Torn.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\GameProject.exe
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\GameProject.pdb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -206,7 +201,6 @@ C:\Users\piawr\Desktop\adam_monogame\KCTeam-Project\GameProject\bin\Windows\x86\
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Controls\Background.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Point.xnb
 C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
 C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\bin\Windows\x86\Debug\Content\Controls\Background.xnb
 C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb
@@ -240,11 +234,6 @@ C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\obj\x86\Debug\G
 C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\obj\x86\Debug\GameProject.csproj.CopyComplete
 C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\obj\x86\Debug\GameProject.exe
 C:\Users\szorc\Desktop\KCTeam-Project-Piotr_monogame\GameProject\obj\x86\Debug\GameProject.pdb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Exit.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\ChampFlip.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornLeft.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornRight.xnb
-E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\TornUp.xnb
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Background.xnb
 C:\Users\szorc\Desktop\Semestr V\KCK\KCTeam-Project\GameProject\bin\Windows\x86\Debug\Content\Controls\Button.xnb
@@ -287,3 +276,16 @@ E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\S
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\ST_Level\TornLeft.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\ST_Level\TornRight.xnb
 E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\ST_Level\TornUp.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\Background.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\Block.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\Border.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\Champ.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\ChampFlip.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\Exit.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\Point.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\Torn.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\TornLeft.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\TornRight.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Green_level\TornUp.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\Champ.xnb
+E:\Adas\STUDIA\SEMESTR5\KCK\Projekt2\GameProject\bin\Windows\x86\Debug\Content\ChampFlip.xnb

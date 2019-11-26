@@ -33,7 +33,7 @@ namespace GameProject.States
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
 
-                Speed = 8f,
+                Speed = 6f,
 
             };
 
@@ -62,8 +62,9 @@ namespace GameProject.States
             _texture_flip = content.Load<Texture2D>("ChampFlip");
             _font = content.Load<SpriteFont>("Fonts/Font");
             float tmp_speed = 0f;
-            if (Screen.getLevel() % 10 == 0) tmp_speed = champ.Speed * 2;
+            if (Screen.getLevel() % 2 != 0) tmp_speed = champ.Speed * (float)1.1;
             else tmp_speed = champ.Speed;
+
             _champ = new ChampionSprite(_texture, _texture_flip)
             {
                 Points = champ.Points,
@@ -142,6 +143,7 @@ namespace GameProject.States
                 sound.Dispose();
                 sound = null;
                 Game1.isMusicPlaying = false;
+                Screen.setLevel(1);
                 _game.ChangeState(new NewRekordState(_game, _graphicsDevice, _content, _champ));
                 return;
             }
